@@ -11,6 +11,7 @@
         {
             "name": "Felice Ostuni",
             "email": "felice.ostuni@gmail.com",
+            "homepage": "https://feliceostuni.com",
             "role": "Developer"
         }
     ],
@@ -60,7 +61,7 @@
         },
         {
             "type": "other",
-            "url": "feliceostuni.com"
+            "url": "https://feliceostuni.com"
         }
     ]
 }
