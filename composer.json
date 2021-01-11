@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "zofe/rapyd-livewire",
+    "description": "rapyd-livewire",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "zofe",
+        "rapyd-livewire"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/zofe/rapyd-livewire",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_homepage",
+            "name": "Felice Ostuni",
+            "email": "felice.ostuni@gmail.com",
+            "homepage": "feliceostuni.com",
             "role": "Developer"
         }
     ],
@@ -25,13 +25,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Zofe\\Rapyd\\": "src",
+            "Zofe\\Rapyd\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Zofe\\Rapyd\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -45,10 +45,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Zofe\\Rapyd\\RapydServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "Rapyd": "Zofe\\Rapyd\\RapydFacade"
             }
         }
     },
@@ -57,11 +57,11 @@
     "funding": [
         {
             "type": "github",
-            "url": "https://github.com/sponsors/:vendor_name"
+            "url": "https://github.com/sponsors/zofe"
         },
         {
             "type": "other",
-            "url": ":author_homepage"
+            "url": "feliceostuni.com"
         }
     ]
 }

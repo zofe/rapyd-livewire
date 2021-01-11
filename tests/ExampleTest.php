@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Zofe\Rapyd\Tests;
 
 class ExampleTest extends TestCase
 {

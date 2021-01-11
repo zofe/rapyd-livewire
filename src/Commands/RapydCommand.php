@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Zofe\Rapyd\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class RapydCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'rapyd-livewire';
 
     public $description = 'My command';
 
