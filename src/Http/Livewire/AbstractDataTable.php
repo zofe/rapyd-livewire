@@ -31,12 +31,14 @@ abstract class AbstractDataTable extends BaseComponent
         $this->sortField = $field;
     }
 
-    public function view($id) {
+    public function view($id)
+    {
         return redirect(route_lang($this->viewRoute, [$id]));
     }
 
-    public function edit($id) {
-        return redirect(route_lang($this->editRoute, ['id'=>$id]));
+    public function edit($id)
+    {
+        return redirect(route_lang($this->editRoute, ['id' => $id]));
     }
 
     public function getSortIcon($field)
@@ -54,6 +56,7 @@ abstract class AbstractDataTable extends BaseComponent
     {
         $this->resetPage();
     }
+
     public function updatingSearch()
     {
         $this->resetPage();

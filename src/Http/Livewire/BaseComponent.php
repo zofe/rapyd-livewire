@@ -2,9 +2,7 @@
 
 namespace Zofe\Rapyd\Http\Livewire;
 
-
 use Livewire\Component;
-use Spatie\Permission\Exceptions\UnauthorizedException;
 
 abstract class BaseComponent extends Component
 {
