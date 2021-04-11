@@ -53,6 +53,7 @@ abstract class AbstractDataTable extends BaseComponent
     {
         $this->resetPage();
     }
+
     public function updatingSearch()
     {
         $this->resetPage();
