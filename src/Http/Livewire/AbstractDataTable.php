@@ -15,7 +15,6 @@ abstract class AbstractDataTable extends BaseComponent
     public $search = '';
     public $editRoute;
     public $viewRoute;
-    public $onlyMine = false;
 
     protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search', 'sortAsc', 'sortField','onlyMine'];
@@ -32,11 +31,11 @@ abstract class AbstractDataTable extends BaseComponent
     }
 
     public function view($id) {
-        return redirect(route_lang($this->viewRoute, [$id]));
+        return redirect(route($this->viewRoute, [$id]));
     }
 
     public function edit($id) {
-        return redirect(route_lang($this->editRoute, ['id'=>$id]));
+        return redirect(route($this->editRoute, ['id'=>$id]));
     }
 
     public function getSortIcon($field)
