@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Zofe\Rapyd\Models\DemoArticle;
-use Zofe\Rapyd\Models\DemoUser;
+use Zofe\Rapyd\Demo\Models\DemoArticle;
+use Zofe\Rapyd\Demo\Models\DemoUser;
 
 class DemoSeeder extends Seeder
 {
