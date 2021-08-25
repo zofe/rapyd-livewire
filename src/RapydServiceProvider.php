@@ -35,13 +35,13 @@ class RapydServiceProvider extends ServiceProvider
         }
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rapyd');
+        $this->loadViewsFrom(__DIR__ . '/Demo/resources/views', 'rapyd-demo');
 
-
-        if (file_exists(base_path().'/routes/rapyd.php'))
+        if (file_exists(base_path('routes/rapyd.php')))
         {
             $this->loadRoutesFrom(base_path('routes/rapyd.php'));
         } else {
-            $this->loadRoutesFrom(__DIR__.'/../routes/rapyd.php');
+            $this->loadRoutesFrom(__DIR__.'/Demo/routes/rapyd.php');
         }
     }
 

@@ -1,4 +1,4 @@
-@extends('rapyd::demo.master')
+@extends('rapyd-demo::master')
 
 @section('title','Demo')
 
@@ -41,7 +41,7 @@
 
 @section('content')
 
-    @include('rapyd::demo.menu')
+    @include('rapyd-demo::menu')
 
     @yield('body')
 

@@ -4,7 +4,7 @@
 Route::group(['middleware' => 'web'], function () {
 
 
-    Route::namespace('Zofe\Rapyd\Http\Controllers')->prefix('rapyd-demo')->group(function() {
+    Route::namespace('Zofe\Rapyd\Demo\Http\Controllers')->prefix('rapyd-demo')->group(function() {
         Route::get('/',             'DemoController@index')->name('rapyd.demo');
 //        Route::get('/models',       'DemoController@getModels');
 //        Route::get('/schema',       'DemoController@getSchema');
