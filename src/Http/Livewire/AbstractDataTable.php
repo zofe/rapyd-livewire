@@ -8,16 +8,26 @@ abstract class AbstractDataTable extends BaseComponent
 {
     use WithPagination;
 
-
     public $perPage = 10;
     public $sortField = 'id';
     public $sortAsc = false;
     public $search = '';
     public $editRoute;
     public $viewRoute;
+    public $items = [];
 
     protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search', 'sortAsc', 'sortField','onlyMine'];
+
+    public function getDataSet()
+    {
+        return collect($this->items);
+    }
+
+    public function mount()
+    {
+
+    }
 
     public function sortBy($field)
     {

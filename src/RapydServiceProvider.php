@@ -18,19 +18,31 @@ class RapydServiceProvider extends ServiceProvider
                 __DIR__ . '/../resources/views' => base_path('resources/views/vendor/rapyd-livewire'),
             ], 'views');
 
-            $migrationFileName = 'create_rapyd_livewire_table.php';
+            $migrationFileName = 'create_rapyd_demo_tables.php';
             if (! $this->migrationFileExists($migrationFileName)) {
                 $this->publishes([
                     __DIR__ . "/../database/migrations/{$migrationFileName}.stub" => database_path('migrations/' . date('Y_m_d_His', time()) . '_' . $migrationFileName),
                 ], 'migrations');
             }
 
+            $this->publishes([
+                __DIR__.'/../routes/rapyd.php' => base_path('routes/rapyd.php'),
+            ], 'routes');
+
             $this->commands([
                 RapydCommand::class,
             ]);
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rapyd-livewire');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rapyd');
+
+
+        if (file_exists(base_path().'/routes/rapyd.php'))
+        {
+            $this->loadRoutesFrom(base_path('routes/rapyd.php'));
+        } else {
+            $this->loadRoutesFrom(__DIR__.'/../routes/rapyd.php');
+        }
     }
 
     public function register()

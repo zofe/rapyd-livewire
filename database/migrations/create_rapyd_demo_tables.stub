@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateRapydTable extends Migration
+{
+    public function up()
+    {
+    
+        Schema::create('rapyd_demo_users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('firstname', 100);
+            $table->string('lastname', 100);
+            $table->timestamps();
+        });
+
+        Schema::create('rapyd_demo_articles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('author_id')->unsigned();
+            $table->string('title', 200);
+            $table->text('body');
+            $table->boolean('public');
+            $table->timestamp('publication_date');
+            $table->timestamps();
+        });
+    }
+    
+    public function down()
+    {
+        Schema::dropIfExists('rapyd_demo_users');
+        Schema::dropIfExists('rapyd_demo_articles');
+    }
+}
