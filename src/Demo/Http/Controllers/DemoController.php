@@ -3,6 +3,8 @@
 namespace Zofe\Rapyd\Demo\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 
 class DemoController extends Controller
 {
