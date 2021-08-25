@@ -4,8 +4,8 @@
 
 
 @section('body')
-    
-    
+
+
     <h1>Demo Index</h1>
 
     @if(Session::has('message'))
@@ -22,6 +22,7 @@
         @else
             first click on Populate Database button, then click on menu<br />
             <br />
+            <a href="{{ route('rapyd.schema') }}" class="btn btn-primary">Populate Database</a>
 {{--            {!! link_to('rapyd-demo/schema', "Populate Database", array("class"=>"btn btn-default")) !!}--}}
         @endif
 
