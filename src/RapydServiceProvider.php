@@ -34,7 +34,7 @@ class RapydServiceProvider extends ServiceProvider
             ], 'seeders');
 
             $this->publishes([
-                __DIR__.'/../routes/rapyd.php' => base_path('routes/rapyd.php'),
+                __DIR__.'/Demo/routes/rapyd.php' => base_path('routes/rapyd.php'),
             ], 'routes');
 
             $this->commands([
