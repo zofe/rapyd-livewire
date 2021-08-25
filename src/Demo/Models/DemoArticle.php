@@ -1,6 +1,6 @@
 <?php
 
-namespace Zofe\Rapyd\Models;
+namespace Zofe\Rapyd\Demo\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -3,6 +3,7 @@
 namespace Zofe\Rapyd\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Zofe\Rapyd\Demo\Models\DemoUser;
 
 
 class DemoUserFactory extends Factory
