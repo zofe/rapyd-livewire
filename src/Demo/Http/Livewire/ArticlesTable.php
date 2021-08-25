@@ -1,6 +1,6 @@
 <?php
 
-namespace Zofe\Rapyd\Http\Livewire;
+namespace Zofe\Rapyd\Demo\Http\Livewire;
 
 use Livewire\WithPagination;
 
