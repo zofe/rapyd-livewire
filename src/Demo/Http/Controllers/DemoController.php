@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Schema;
 
 class DemoController extends Controller
 {
+
+    public function __construct()
+    {
+        view()->share('db_filled', Schema::hasTable('rapyd_demo_users'));
+    }
+
     public function index()
     {
         return view('rapyd-demo::demo');
@@ -64,6 +70,7 @@ class DemoController extends Controller
         }
 
 
+        session()->flash('message', 'Database populated');
 
         return view('rapyd-demo::demo');
     }

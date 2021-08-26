@@ -17,15 +17,17 @@
     <p>
         Welcome to Rapyd Demo.<br />
 
-        @if (isset($is_rapyd) AND $is_rapyd)
-
-        @else
-            first click on Populate Database button, then click on menu<br />
-            <br />
-            <a href="{{ route('rapyd.schema') }}" class="btn btn-primary">Populate Database</a>
-{{--            {!! link_to('rapyd-demo/schema', "Populate Database", array("class"=>"btn btn-default")) !!}--}}
+        @if(!Session::has('message'))
+            @if (!$db_filled)
+                it seems that no demo data is present, please:<br />
+                <br />
+                <a href="{{ route('rapyd.schema') }}" class="btn btn-primary">Populate Database</a>
+            @else
+                you can reset database  demo data by:<br />
+                <br />
+                <a href="{{ route('rapyd.schema') }}" class="btn btn-primary">Re-Populate Database</a>
+            @endif
         @endif
-
         <br />
         <br />
         Click on tabs to see how rapyd widgets can save your time.<br />
