@@ -3,15 +3,15 @@
 namespace Zofe\Rapyd\Demo\Http\Livewire;
 
 use Livewire\WithPagination;
-use Zofe\Rapyd\Demo\Models\DemoArticle;
+use Zofe\Rapyd\Demo\Models\DemoUser;
 use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 
-class ArticlesTable extends AbstractDataTable
+class UsersTable extends AbstractDataTable
 {
 
     public function getDataSet()
     {
-        return DemoArticle::query()
+        return DemoUser::query()
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage)
             ;
@@ -20,6 +20,7 @@ class ArticlesTable extends AbstractDataTable
     public function render()
     {
         $items = $this->getDataSet();
-        return view('rapyd-demo::livewire.articles.table', compact('items'));
+
+        return view('rapyd-demo::livewire.users.table', compact('items'));
     }
 }

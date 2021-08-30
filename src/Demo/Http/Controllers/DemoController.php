@@ -74,4 +74,26 @@ class DemoController extends Controller
 
         return view('rapyd-demo::demo');
     }
+
+
+    public function users()
+    {
+        return view('rapyd-demo::users');
+    }
+
+    public function articles()
+    {
+        return view('rapyd-demo::articles');
+    }
+
+    public function userEdit($id = null)
+    {
+        return view('rapyd-demo::users.edit', compact('id'));
+    }
+
+    public function articleEdit($id = null)
+    {
+        return view('rapyd-demo::articles.edit', compact('id'));
+    }
+
 }

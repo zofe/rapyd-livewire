@@ -1,25 +1,16 @@
 
-<nav class="navbar main">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-collapse">
-            <span class="sr-only"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-    </div>
-    <div class="collapse navbar-collapse main-collapse">
-        <ul class="nav nav-tabs">
-            <li><a href="{{ route("rapyd.demo", "Home") }}"> Index </a></li>
-{{--            <li @if (Request::is('rapyd-demo')) class="active"@endif>{!! link_to("rapyd-demo", "Index") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/models')) class="active"@endif>{!! link_to("rapyd-demo/models", "Models") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/set*')) class="active"@endif>{!! link_to("rapyd-demo/set", "DataSet") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/grid*')) class="active"@endif>{!! link_to("rapyd-demo/grid", "DataGrid") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/filter*', 'rapyd-demo/customfilter*')) class="active"@endif>{!! link_to("rapyd-demo/filter", "DataFilter") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/form*','rapyd-demo/advancedform*','rapyd-demo/styledform*')) class="active"@endif>{!! link_to("rapyd-demo/form", "DataForm") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/edit*')) class="active"@endif>{!! link_to("rapyd-demo/edit", "DataEdit") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/embed*')) class="active"@endif>{!! link_to("rapyd-demo/embed", "DataEmbed") !!}</li>--}}
-{{--            <li @if (Request::is('rapyd-demo/datatree*')) class="active"@endif>{!! link_to("rapyd-demo/datatree", "DataTree") !!}</li>--}}
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" href="{{ route("rapyd.demo", "Home") }}"> Home </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route("rapyd.demo.users", "Users") }}"> Users </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route("rapyd.demo.articles", "Articles") }}"> Articles </a></li>
+            </ul>
+        </div>
     </div>
 </nav>

@@ -48,7 +48,4 @@
 
     @yield('body')
 
-
-
-
 @stop

@@ -3,7 +3,10 @@
 namespace Zofe\Rapyd;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 use Zofe\Rapyd\Commands\RapydCommand;
+use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
+use Zofe\Rapyd\Demo\Http\Livewire\UsersTable;
 
 class RapydServiceProvider extends ServiceProvider
 {
@@ -17,7 +20,7 @@ class RapydServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../resources/views' => base_path('resources/views/vendor/rapyd-livewire'),
             ], 'views');
-            
+
             $this->publishes([
                 __DIR__.'/Demo/routes/rapyd.php' => base_path('routes/rapyd.php'),
             ], 'routes');
@@ -36,11 +39,14 @@ class RapydServiceProvider extends ServiceProvider
         } else {
             $this->loadRoutesFrom(__DIR__.'/Demo/routes/rapyd.php');
         }
+
+        Livewire::component('rapyd::demo-articles-table', ArticlesTable::class);
+        Livewire::component('rapyd::demo-users-table', UsersTable::class);
     }
 
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/rapyd-livewire.php', 'rapyd-livewire');
     }
-    
+
 }

@@ -8,9 +8,10 @@
     @section('meta', '')
 
     <link href="//fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
+    @livewireStyles
 </head>
 <body>
 
@@ -37,6 +38,9 @@
 
 <div id="footer">
 </div>
+
+@livewireScripts
+@stack('footer_scripts')
 
 </body>
 </html>

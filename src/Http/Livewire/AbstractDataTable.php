@@ -14,14 +14,13 @@ abstract class AbstractDataTable extends BaseComponent
     public $search = '';
     public $editRoute;
     public $viewRoute;
-    public $items = [];
 
     protected $paginationTheme = 'bootstrap';
-    protected $queryString = ['search', 'sortAsc', 'sortField','onlyMine'];
+    protected $queryString = ['search', 'sortAsc', 'sortField'];
 
     public function getDataSet()
     {
-        return collect($this->items);
+        return collect([]);
     }
 
     public function mount()
