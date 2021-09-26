@@ -9,6 +9,8 @@ use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 class UsersTable extends AbstractDataTable
 {
 
+    public $active_menu = 'users';
+    
     public function getDataSet()
     {
         return DemoUser::query()

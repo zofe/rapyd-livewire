@@ -3,20 +3,11 @@
 @section('title','Demo')
 
 
-@section('body')
+@section('content')
 
 
-    <h1>Articles</h1>
+    <h3>Articles</h3>
 
     @livewire('rapyd::demo-articles-table')
 
-@stop
-
-
-@section('content')
-
-    @include('rapyd-demo::menu')
-
-    @yield('body')
-
-@stop
+@endsection

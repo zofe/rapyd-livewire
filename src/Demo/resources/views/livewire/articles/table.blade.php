@@ -2,9 +2,7 @@
 
 @section('filters')
     @parent
-    <div class="form-group col">
-        another field
-    </div>
+    
 @endsection
 
 @section('buttons')

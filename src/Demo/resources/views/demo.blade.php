@@ -3,10 +3,10 @@
 @section('title','Demo')
 
 
-@section('body')
+@section('content')
 
 
-    <h1>Demo Index</h1>
+    <h3>Demo Index</h3>
 
     @if(Session::has('message'))
     <div class="alert alert-success">
@@ -39,13 +39,5 @@
     </p>
 
 
-@stop
+@endsection
 
-
-@section('content')
-
-    @include('rapyd-demo::menu')
-
-    @yield('body')
-
-@stop

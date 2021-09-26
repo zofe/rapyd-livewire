@@ -2,8 +2,8 @@
 
 @section('filters')
     @parent
-    <div class="form-group col">
-        another field
+    <div class="col">
+        <input wire:model.debounce.250ms="search" class="form-control" type="text" placeholder="search...">
     </div>
 @endsection
 

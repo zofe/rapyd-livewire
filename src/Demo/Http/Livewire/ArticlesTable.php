@@ -8,7 +8,8 @@ use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 
 class ArticlesTable extends AbstractDataTable
 {
-
+    public $active_menu = 'articles';
+    
     public function getDataSet()
     {
         return DemoArticle::query()

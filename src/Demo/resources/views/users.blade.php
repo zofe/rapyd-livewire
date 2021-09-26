@@ -3,20 +3,11 @@
 @section('title','Demo')
 
 
-@section('body')
+@section('content')
 
 
-    <h1>Users</h1>
+    <h3>Users</h3>
 
     @livewire('rapyd::demo-users-table')
 
-@stop
-
-
-@section('content')
-
-    @include('rapyd-demo::menu')
-
-    @yield('body')
-
-@stop
+@endsection
