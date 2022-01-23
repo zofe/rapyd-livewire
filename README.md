@@ -23,42 +23,17 @@ php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="m
 php artisan migrate
 ```
 
-You can publish the config file with:
+You can publish assets using:
 ```bash
-php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="public"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
 
 ## Usage
 
-```php
-$rapyd = new Zofe\Rapyd();
-echo $rapyd->echoPhrase('Hello, Zofe!');
-```
+Visit /rapyd-demo
 
-## Testing
 
-```bash
-composer test
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
