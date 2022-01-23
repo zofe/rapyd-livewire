@@ -13,7 +13,7 @@ class UsersTable extends AbstractDataTable
     
     public function getDataSet()
     {
-        return DemoUser::query()
+        return DemoUser::ssearch($this->search)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage)
             ;

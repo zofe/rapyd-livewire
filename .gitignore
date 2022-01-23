@@ -10,3 +10,4 @@ phpunit.xml
 psalm.xml
 vendor
 .DS_Store
+/node_modules

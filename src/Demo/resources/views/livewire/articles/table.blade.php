@@ -2,11 +2,12 @@
 
 @section('filters')
     @parent
-    
+{{--    <div class="col">--}}
+{{--        <input wire:model.debounce.250ms="search" class="form-control" type="text" placeholder="search...">--}}
+{{--    </div>--}}
 @endsection
 
 @section('buttons')
-    buttons
 @endsection
 
 @section('table')

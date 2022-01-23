@@ -28,7 +28,10 @@
         "psr-4": {
             "Zofe\\Rapyd\\": "src",
             "Zofe\\Rapyd\\Database\\Factories\\": "database/factories"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

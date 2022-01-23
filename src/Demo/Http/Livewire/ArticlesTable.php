@@ -12,7 +12,7 @@ class ArticlesTable extends AbstractDataTable
     
     public function getDataSet()
     {
-        return DemoArticle::query()
+        return DemoArticle::ssearch($this->search)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage)
             ;
