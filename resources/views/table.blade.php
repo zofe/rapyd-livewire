@@ -3,7 +3,7 @@
 
         <div class="row g-2">
             @section('filters')
-                <div class="col-3">
+                <div class="col">
 
 {{--                    <input wire:model.debounce.250ms="search" class="form-control" type="text" placeholder="search...">--}}
                     <input-component model="search" placeholder="search..." />
