@@ -24,14 +24,8 @@
                    id <i class="{{ $this->getSortIcon('id') }}"></i>
                 </a>
             </th>
-            <th>
-                <a wire:click.prevent="sortBy('title')" role="button" href="#">
-                    title  <i class="{{ $this->getSortIcon('title') }}"></i>
-                </a>
-            </th>
-            <th>
-                body
-            </th>
+            <th>title</th>
+            <th>body</th>
         </tr>
         </thead>
         <tbody>

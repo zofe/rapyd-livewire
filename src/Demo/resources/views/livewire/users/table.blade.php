@@ -23,16 +23,8 @@
                    id <i class="{{ $this->getSortIcon('id') }}"></i>
                 </a>
             </th>
-            <th>
-                <a wire:click.prevent="sortBy('firstname')" role="button" href="#">
-                   firstname  <i class="{{ $this->getSortIcon('firstname') }}"></i>
-                </a>
-            </th>
-            <th>
-                <a wire:click.prevent="sortBy('lastname')" role="button" href="#">
-                   lastname <i class="{{ $this->getSortIcon('lastname') }}"></i>
-                </a>
-            </th>
+            <th>firstname</th>
+            <th>lastname</th>
         </tr>
         </thead>
         <tbody>
@@ -51,6 +43,5 @@
     </table>
 
 
-
-
 @endsection
+
