@@ -2,11 +2,13 @@
     <div class="row mb-4">
 
         <div class="row g-2">
+            <form autocomplete="off">
             @section('filters')
                 <div class="col">
                     <x-rpd-input name="search" wire:model="search" placeholder="search..." />
                 </div>
             @show
+            </form>
         </div>
 
 
