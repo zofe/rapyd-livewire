@@ -1,16 +1,17 @@
 @extends('rapyd::table')
 
 @section('filters')
-    @parent
-
     <div class="col">
-{{--        <rpd-input model="search" placeholder="search..." />--}}
-{{--        <rpd-input wire:model="search" placeholder="search..." />--}}
+        <x-rpd-input name="search" wire:model="search" placeholder="search..." />
+    </div>
+    <div class="col">
     </div>
 @endsection
 
 @section('buttons')
-    buttons
+    <div class="btn-group-vertical">
+        <a href="{{ route('rapyd.demo.users') }}" class="btn btn-sm btn-outline-dark">Reset</a>
+    </div>
 @endsection
 
 @section('table')

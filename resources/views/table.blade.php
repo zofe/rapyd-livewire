@@ -1,25 +1,23 @@
 <div class="">
-    <div class="row mb-4">
-
-        <div class="row g-2">
-            <form autocomplete="off">
-            @section('filters')
-                <div class="col">
-                    <x-rpd-input name="search" wire:model="search" placeholder="search..." />
+    <form autocomplete="off">
+        <div class="d-flex mb-4">
+            <div class="flex-grow-1">
+                <div class="row g-2">
+                    @section('filters')
+                        <div class="col">
+                            <x-rpd-input name="search" wire:model="search" placeholder="search..." />
+                        </div>
+                    @show
                 </div>
-            @show
-            </form>
-        </div>
+            </div>
 
-
-        <div class="d-flex justify-content-end ml-4">
-
-            <div class="mr-2">
-                @yield('buttons')
+            <div class="d-flex justify-content-end px-2">
+                <div class="mr-2">
+                    @yield('buttons')
+                </div>
             </div>
         </div>
-    </div>
-
+    </form>
     <div class="table-small row">
         <div class="table-responsive">
             @yield('table')
