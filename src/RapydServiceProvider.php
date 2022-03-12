@@ -2,11 +2,13 @@
 
 namespace Zofe\Rapyd;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Zofe\Rapyd\Commands\RapydCommand;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
 use Zofe\Rapyd\Demo\Http\Livewire\UsersTable;
+use Zofe\Rapyd\View\Components\Forms\Text;
 
 class RapydServiceProvider extends ServiceProvider
 {
@@ -44,8 +46,12 @@ class RapydServiceProvider extends ServiceProvider
             $this->loadRoutesFrom(__DIR__.'/Demo/routes/rapyd.php');
         }
 
+        Blade::component('rpd-input', Text::class);
+
         Livewire::component('rapyd::demo-articles-table', ArticlesTable::class);
         Livewire::component('rapyd::demo-users-table', UsersTable::class);
+
+
     }
 
     public function register()

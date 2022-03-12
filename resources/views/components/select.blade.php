@@ -1,6 +1,5 @@
 <div>
 
-
     <select {{ $attributes->except(['id','class']) }}
             id="{{ $name }}"
             class="form-control  @error($name) is-invalid @enderror"

@@ -20,16 +20,12 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+Vue.config.ignoredElements = [/^ion-/,/^x-rpd/]
+Vue.component('rpd-select', require('./components/Select').default)
+Vue.component('rpd-select-multiple', require('./components/SelectMultiple').default)
+Vue.component('rpd-date', require('./components/Date').default)
+// Vue.component('rpd-input', require('./components/Input').default)
 
-
-Vue.component('select-component', require('./components/Select').default)
-Vue.component('select-multiple-component', require('./components/SelectMultiple').default)
-Vue.component('date-component', require('./components/Date').default)
-Vue.component('input-component', require('./components/Input').default)
-
-Vue.component('nav-section', {
-    template: `<div>This is odd</div>`
-});
 
 window.app = new Vue({
     el: '#app',

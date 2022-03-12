@@ -1,13 +1,19 @@
 <template>
-    <el-select v-model="value" filterable placeholder="Select" @change="change">
-        <el-option
-            v-for="item in items"
-            :key="item.key"
-            :label="item.label"
-            :value="item.key"
-        >
-        </el-option>
-    </el-select>
+    <span>
+        <el-select v-model="value" filterable placeholder="Select" @change="change">
+            <el-option
+                v-for="item in items"
+                :key="item.key"
+                :label="item.label"
+                :value="item.key"
+            >
+            </el-option>
+        </el-select>
+        <span v-if="has_error" role="alert" class="invalid-feedback d-block">
+            <strong>{{ error_message }}</strong>
+        </span>
+    </span>
+
 </template>
 
 <script>
@@ -18,6 +24,8 @@ export default {
             wire: null,
             items:[],
             value: null,
+            error_message: null,
+            has_error:false
         }
     },
     methods: {

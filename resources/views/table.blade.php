@@ -4,9 +4,7 @@
         <div class="row g-2">
             @section('filters')
                 <div class="col">
-
-{{--                    <input wire:model.debounce.250ms="search" class="form-control" type="text" placeholder="search...">--}}
-                    <rpd-input-component model="search" placeholder="search..." />
+                    <x-rpd-input name="search" wire:model="search" placeholder="search..." />
                 </div>
             @show
         </div>

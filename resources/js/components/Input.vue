@@ -31,7 +31,7 @@ export default {
     methods: {
         debounceInput: _.debounce(function () {
             Livewire.find(this.wire).set(this.model,this.value);
-        }, 250)
+        }, 350, false)
     },
     mounted() {
         this.wire = this.$el.closest('div[wire\\:id]').getAttribute('wire:id');

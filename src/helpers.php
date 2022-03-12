@@ -7,17 +7,21 @@
  * @param $str
  * @return mixed
  */
-function dot_to_property($instance, $str)
-{
-    if ($instance == '') return;
 
-    $params = explode('.', $str);
-    try  {
-        foreach($params as $param) {
-            $instance = $instance->{$param};
-        }
+if (! function_exists('dot_to_property')) {
+    function dot_to_property($instance, $str)
+    {
+        if ($instance == '') return;
 
-    } catch (Exception $e) { }
+        $params = explode('.', $str);
+        try  {
+            foreach($params as $param) {
+                $instance = $instance->{$param};
+            }
 
-    return $instance;
+        } catch (Exception $e) { }
+
+        return $instance;
+    }
 }
+

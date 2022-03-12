@@ -2,6 +2,11 @@
 
 @section('filters')
     @parent
+
+    <div class="col">
+{{--        <rpd-input model="search" placeholder="search..." />--}}
+{{--        <rpd-input wire:model="search" placeholder="search..." />--}}
+    </div>
 @endsection
 
 @section('buttons')
