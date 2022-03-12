@@ -33,6 +33,8 @@ php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="p
 
 Visit /rapyd-demo
 
+![rapyd livewire](https://raw.github.com/zofe/rapyd-livewire/master/public/assets/rapyd-livewire.png)
+
 
 
 ## Credits
