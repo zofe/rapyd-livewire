@@ -16,8 +16,9 @@ class ArticlesEdit extends AbstractDataEdit
         'record.title' => 'required',
         'record.author_id' => 'required',
         'record.body' => 'nullable',
+        'record.public'=> 'nullable',
     ];
-    
+
     public function render()
     {
         $authors = DemoUser::all()->pluck('firstname','id')->toArray();

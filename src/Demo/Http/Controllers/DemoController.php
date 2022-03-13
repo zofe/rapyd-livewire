@@ -94,6 +94,7 @@ class DemoController extends Controller
 
     public function articleEdit(DemoArticle $article = null)
     {
+        $article = $article ? $article : new DemoArticle();
         return view('rapyd-demo::article', compact('article'));
     }
 
