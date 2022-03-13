@@ -16,6 +16,8 @@ class RichText extends Component
         $this->name = $name;
         $this->errors = ($errors) ? $errors : new ViewErrorBag();
         $this->model = $model;
+
+       // dd($this->model);
     }
 
     public function render()

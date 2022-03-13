@@ -7,26 +7,36 @@ use Livewire\WithPagination;
 
 abstract class AbstractDataEdit extends BaseComponent
 {
-
     public $listRoute;
     public $viewRoute;
 
     public $record;
-    public $model;
+    //public $model;
+    public $action;
+
+    protected $rules = [];
 
     public function mount(Model $model = null)
     {
         if ($model) {
             $this->record = $model;
+            $this->action = 'update';
         } else {
             $this->record = new $model();
+            $this->action = 'create';
         }
     }
 
-    public function render()
+    public function create()
     {
-        //return '';
-        dd('livewire.'.$this->record->table.'.edit');
-        return view('livewire.'.$this->record->table.'.edit');
+        $this->validate();
+        $this->record->save();
     }
+
+    public function update()
+    {
+        $this->validate();
+        $this->record->save();
+    }
+
 }

@@ -39,7 +39,7 @@
                 </td>
                 <td>{{ $article->title }}</td>
                 <td>{{ $article->author->firstname }}</td>
-                <td>{{  Str::limit($article->body,50) }}</td>
+                <td>{{ Str::limit($article->body,50) }}</td>
             </tr>
         @endforeach
         </tbody>

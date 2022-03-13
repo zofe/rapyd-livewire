@@ -30,6 +30,7 @@ class ArticlesTable extends AbstractDataTable
     {
         $items = $this->getDataSet();
         $authors = DemoUser::all()->pluck('firstname','id')->toArray();
+
         return view('rapyd-demo::livewire.articles.table', compact('items','authors'));
     }
 }

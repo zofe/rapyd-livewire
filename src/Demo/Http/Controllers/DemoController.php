@@ -7,6 +7,7 @@ use Faker\Factory;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Zofe\Rapyd\Demo\Models\DemoArticle;
 
 class DemoController extends Controller
 {
@@ -91,9 +92,9 @@ class DemoController extends Controller
         return view('rapyd-demo::user', compact('id'));
     }
 
-    public function articleEdit($id = null)
+    public function articleEdit(DemoArticle $article = null)
     {
-        return view('rapyd-demo::articles.edit', compact('id'));
+        return view('rapyd-demo::article', compact('article'));
     }
 
 }

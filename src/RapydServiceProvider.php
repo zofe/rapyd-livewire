@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Zofe\Rapyd\Commands\RapydCommand;
+use Zofe\Rapyd\Demo\Http\Livewire\ArticlesEdit;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
 use Zofe\Rapyd\Demo\Http\Livewire\UsersTable;
 use Zofe\Rapyd\View\Components\Forms\RichText;
@@ -53,6 +54,7 @@ class RapydServiceProvider extends ServiceProvider
         Blade::component('rpd-select', Select::class);
 
         Livewire::component('rapyd::demo-articles-table', ArticlesTable::class);
+        Livewire::component('rapyd::demo-articles-edit', ArticlesEdit::class);
         Livewire::component('rapyd::demo-users-table', UsersTable::class);
 
 

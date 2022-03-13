@@ -6,6 +6,8 @@
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 @endpush
 
+
+
 <div class="mt-2 bg-white" wire:ignore>
     <div
         x-data
@@ -15,10 +17,14 @@
          quill.on('text-change', function () {
            $dispatch('quill-input', quill.root.innerHTML);
         });
+
        "
         x-on:quill-input.debounce.2000ms="@this.set('{{ $name }}', $event.detail)"
     >
-        {{ old($name) }}
+
+        {{ $slot }}
+
     </div>
 </div>
+
 
