@@ -9,7 +9,6 @@ class Documenter
 {
     public static function showCode($filepath, $addOpenTag=false)
     {
-
         $file =  __DIR__.'/'.$filepath;
 
         $code = file_get_contents($file);
@@ -18,8 +17,11 @@ class Documenter
             $code = '<?php '.$code;
         }
         $code = highlight_string($code, true);
+        if($addOpenTag) {
+            $code = str_replace('&lt;?php&nbsp;', '', $code);
+        }
 
-        return "<pre>\n" . $code . "\n</pre>";
+        return "<pre>\n"."<small>$filepath</small>\n\n". $code . "\n</pre>";
     }
 
     public static function showMethod($class, $methods)
@@ -44,10 +46,12 @@ class Documenter
             $code .= $content."\n\n";
         }
 
+        $filename = str_replace(__DIR__,'app',$filename);
         $code = highlight_string("<?php ".$code, true);
         $code = str_replace('&lt;?php&nbsp;', '', $code);
 
-        return "<pre>\n" . $code . "\n</pre>";
+
+        return "<pre>\n" . "<small>$filename</small>\n\n".$code . "\n</pre>";
     }
 
     protected static function getPackagePath($class)
