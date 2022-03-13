@@ -17,15 +17,7 @@ class ArticlesEdit extends AbstractDataEdit
         'record.author_id' => 'required',
         'record.body' => 'nullable',
     ];
-
-   // public $model = DemoArticle::class;
-
-//    public function mount(DemoArticle $article = null)
-//    {
-//        $this->article = $article;
-//    }
-
-
+    
     public function render()
     {
         $authors = DemoUser::all()->pluck('firstname','id')->toArray();

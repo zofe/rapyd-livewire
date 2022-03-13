@@ -10,7 +10,7 @@
 
 
     <p class="small">
-        You can extend Rapyd "AbstractTable" to make custom <strong>DataTable</strong> to display filter and paginate custom datasets.
+        You can extend Rapyd "AbstractDataTable" to make custom <strong>{Entity}DataTable</strong> to display filter and paginate custom datasets.
         <br>
         You can use Eloquent Models or any other source of data.<br>
         AbstractTable has only the logic of pagination, sorting and a default "datatable" view you can extend via blade template.
