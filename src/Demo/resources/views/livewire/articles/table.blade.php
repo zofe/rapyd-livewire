@@ -6,12 +6,13 @@
         <x-rpd-input name="search" wire:model="search" placeholder="search..." />
     </div>
     <div class="col">
+        <x-rpd-select name="author" wire:model="author_id" :options="$authors" placeholder="author..." addempty />
     </div>
 @endsection
 
 @section('buttons')
     <div class="btn-group-vertical">
-        <a href="{{ route('rapyd.demo.articles') }}" class="btn btn-sm btn-outline-dark">Reset</a>
+        <a href="{{ route('rapyd.demo.articles') }}" class="btn btn-outline-dark">Reset</a>
     </div>
 @endsection
 
@@ -25,6 +26,7 @@
                 </a>
             </th>
             <th>title</th>
+            <th>author</th>
             <th>body</th>
         </tr>
         </thead>
@@ -36,6 +38,7 @@
                     <a href="{{ route('rapyd.demo.articles.edit',$article->id) }}">{{ $article->id }}</a>
                 </td>
                 <td>{{ $article->title }}</td>
+                <td>{{ $article->author->firstname }}</td>
                 <td>{{  Str::limit($article->body,50) }}</td>
             </tr>
         @endforeach

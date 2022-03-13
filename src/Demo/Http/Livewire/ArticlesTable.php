@@ -4,15 +4,23 @@ namespace Zofe\Rapyd\Demo\Http\Livewire;
 
 use Livewire\WithPagination;
 use Zofe\Rapyd\Demo\Models\DemoArticle;
+use Zofe\Rapyd\Demo\Models\DemoUser;
 use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 
 class ArticlesTable extends AbstractDataTable
 {
     public $active_menu = 'articles';
-    
+    public $author_id;
+
+
     public function getDataSet()
     {
-        return DemoArticle::ssearch($this->search)
+        $items = DemoArticle::ssearch($this->search);
+        if($this->author_id){
+            $items = $items->where('author_id','=',$this->author_id);
+        }
+
+        return $items = $items
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage)
             ;
@@ -21,6 +29,7 @@ class ArticlesTable extends AbstractDataTable
     public function render()
     {
         $items = $this->getDataSet();
-        return view('rapyd-demo::livewire.articles.table', compact('items'));
+        $authors = DemoUser::all()->pluck('firstname','id')->toArray();
+        return view('rapyd-demo::livewire.articles.table', compact('items','authors'));
     }
 }

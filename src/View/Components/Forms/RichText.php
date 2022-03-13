@@ -5,7 +5,7 @@ namespace Zofe\Rapyd\View\Components\Forms;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\Component;
 
-class Text extends Component
+class RichText extends Component
 {
     public $name;
     public $errors;
@@ -20,6 +20,14 @@ class Text extends Component
 
     public function render()
     {
-        return view('rapyd::components.form.text');
+        return function (array $data) {
+            // $data['componentName'];
+            // $data['attributes'];
+            // $data['slot'];
+            //dd($data['attributes']);
+            return 'rapyd::components.form.rich-text' ;
+        };
+
+        //return view('rapyd::components.form.rich-text');
     }
 }

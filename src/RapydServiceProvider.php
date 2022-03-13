@@ -8,6 +8,8 @@ use Livewire\Livewire;
 use Zofe\Rapyd\Commands\RapydCommand;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
 use Zofe\Rapyd\Demo\Http\Livewire\UsersTable;
+use Zofe\Rapyd\View\Components\Forms\RichText;
+use Zofe\Rapyd\View\Components\Forms\Select;
 use Zofe\Rapyd\View\Components\Forms\Text;
 
 class RapydServiceProvider extends ServiceProvider
@@ -47,6 +49,8 @@ class RapydServiceProvider extends ServiceProvider
         }
 
         Blade::component('rpd-input', Text::class);
+        Blade::component('rpd-rich-text', RichText::class);
+        Blade::component('rpd-select', Select::class);
 
         Livewire::component('rapyd::demo-articles-table', ArticlesTable::class);
         Livewire::component('rapyd::demo-users-table', UsersTable::class);

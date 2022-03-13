@@ -8,7 +8,7 @@
 
         @if($attributes->get('addempty'))
             <option value="">
-                {{ $attributes->get('placeholder') ? $attributes->get('placeholder') : __('global.select') }}
+                {{ $attributes->get('placeholder') ? $attributes->get('placeholder') : '' }}
             </option>
         @endif
         @foreach($options as $key=>$value)
