@@ -11,8 +11,9 @@
 @endsection
 
 @section('buttons')
-    <div class="btn-group-vertical">
+    <div class="btn-group">
         <a href="{{ route('rapyd.demo.articles') }}" class="btn btn-outline-dark">reset</a>
+        <a href="{{ route('rapyd.demo.articles.edit') }}" class="btn btn-outline-primary">add</a>
     </div>
 @endsection
 

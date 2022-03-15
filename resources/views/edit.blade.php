@@ -8,8 +8,12 @@
             <div class="d-flex justify-content-end px-2">
                 <div class="mr-2">
                     @section('buttons')
-                        <div class="btn-group-vertical">
+                        <div class="btn-group">
+                        @if($viewRoute && $model->exists)
                             <a href="{{ route($viewRoute,$model->getKey()) }}" class="btn btn-outline-primary">undo</a>
+                        @elseif($listRoute)
+                            <a href="{{ route($listRoute) }}" class="btn btn-outline-primary">undo</a>
+                        @endif
                         </div>
                     @show
                 </div>
