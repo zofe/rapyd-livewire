@@ -10,7 +10,9 @@
                 <li class="nav-item"><a class="nav-link {{ Request::is('rapyd-demo') ? 'active' : '' }}" href="{{ route("rapyd.demo", "Home") }}"> Home </a></li>
 {{--                <li class="nav-item"><a class="nav-link {{ Request::is('rapyd-demo/users*') ? 'active' : '' }}" href="{{ route("rapyd.demo.users", "Users") }}"> Users </a></li>--}}
                 <li class="nav-item"><a class="nav-link {{ Request::is('rapyd-demo/articles*') ? 'active' : '' }}" href="{{ route("rapyd.demo.articles") }}"> DataTable </a></li>
-                <li class="nav-item"><a class="nav-link {{ Request::is('rapyd-demo/article/*') ? 'active' : '' }}" href="{{ route("rapyd.demo.articles.edit") }}"> DataEdit </a></li>
+                <li class="nav-item"><a class="nav-link {{ Request::is('rapyd-demo/article/view*') ? 'active' : '' }}" href="{{ route("rapyd.demo.articles.view", 1) }}"> DataView </a></li>
+                <li class="nav-item"><a class="nav-link {{ Request::is('rapyd-demo/article/edit*') ? 'active' : '' }}" href="{{ route("rapyd.demo.articles.edit") }}"> DataEdit </a></li>
+
             </ul>
 
 

@@ -12,7 +12,7 @@ class ArticlesView extends AbstractDataView
 {
     public $active_menu = 'articles';
     public $listRoute = 'rapyd.demo.articles';
-    public $editRoute = 'rapyd.demo.edit';
+    public $editRoute = 'rapyd.demo.articles.edit';
 
     public function render()
     {

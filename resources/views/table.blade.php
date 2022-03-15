@@ -1,4 +1,4 @@
-<div class="">
+<div class="rpd-table">
     <form autocomplete="off">
         <div class="d-flex mb-4">
             <div class="flex-grow-1">

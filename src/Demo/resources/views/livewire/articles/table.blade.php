@@ -12,7 +12,7 @@
 
 @section('buttons')
     <div class="btn-group-vertical">
-        <a href="{{ route('rapyd.demo.articles') }}" class="btn btn-outline-dark">Reset</a>
+        <a href="{{ route('rapyd.demo.articles') }}" class="btn btn-outline-dark">reset</a>
     </div>
 @endsection
 

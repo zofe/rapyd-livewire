@@ -20,12 +20,12 @@ abstract class AbstractDataView extends BaseComponent
     {
         $this->model = $model;
 
-        if(Route::has($this->listRoute)){
-            $this->listRoute = route($this->listRoute);
-        }
-        if(Route::has($this->editRoute)){
-            $this->editRoute = route($this->editRoute);
-        }
+//        if(Route::has($this->listRoute)){
+//            $this->listRoute = route($this->listRoute);
+//        }
+//        if(Route::has($this->editRoute)){
+//            $this->editRoute = route($this->editRoute);
+//        }
     }
 
 }
