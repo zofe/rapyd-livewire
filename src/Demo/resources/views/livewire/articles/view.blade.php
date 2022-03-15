@@ -1,0 +1,6 @@
+<div>
+
+    {{ $model->title }}
+</div>
+
+

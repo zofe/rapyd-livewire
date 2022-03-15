@@ -23,11 +23,6 @@ abstract class AbstractDataTable extends BaseComponent
         return collect([]);
     }
 
-    public function mount()
-    {
-
-    }
-
     public function sortBy($field)
     {
         if ($this->sortField === $field) {
@@ -39,15 +34,15 @@ abstract class AbstractDataTable extends BaseComponent
         $this->sortField = $field;
     }
 
-    public function view($id)
-    {
-        return redirect(route($this->viewRoute, [$id]));
-    }
-
-    public function edit($id)
-    {
-        return redirect(route($this->editRoute, ['id' => $id]));
-    }
+//    public function view($id)
+//    {
+//        return redirect(route($this->viewRoute, [$id]));
+//    }
+//
+//    public function edit($id)
+//    {
+//        return redirect(route($this->editRoute, ['id' => $id]));
+//    }
 
     public function getSortIcon($field)
     {

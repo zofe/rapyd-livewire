@@ -11,16 +11,19 @@ use Zofe\Rapyd\Http\Livewire\AbstractDataEdit;
 class ArticlesEdit extends AbstractDataEdit
 {
     public $active_menu = 'articles';
+    public $listRoute = 'rapyd.demo.articles';
+    public $viewRoute = 'rapyd.demo.view';
 
     protected $rules = [
-        'record.title' => 'required',
-        'record.author_id' => 'required',
-        'record.body' => 'nullable',
-        'record.public'=> 'nullable',
+        'model.title'       => 'required',
+        'model.author_id'   => 'required',
+        'model.body'        => 'nullable',
+        'model.public'      => 'nullable',
     ];
 
     public function render()
     {
+
         $authors = DemoUser::all()->pluck('firstname','id')->toArray();
 
         return view('rapyd-demo::livewire.articles.edit',compact('authors'));

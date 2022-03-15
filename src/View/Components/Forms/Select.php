@@ -8,7 +8,6 @@ use Illuminate\View\Component;
 class Select extends Component
 {
     public $name;
-    public $errors;
     public $options;
     public $model;
 
@@ -17,10 +16,9 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct($name, $options, $errors=null, $model=null)
+    public function __construct($name, $options, $model=null)
     {
         $this->name = $name;
-        $this->errors = ($errors) ? $errors : new ViewErrorBag();
         $this->options = $options;
         $this->model = $model;
     }

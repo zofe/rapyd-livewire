@@ -12,7 +12,6 @@ class ArticlesTable extends AbstractDataTable
     public $active_menu = 'articles';
     public $author_id;
 
-
     public function getDataSet()
     {
         $items = DemoArticle::ssearch($this->search);

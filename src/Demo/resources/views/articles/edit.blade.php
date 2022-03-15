@@ -13,9 +13,7 @@
         <br>
     </p>
 
-
     <hr>
-
 
     @livewire('rapyd::demo-articles-edit',['model'=>$article])
 

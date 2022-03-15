@@ -9,6 +9,7 @@
 
 
 <div class="mt-2 bg-white" wire:ignore>
+    @if($attributes->get('label'))<label for="{{ $name }}" class="col-form-label">{{$attributes->get('label')}}</label>@endif
     <div
         x-data
         x-ref="quillEditor"

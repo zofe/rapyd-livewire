@@ -8,9 +8,11 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/',                 'DemoController@index')->name('rapyd.demo');
         Route::get('/schema',           'DemoController@schema')->name('rapyd.schema');
         Route::get('/users',            'DemoController@users')->name('rapyd.demo.users');
-        Route::get('/articles',         'DemoController@articles')->name('rapyd.demo.articles');
-        Route::get('/users/{user:id?}',   'DemoController@userEdit')->name('rapyd.demo.users.edit');
-        Route::get('/article/{article:id?}', 'DemoController@articleEdit')->name('rapyd.demo.articles.edit');
+        Route::get('/users/{user:id?}', 'DemoController@userEdit')->name('rapyd.demo.users.edit');
+
+        Route::get('/articles',         'ArticlesController@index')->name('rapyd.demo.articles');
+        Route::get('/article/edit/{article:id?}', 'ArticlesController@edit')->name('rapyd.demo.articles.edit');
+        Route::get('/article/view/{article:id?}', 'ArticlesController@view')->name('rapyd.demo.articles.view');
 
 
 //        Route::get('/models',       'DemoController@getModels');

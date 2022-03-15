@@ -1,5 +1,5 @@
 <div>
-
+    @if($attributes->get('label'))<label for="{{ $name }}" class="col-form-label">{{$attributes->get('label')}}</label>@endif
     <select {{ $attributes->except(['id','class']) }}
             id="{{ $name }}"
             class="form-control  @error($name) is-invalid @enderror"
