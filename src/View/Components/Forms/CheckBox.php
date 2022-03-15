@@ -18,6 +18,7 @@ class CheckBox extends Component
 
     public function render()
     {
+        
         return view('rapyd::components.form.checkbox');
     }
 }

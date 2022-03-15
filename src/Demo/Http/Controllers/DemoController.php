@@ -41,8 +41,8 @@ class DemoController extends Controller
             $table->increments('id');
             $table->integer('author_id')->unsigned();
             $table->string('title', 200);
-            $table->text('body');
-            $table->boolean('public');
+            $table->text('body')->nullable();
+            $table->tinyInteger('public')->default(0);
             $table->timestamp('publication_date');
             $table->timestamps();
         });
@@ -75,7 +75,7 @@ class DemoController extends Controller
 
         return view('rapyd-demo::demo');
     }
-    
+
     public function users()
     {
         return view('rapyd-demo::users');

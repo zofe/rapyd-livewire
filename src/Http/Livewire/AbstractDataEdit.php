@@ -18,19 +18,11 @@ abstract class AbstractDataEdit extends BaseComponent
 
     public function mount(Model $model = null)
     {
-        if ($model) {
-            $this->model = $model;
+        $this->model = $model;
+        if ($model->exists) {
             $this->action = 'update';
         } else {
-            $this->model = new $model();
             $this->action = 'create';
-        }
-
-        if(Route::has($this->listRoute)){
-            $this->listRoute = route($this->listRoute);
-        }
-        if(Route::has($this->viewRoute)){
-            $this->viewRoute = route($this->viewRoute);
         }
     }
 
@@ -40,7 +32,7 @@ abstract class AbstractDataEdit extends BaseComponent
         $this->model->save();
 
         if($this->viewRoute){
-            return $this->redirect($this->viewRoute);
+            return redirect()->to(route($this->viewRoute, $this->model->getKey()));
         }
     }
 
@@ -50,7 +42,7 @@ abstract class AbstractDataEdit extends BaseComponent
         $this->model->save();
 
         if($this->viewRoute){
-            return $this->redirect($this->viewRoute);
+            return redirect()->to(route($this->viewRoute, $this->model->getKey()));
         }
 
     }

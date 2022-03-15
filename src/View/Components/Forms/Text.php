@@ -8,12 +8,10 @@ use Illuminate\View\Component;
 class Text extends Component
 {
     public $name;
-    public $model;
-
-    public function __construct($name, $model = null)
+    
+    public function __construct($name)
     {
         $this->name = $name;
-        $this->model = $model;
     }
 
     public function render()

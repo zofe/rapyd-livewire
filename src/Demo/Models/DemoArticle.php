@@ -11,6 +11,10 @@ class DemoArticle extends Model
     use HasFactory, SSearch;
     public $table = 'rapyd_demo_articles';
 
+    protected $attributes = [
+        'public' => 0,
+    ];
+    
     public static function ssearchFallback($query)
     {
         return  static::query()->where(function($q) use ($query){

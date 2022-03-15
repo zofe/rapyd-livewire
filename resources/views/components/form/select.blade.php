@@ -2,9 +2,9 @@
     @if($attributes->get('label'))<label for="{{ $name }}" class="col-form-label">{{$attributes->get('label')}}</label>@endif
     <select {{ $attributes->except(['id','class']) }}
             id="{{ $name }}"
-            class="form-control  @error($name) is-invalid @enderror"
+            name="{{ $name }}"
+            {{ $attributes->only('class')->merge(['class' => 'form-control'. (($errors->has($name)) ? ' is-invalid' : '') ]) }}
     >
-
 
         @if($attributes->get('addempty'))
             <option value="">

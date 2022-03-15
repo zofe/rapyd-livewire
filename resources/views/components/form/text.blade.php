@@ -8,13 +8,14 @@
                    type="text"
 
                    {{ $attributes->only('class')->merge(['class' => 'form-control'. (($errors->has($name)) ? ' is-invalid' : '') ]) }}
-                   value="{{ old($name, dot_to_property($model, $name)) }}">
+                   value="{{ old($name) }}">
 
             @if($attributes->get('append'))
                 <div class="input-group-append">
                     <span class="input-group-text">{{ $attributes->get('append') }}</span>
                 </div>
             @endif
+
             @error($name)
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

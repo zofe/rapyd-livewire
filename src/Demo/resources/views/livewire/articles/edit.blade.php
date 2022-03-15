@@ -9,7 +9,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <x-rpd-select wire:model="model.author_id" name="model.author" :options="$authors" label="Author" placeholder="author..." addempty />
+                <x-rpd-select wire:model="model.author_id" name="model.author_id" :options="$authors" label="Author" addempty />
             </div>
 
             <div class="form-group col-md-4">

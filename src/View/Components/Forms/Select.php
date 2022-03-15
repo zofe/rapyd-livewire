@@ -8,26 +8,14 @@ use Illuminate\View\Component;
 class Select extends Component
 {
     public $name;
-    public $options;
-    public $model;
+    public $options = [];
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct($name, $options, $model=null)
+    public function __construct($name, $options)
     {
         $this->name = $name;
         $this->options = $options;
-        $this->model = $model;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
     public function render()
     {
         return view('rapyd::components.form.select');
