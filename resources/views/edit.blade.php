@@ -3,6 +3,7 @@
         <div class="d-flex mb-4">
             <div class="flex-grow-1">
                 <div class="row g-2">
+                    <h4>@yield('heading',$heading)</h4>
                 </div>
             </div>
             <div class="d-flex justify-content-end px-2">

@@ -3,6 +3,7 @@
         <div class="d-flex mb-4">
             <div class="flex-grow-1">
                 <div class="row g-2">
+                    <h4>@yield('heading',$heading)</h4>
                 </div>
             </div>
 
@@ -22,9 +23,9 @@
             </div>
         </div>
     </form>
-    <div class="row">
+    <div>
         @yield('view')
-   </div>
+    </div>
 
 </div>
 

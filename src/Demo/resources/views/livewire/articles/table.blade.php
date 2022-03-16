@@ -36,7 +36,7 @@
         @foreach ($items as $article)
             <tr>
                 <td>
-                    <a href="{{ route('rapyd.demo.articles.edit',$article->id) }}">{{ $article->id }}</a>
+                    <a href="{{ route('rapyd.demo.articles.view',$article->id) }}">{{ $article->id }}</a>
                 </td>
                 <td>{{ $article->title }}</td>
                 <td>{{ $article->author->firstname }}</td>

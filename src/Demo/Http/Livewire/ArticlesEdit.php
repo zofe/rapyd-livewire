@@ -11,6 +11,7 @@ use Zofe\Rapyd\Http\Livewire\AbstractDataEdit;
 class ArticlesEdit extends AbstractDataEdit
 {
     public $active_menu = 'articles';
+    public $heading = 'Article Edit';
     public $listRoute = 'rapyd.demo.articles';
     public $viewRoute = 'rapyd.demo.articles.view';
 
