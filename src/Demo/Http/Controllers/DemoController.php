@@ -2,7 +2,8 @@
 
 namespace Zofe\Rapyd\Demo\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+#use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Faker\Factory;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
