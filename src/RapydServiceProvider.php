@@ -56,6 +56,7 @@ class RapydServiceProvider extends ServiceProvider
         Blade::component('rpd-select', Select::class);
         Blade::component('rpd-checkbox', CheckBox::class);
 
+
         Livewire::component('rapyd::demo-articles-table', ArticlesTable::class);
         Livewire::component('rapyd::demo-articles-edit', ArticlesEdit::class);
         Livewire::component('rapyd::demo-articles-view', ArticlesView::class);
