@@ -5,7 +5,19 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/zofe/rapyd-livewire.svg?style=flat-square)](https://packagist.org/packages/zofe/rapyd-livewire)
 
 
+## What is it?
+
+is a laravel library of widgets (livewire abstract components) that you can extend to create administration interfaces in a concise, uncluttered, and testable manner.
+
+
+
+
+Demo: [rapyd.dev](https://rapyd.dev/rapyd-demo)  
+ 
+
 Porting of https://github.com/zofe/rapyd-laravel as livewire component library
+
+
 
 
 ## Installation
@@ -37,6 +49,15 @@ rapyd-livewire.png
 - [Felice Ostuni](https://github.com/zofe)
 - [All Contributors](../../contributors)
 
-## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## License & Contacts
+
+Rapyd is licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+Please join me and review my work on [Linkedin](https://www.linkedin.com/in/feliceostuni/)
+
+thanks
+
+
+
