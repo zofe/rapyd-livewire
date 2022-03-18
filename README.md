@@ -5,6 +5,13 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/zofe/rapyd-livewire.svg?style=flat-square)](https://packagist.org/packages/zofe/rapyd-livewire)
 
 
+## What is it?
+
+is a laravel library of widgets (livewire abstract components) that you can extend to create administration interfaces in a concise, uncluttered, and testable manner.
+
+
+
+
 Demo: [rapyd.dev](https://rapyd.dev/rapyd-demo)  
  
 
