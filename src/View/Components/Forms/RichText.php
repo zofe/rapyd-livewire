@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd\View\Components\Forms;
 
-use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\Component;
 
 class RichText extends Component
@@ -15,7 +14,7 @@ class RichText extends Component
         $this->name = $name;
         $this->model = $model;
 
-       // dd($this->model);
+        // dd($this->model);
     }
 
     public function render()

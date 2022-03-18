@@ -7,17 +7,17 @@ use ReflectionMethod;
 
 class Documenter
 {
-    public static function showCode($filepath, $addOpenTag=false)
+    public static function showCode($filepath, $addOpenTag = false)
     {
-        $file =  __DIR__.'/'.$filepath;
+        $file = __DIR__.'/'.$filepath;
 
         $code = file_get_contents($file);
         $code = preg_replace("#{!! Documenter::show(.*) !!}#Us", '', $code);
-        if($addOpenTag) {
+        if ($addOpenTag) {
             $code = '<?php '.$code;
         }
         $code = highlight_string($code, true);
-        if($addOpenTag) {
+        if ($addOpenTag) {
             $code = str_replace('&lt;?php&nbsp;', '', $code);
         }
 
@@ -26,27 +26,28 @@ class Documenter
 
     public static function showMethod($class, $methods)
     {
-        $rclass     = new ReflectionClass($class);
-        $definition = implode("", array_slice(file($rclass->getFileName()), $rclass->getStartLine()-1, 1));
+        $rclass = new ReflectionClass($class);
+        $definition = implode("", array_slice(file($rclass->getFileName()), $rclass->getStartLine() - 1, 1));
 
-        $code       = "\n".$definition."\n....\n\n";
+        $code = "\n".$definition."\n....\n\n";
 
-        if (!is_array($methods))
-            $methods = array($methods);
+        if (! is_array($methods)) {
+            $methods = [$methods];
+        }
 
         foreach ($methods as $method) {
-            $method     = new ReflectionMethod($class, $method);
-            $filename   = $method->getFileName();
-            $start_line = $method->getStartLine()-1;
-            $end_line   = $method->getEndLine();
-            $length     = $end_line - $start_line;
-            $source     = file($filename);
-            $content    = implode("", array_slice($source, $start_line, $length));
+            $method = new ReflectionMethod($class, $method);
+            $filename = $method->getFileName();
+            $start_line = $method->getStartLine() - 1;
+            $end_line = $method->getEndLine();
+            $length = $end_line - $start_line;
+            $source = file($filename);
+            $content = implode("", array_slice($source, $start_line, $length));
 
             $code .= $content."\n\n";
         }
 
-        $filename = str_replace(__DIR__,'app',$filename);
+        $filename = str_replace(__DIR__, 'app', $filename);
         $code = highlight_string("<?php ".$code, true);
         $code = str_replace('&lt;?php&nbsp;', '', $code);
 
@@ -60,5 +61,4 @@ class Documenter
 
         return realpath(dirname($path).'/../../');
     }
-
 }

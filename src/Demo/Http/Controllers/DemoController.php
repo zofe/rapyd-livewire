@@ -3,16 +3,13 @@
 namespace Zofe\Rapyd\Demo\Http\Controllers;
 
 #use App\Http\Controllers\Controller;
-use Illuminate\Routing\Controller;
 use Faker\Factory;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Zofe\Rapyd\Demo\Models\DemoArticle;
 
 class DemoController extends Controller
 {
-
     public function __construct()
     {
         view()->share('db_filled', Schema::hasTable('rapyd_demo_users'));
@@ -25,7 +22,6 @@ class DemoController extends Controller
 
     public function schema()
     {
-
         Schema::dropIfExists("rapyd_demo_users");
         Schema::dropIfExists("rapyd_demo_articles");
 
@@ -49,26 +45,25 @@ class DemoController extends Controller
         });
 
         $faker = Factory::create();
-        for($i=1;$i<=10;$i++){
+        for ($i = 1;$i <= 10;$i++) {
             $user = DB::table('rapyd_demo_users')->insert(
                 [
                     'firstname' => $faker->firstName,
                     'lastname' => $faker->lastName,
                 ]
             );
-            for($j=1;$j<=2;$j++) {
+            for ($j = 1;$j <= 2;$j++) {
                 $article = DB::table('rapyd_demo_articles')->insert(
                     [
                         'author_id' => $i,
 
                         'title' => $faker->sentence,
                         'body' => $faker->text,
-                        'public'=> 1,
-                        'publication_date' => $faker->dateTime
+                        'public' => 1,
+                        'publication_date' => $faker->dateTime,
                     ]
                 );
             }
-
         }
 
 
@@ -87,7 +82,4 @@ class DemoController extends Controller
     {
         return view('rapyd-demo::user', compact('id'));
     }
-
-
-
 }

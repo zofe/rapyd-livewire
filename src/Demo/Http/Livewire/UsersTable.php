@@ -2,13 +2,11 @@
 
 namespace Zofe\Rapyd\Demo\Http\Livewire;
 
-use Livewire\WithPagination;
 use Zofe\Rapyd\Demo\Models\DemoUser;
 use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 
 class UsersTable extends AbstractDataTable
 {
-
     public $active_menu = 'users';
     
     public function getDataSet()

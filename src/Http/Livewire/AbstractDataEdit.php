@@ -3,8 +3,6 @@
 namespace Zofe\Rapyd\Http\Livewire;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Route;
-use Livewire\WithPagination;
 
 abstract class AbstractDataEdit extends BaseComponent
 {
@@ -31,7 +29,7 @@ abstract class AbstractDataEdit extends BaseComponent
         $this->validate();
         $this->model->save();
 
-        if($this->viewRoute){
+        if ($this->viewRoute) {
             return redirect()->to(route($this->viewRoute, $this->model->getKey()));
         }
     }
@@ -41,10 +39,8 @@ abstract class AbstractDataEdit extends BaseComponent
         $this->validate();
         $this->model->save();
 
-        if($this->viewRoute){
+        if ($this->viewRoute) {
             return redirect()->to(route($this->viewRoute, $this->model->getKey()));
         }
-
     }
-
 }

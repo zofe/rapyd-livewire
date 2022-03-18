@@ -4,7 +4,6 @@ namespace Zofe\Rapyd\Http\Livewire;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
-use Livewire\WithPagination;
 
 abstract class AbstractDataView extends BaseComponent
 {
@@ -29,5 +28,4 @@ abstract class AbstractDataView extends BaseComponent
 //            $this->editRoute = route($this->editRoute);
 //        }
     }
-
 }

@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd\View\Components\Forms;
 
-use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\Component;
 
 class Text extends Component

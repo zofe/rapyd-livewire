@@ -2,9 +2,7 @@
 
 
 Route::group(['middleware' => 'web'], function () {
-
-
-    Route::namespace('Zofe\Rapyd\Demo\Http\Controllers')->prefix('rapyd-demo')->group(function() {
+    Route::namespace('Zofe\Rapyd\Demo\Http\Controllers')->prefix('rapyd-demo')->group(function () {
         Route::get('/',                 'DemoController@index')->name('rapyd.demo');
         Route::get('/schema',           'DemoController@schema')->name('rapyd.schema');
         Route::get('/users',            'DemoController@users')->name('rapyd.demo.users');
@@ -34,5 +32,4 @@ Route::group(['middleware' => 'web'], function () {
 //        Route::get('/author-list',  'DemoController@getAuthorlist');
 //        Route::get('/category-list','DemoController@getCategorylist');
     });
-
 });

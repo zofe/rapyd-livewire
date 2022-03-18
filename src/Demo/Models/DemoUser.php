@@ -8,7 +8,8 @@ use Zofe\Rapyd\Traits\SSearch;
 
 class DemoUser extends Model
 {
-    use HasFactory, SSearch;
+    use HasFactory;
+    use SSearch;
     public $table = 'rapyd_demo_users';
 
     public static function ssearchFallback($query)
@@ -16,7 +17,6 @@ class DemoUser extends Model
         return  static::query()
             ->where('firstname', 'like',  $query . '%')
             ->orWhere('lastname', 'like',  $query . '%');
-        
     }
 
     public function articles()

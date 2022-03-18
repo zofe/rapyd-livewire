@@ -3,7 +3,6 @@
 namespace Zofe\Rapyd\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Facade;
 use Livewire\LivewireServiceProvider;
@@ -12,7 +11,6 @@ use Zofe\Rapyd\RapydServiceProvider;
 
 class TestCase extends Orchestra
 {
-    
     protected function setUp(): void
     {
         $this->afterApplicationCreated(function () {

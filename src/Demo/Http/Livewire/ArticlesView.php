@@ -2,10 +2,6 @@
 
 namespace Zofe\Rapyd\Demo\Http\Livewire;
 
-use App\Models\User;
-use Livewire\WithPagination;
-use Zofe\Rapyd\Demo\Models\DemoArticle;
-use Zofe\Rapyd\Demo\Models\DemoUser;
 use Zofe\Rapyd\Http\Livewire\AbstractDataView;
 
 class ArticlesView extends AbstractDataView
