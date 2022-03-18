@@ -31,8 +31,10 @@ return $config->setRules([
         'phpdoc_var_without_name' => true,
         'class_attributes_separation' => [
             'elements' => [
-                'array',
-            ],
+                'const',
+                'method',
+                'property',
+            ]
         ],
         'method_argument_space' => [
             'on_multiline' => 'ensure_fully_multiline',
