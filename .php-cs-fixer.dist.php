@@ -31,7 +31,7 @@ return $config->setRules([
         'phpdoc_var_without_name' => true,
         'class_attributes_separation' => [
             'elements' => [
-                'method',
+                'array',
             ],
         ],
         'method_argument_space' => [
