@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd\View\Components\Forms;
 
-use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\Component;
 
 class CheckBox extends Component
@@ -18,7 +17,6 @@ class CheckBox extends Component
 
     public function render()
     {
-        
         return view('rapyd::components.form.checkbox');
     }
 }

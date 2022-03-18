@@ -44,8 +44,7 @@ class RapydServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rapyd');
         $this->loadViewsFrom(__DIR__ . '/Demo/resources/views', 'rapyd-demo');
 
-        if (file_exists(base_path('routes/rapyd.php')))
-        {
+        if (file_exists(base_path('routes/rapyd.php'))) {
             $this->loadRoutesFrom(base_path('routes/rapyd.php'));
         } else {
             $this->loadRoutesFrom(__DIR__.'/Demo/routes/rapyd.php');
@@ -61,13 +60,10 @@ class RapydServiceProvider extends ServiceProvider
         Livewire::component('rapyd::demo-articles-edit', ArticlesEdit::class);
         Livewire::component('rapyd::demo-articles-view', ArticlesView::class);
         Livewire::component('rapyd::demo-users-table', UsersTable::class);
-
-
     }
 
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/rapyd-livewire.php', 'rapyd-livewire');
     }
-
 }

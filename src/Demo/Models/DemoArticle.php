@@ -8,7 +8,8 @@ use Zofe\Rapyd\Traits\SSearch;
 
 class DemoArticle extends Model
 {
-    use HasFactory, SSearch;
+    use HasFactory;
+    use SSearch;
     public $table = 'rapyd_demo_articles';
 
     protected $attributes = [
@@ -17,10 +18,10 @@ class DemoArticle extends Model
     
     public static function ssearchFallback($query)
     {
-        return  static::query()->where(function($q) use ($query){
+        return  static::query()->where(function ($q) use ($query) {
             $q->where('title', 'like', '%'.$query.'%')
                 ->orWhere('body', 'like', '%'.$query.'%')
-                ->orWhereHas('author', function( $subq ) use ($query) {
+                ->orWhereHas('author', function ($subq) use ($query) {
                     $subq->where('firstname', 'like',  $query . '%')
                         ->orWhere('lastname', 'like',  $query . '%')
                         ;
