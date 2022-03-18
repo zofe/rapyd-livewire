@@ -46,14 +46,14 @@ class DemoController extends Controller
 
         $faker = Factory::create();
         for ($i = 1;$i <= 10;$i++) {
-            $user = DB::table('rapyd_demo_users')->insert(
+            DB::table('rapyd_demo_users')->insert(
                 [
                     'firstname' => $faker->firstName,
                     'lastname' => $faker->lastName,
                 ]
             );
             for ($j = 1;$j <= 2;$j++) {
-                $article = DB::table('rapyd_demo_articles')->insert(
+                DB::table('rapyd_demo_articles')->insert(
                     [
                         'author_id' => $i,
 
