@@ -37,6 +37,15 @@ rapyd-livewire.png
 - [Felice Ostuni](https://github.com/zofe)
 - [All Contributors](../../contributors)
 
-## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## License & Contacts
+
+Rapyd is licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+Please join me and review my work on [Linkedin](https://www.linkedin.com/in/feliceostuni/)
+
+thanks
+
+
+
