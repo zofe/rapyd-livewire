@@ -39,8 +39,9 @@ but this is a bit of documentation:
 ### Widgets
 
 Abstract classes to be extended as livewire compoments.
+Main goal is to standardize a large laravel admin application in a set of 2/3 Widgets for each Model you need to manage.
 
-#### AbstractDataTable
+### AbstractDataTable
 extend AbstractDataTable if you need a "listing page" with these features:
 - "input filters" to search in a custom dataset 
 - "buttons" (for example "add" record or "reset" filters)
@@ -49,13 +50,19 @@ extend AbstractDataTable if you need a "listing page" with these features:
 
 demo: https://rapyd.dev/rapyd-demo/articles
 
----
-#### AbstractDataView
-todo
 
----
-#### AbstractDataEdit
-todo
+### AbstractDataView
+extend AbstractDataView if you need a "detail page" with these features:  
+
+- "buttons" (for example back to "list" or "edit" current record)
+
+
+### AbstractDataEdit
+extend AbstractDataEdit if you need a "form" binded to a model to edit it with these features:  
+
+- "buttons" and "actions" (undo, save)
+- form "rules"
+- smart "fields"
 
 ---
 ### Fields 
