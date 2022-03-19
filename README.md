@@ -56,6 +56,8 @@ extend AbstractDataView if you need a "detail page" with these features:
 
 - "buttons" (for example back to "list" or "edit" current record)
 
+demo: https://rapyd.dev/rapyd-demo/article/view/1
+
 
 ### AbstractDataEdit
 extend AbstractDataEdit if you need a "form" binded to a model to edit it with these features:  
@@ -63,6 +65,8 @@ extend AbstractDataEdit if you need a "form" binded to a model to edit it with t
 - "buttons" and "actions" (undo, save)
 - form "rules"
 - smart "fields"
+
+demo: https://rapyd.dev/rapyd-demo/article/edit/1
 
 ---
 ### Fields 
