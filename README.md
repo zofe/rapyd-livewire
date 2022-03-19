@@ -60,7 +60,20 @@ todo
 inside some widget views you can drastically semplify the syntax using 
 predefined blade component that interacts with livewire
 
-common props
+```html
+ <x-rpd::input debounce="350" model="search" placeholder="search..." />
+```
+
+```html
+<x-rpd::select lazy model="author_id" :options="$authors" />
+```
+
+```html
+<x-rpd::textarea model="body" label="Body" rows="5" :help="__('the article summary')"
+/>
+```
+
+props
 
 - `label`: label to display above the input
 - `placeholder`: placeholder to use for the empty first option
@@ -75,21 +88,6 @@ common props
 - `size`: Bootstrap input size e.g. `sm`, `lg`
 - `rows`: rows nums
 
-
-Fields
-```html
- <x-rpd::input debounce="350" model="search" placeholder="search..." />
-```
-
-```html
-<x-rpd::select lazy model="author_id" :options="$authors" />
-```
-
-```html
-<x-rpd::textarea model="body" label="Body" rows="5" :help="__('the article summary')"
-/>
-```
- 
 
 
 
