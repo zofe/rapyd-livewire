@@ -69,8 +69,7 @@ predefined blade component that interacts with livewire
 ```
 
 ```html
-<x-rpd::textarea model="body" label="Body" rows="5" :help="__('the article summary')"
-/>
+<x-rpd::textarea model="body" label="Body" rows="5" :help="__('the article summary')"/>
 ```
 
 props
