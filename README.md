@@ -9,7 +9,7 @@
 
 is a laravel library of widgets (livewire abstract components) that you can extend to create administration interfaces in a concise, uncluttered, and testable manner.
 
-
+min laravel version: ^8.27
 
 
 Demo: [rapyd.dev](https://rapyd.dev/rapyd-demo)  
