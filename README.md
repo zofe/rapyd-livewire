@@ -13,11 +13,6 @@ min laravel version: ^8.27
 
 
 Demo: [rapyd.dev](https://rapyd.dev/rapyd-demo)  
- 
-
-Porting of https://github.com/zofe/rapyd-laravel as livewire component library
-
-
 
 
 ## Installation
