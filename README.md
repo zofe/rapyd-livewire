@@ -80,26 +80,20 @@ common props
 
 
 ---
-Input
-
 ```html
  <x-rpd::input debounce="350" model="search" placeholder="search..." />
 ```
 props:`label`,`type`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
 
 ---
-Select
-
 ```html
 <x-rpd::select lazy model="author_id" :options="$authors" />
 ```
 props: `label`,`options`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
 
 ---
-Textarea
-
 ```html
-<x-rpd::textarea model="body" :label="__('Body')" rows="5" :help="__('fill with article summary')"
+<x-rpd::textarea model="body" :label="__('Body')" rows="5" :help="__('the article summary')"
 />
 ```
 props: `label`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`,`rows`
