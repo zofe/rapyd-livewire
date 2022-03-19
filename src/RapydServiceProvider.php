@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Zofe\Rapyd\Commands\RapydCommand;
@@ -10,10 +9,6 @@ use Zofe\Rapyd\Demo\Http\Livewire\ArticlesEdit;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesView;
 use Zofe\Rapyd\Demo\Http\Livewire\UsersTable;
-use Zofe\Rapyd\View\Components\Forms\CheckBox;
-use Zofe\Rapyd\View\Components\Forms\RichText;
-use Zofe\Rapyd\View\Components\Forms\Select;
-use Zofe\Rapyd\View\Components\Forms\Text;
 
 class RapydServiceProvider extends ServiceProvider
 {
