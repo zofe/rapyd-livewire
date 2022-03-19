@@ -42,7 +42,7 @@
     <div class="input-group">
         <x-rpd::input-addon :icon="$icon" :label="$prepend"/>
 
-        <input {{ $attributes }}>
+        <input {{ $attributes->merge([]) }}>
 
         <x-rpd::input-addon :label="$append" class="rounded-end"/>
 
