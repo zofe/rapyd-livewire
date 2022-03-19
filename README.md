@@ -46,15 +46,23 @@ but this is a bit of documentation:
 Abstract classes to be extended as livewire compoments.
 
 #### AbstractDataTable
-todo
+extend AbstractDataTable if you need a "listing page" with these features:
+- "input filters" to search in a custom dataset 
+- "buttons" (for example "add" record or "reset" filters)
+- "pagination links"
+- "sort links"   
 
+demo: https://rapyd.dev/rapyd-demo/articles
+
+---
 #### AbstractDataView
 todo
 
+---
 #### AbstractDataEdit
 todo
 
-
+---
 ### Fields 
 
 inside some widget views you can drastically semplify the syntax using 
