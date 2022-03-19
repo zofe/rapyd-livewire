@@ -6,7 +6,7 @@
         <x-rpd::input debounce="350" model="search"  placeholder="search..." />
     </div>
     <div class="col">
-        <x-rpd::select model="author_id" :options="$authors" placeholder="author..." addempty />
+        <x-rpd::select lazy model="author_id" :options="$authors" placeholder="author..." addempty />
     </div>
 @endsection
 
