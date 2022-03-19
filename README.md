@@ -104,7 +104,12 @@ props
 - `rows`: rows nums
 
 
+## To-do
 
+- component generators (with custom stub for each abstract widget)
+- breadcrumb integration or development
+- buttons panel (blade component) to standardize widgets layout
+- modular saperation or "plugin" architecture (to support a rapyd-admin boilerplate application)
 
 ## Credits
 
