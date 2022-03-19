@@ -64,39 +64,42 @@ common props
 
 - `label`: label to display above the input
 - `placeholder`: placeholder to use for the empty first option
----
+
+
 - `model`: Livewire model property key
 - `options`: array of options e.g. (used in selects)
 - `debounce`: Livewire time in ms to bind data on keyup
 - `lazy`: Livewire bind data only on change
----
+
+
 - `prepend`: addon to display before input, can be used via named slot
 - `append`: addon to display after input, can be used via named slot
 - `help`: helper label to display under the input
----
+
+
 - `icon`: Font Awesome icon to show before input e.g. `cog`, `envelope`
 - `size`: Bootstrap input size e.g. `sm`, `lg`
 - `rows`: rows nums
 
 
----
+Fields
 ```html
  <x-rpd::input debounce="350" model="search" placeholder="search..." />
 ```
-props:`label`,`type`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
+`label`,`type`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
 
----
+
 ```html
 <x-rpd::select lazy model="author_id" :options="$authors" />
 ```
-props: `label`,`options`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
+ `label`,`options`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
 
----
+
 ```html
-<x-rpd::textarea model="body" :label="__('Body')" rows="5" :help="__('the article summary')"
+<x-rpd::textarea model="body" label="Body" rows="5" :help="__('the article summary')"
 />
 ```
-props: `label`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`,`rows`
+ `label`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`,`rows`
 
 
 
