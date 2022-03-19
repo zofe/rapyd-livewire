@@ -60,25 +60,49 @@ todo
 inside some widget views you can drastically semplify the syntax using 
 predefined blade component that interacts with livewire
 
+common props
 
-Input:
+- `label`: label to display above the input
+- `placeholder`: placeholder to use for the empty first option
+---
+- `model`: Livewire model property key
+- `options`: array of options e.g. (used in selects)
+- `debounce`: Livewire time in ms to bind data on keyup
+- `lazy`: Livewire bind data only on change
+---
+- `prepend`: addon to display before input, can be used via named slot
+- `append`: addon to display after input, can be used via named slot
+- `help`: helper label to display under the input
+---
+- `icon`: Font Awesome icon to show before input e.g. `cog`, `envelope`
+- `size`: Bootstrap input size e.g. `sm`, `lg`
+- `rows`: rows nums
+
+
+---
+Input
 
 ```html
  <x-rpd::input debounce="350" model="search" placeholder="search..." />
 ```
+props:`label`,`type`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
 
-props
+---
+Select
 
-- `label`: label to display above the input
-- `type`: input type e.g. `text`, `email`
-- `icon`: Font Awesome icon to show before input e.g. `cog`, `envelope`
-- `prepend`: addon to display before input, can be used via named slot
-- `append`: addon to display after input, can be used via named slot
-- `size`: Bootstrap input size e.g. `sm`, `lg`
-- `help`: helper label to display under the input
-- `model`: Livewire model property key
-- `debounce`: time in ms to bind Livewire data on keyup e.g. `500`
-- `lazy`: bind Livewire data on change
+```html
+<x-rpd::select lazy model="author_id" :options="$authors" />
+```
+props: `label`,`options`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`
+
+---
+Textarea
+
+```html
+<x-rpd::textarea model="body" :label="__('Body')" rows="5" :help="__('fill with article summary')"
+/>
+```
+props: `label`,`icon`,`prepend`,`append`,`size`,`help`,`model`,`debounce`,`lazy`,`rows`
 
 
 
