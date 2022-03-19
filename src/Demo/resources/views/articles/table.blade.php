@@ -1,4 +1,4 @@
-@extends('rapyd-demo::master')
+@extends('rpd-demo::master')
 
 @section('title','Demo')
 
@@ -18,7 +18,7 @@
 
     <hr>
 
-    @livewire('rapyd::demo-articles-table')
+    @livewire('rpd::demo-articles-table')
 
     <div v-pre class="documenter mt-2">
         {!! \Zofe\Rapyd\Demo\Documenter::showCode("Http/Livewire/ArticlesTable.php") !!}

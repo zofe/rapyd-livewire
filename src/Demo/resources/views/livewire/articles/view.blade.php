@@ -1,4 +1,4 @@
-@extends('rapyd::view')
+@extends('rpd::view')
 
 @section('view')
         <dl class="row">

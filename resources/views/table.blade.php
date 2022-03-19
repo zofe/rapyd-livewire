@@ -5,7 +5,7 @@
                 <div class="row g-2">
                     @section('filters')
                         <div class="col">
-                            <x-rpd-input name="search" wire:model="search" placeholder="search..." />
+                            <x-rpd::input name="search" wire:model="search" placeholder="search..." />
                         </div>
                     @show
                 </div>

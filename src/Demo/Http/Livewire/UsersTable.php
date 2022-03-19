@@ -21,6 +21,6 @@ class UsersTable extends AbstractDataTable
     {
         $items = $this->getDataSet();
 
-        return view('rapyd-demo::livewire.users.table', compact('items'));
+        return view('rpd-demo::livewire.users.table', compact('items'));
     }
 }

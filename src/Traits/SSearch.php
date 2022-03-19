@@ -12,12 +12,12 @@ trait SSearch
             return static::query();
         }
 
-        //sono in modalità testing, non c'è meilisearch, uso una like di fallback
-        if (App::environment(['testing']) || ! config('features.use_meilisearch')) {
+        //testing mode fallback
+        if (App::environment(['testing']) || ! config('rapyd.use_scout')) {
             return static::ssearchFallback($search);
         }
 
-        //uso meilisearch se presente
+        //use search engine if present to pluck matching ids from text search
         if (method_exists(static::class, 'search')) {
             $matching = static::search($search);
 

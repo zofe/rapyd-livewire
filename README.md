@@ -38,16 +38,62 @@ php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="p
 
 ## Usage
 
-Visit /rapyd-demo
+the demo is auto-documented [rapyd.dev](https://rapyd.dev/rapyd-demo)  
+but this is a bit of documentation:
 
-![rapyd livewire](https://raw.github.com/zofe/rapyd-livewire/master/public/rapyd-livewire.png)
+### Widgets
 
-rapyd-livewire.png
+Abstract classes to be extended as livewire compoments.
+
+#### AbstractDataTable
+todo
+
+#### AbstractDataView
+todo
+
+#### AbstractDataEdit
+todo
+
+
+### Fields 
+
+inside some widget views you can drastically semplify the syntax using 
+predefined blade component that interacts with livewire
+
+
+Input:
+
+```html
+ <x-rpd::input debounce="350" model="search" placeholder="search..." />
+```
+
+props
+
+- `label`: label to display above the input
+- `type`: input type e.g. `text`, `email`
+- `icon`: Font Awesome icon to show before input e.g. `cog`, `envelope`
+- `prepend`: addon to display before input, can be used via named slot
+- `append`: addon to display after input, can be used via named slot
+- `size`: Bootstrap input size e.g. `sm`, `lg`
+- `help`: helper label to display under the input
+- `model`: Livewire model property key
+- `debounce`: time in ms to bind Livewire data on keyup e.g. `500`
+- `lazy`: bind Livewire data on change
+
+
+
 
 ## Credits
 
 - [Felice Ostuni](https://github.com/zofe)
 - [All Contributors](../../contributors)
+
+
+Inspirations:
+
+- [rapyd-laravel](https://github.com/zofe/rapyd-laravel) my old laravel library (140k downloads)
+- [livewire](https://laravel-livewire.com/)  widely used "full-stack framework" to compose laravel application by widgets
+- [laravel-bootstrap-components](https://github.com/bastinald/laravel-bootstrap-components) smart library which reduced the complexity of this one
 
 
 

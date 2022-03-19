@@ -13,6 +13,6 @@ class ArticlesView extends AbstractDataView
 
     public function render()
     {
-        return view('rapyd-demo::livewire.articles.view');
+        return view('rpd-demo::livewire.articles.view');
     }
 }

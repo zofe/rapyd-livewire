@@ -41,8 +41,8 @@ class RapydServiceProvider extends ServiceProvider
             ]);
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rapyd');
-        $this->loadViewsFrom(__DIR__ . '/Demo/resources/views', 'rapyd-demo');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rpd');
+        $this->loadViewsFrom(__DIR__ . '/Demo/resources/views', 'rpd-demo');
 
         if (file_exists(base_path('routes/rapyd.php'))) {
             $this->loadRoutesFrom(base_path('routes/rapyd.php'));
@@ -50,16 +50,11 @@ class RapydServiceProvider extends ServiceProvider
             $this->loadRoutesFrom(__DIR__.'/Demo/routes/rapyd.php');
         }
 
-        Blade::component('rpd-input', Text::class);
-        Blade::component('rpd-rich-text', RichText::class);
-        Blade::component('rpd-select', Select::class);
-        Blade::component('rpd-checkbox', CheckBox::class);
 
-
-        Livewire::component('rapyd::demo-articles-table', ArticlesTable::class);
-        Livewire::component('rapyd::demo-articles-edit', ArticlesEdit::class);
-        Livewire::component('rapyd::demo-articles-view', ArticlesView::class);
-        Livewire::component('rapyd::demo-users-table', UsersTable::class);
+        Livewire::component('rpd::demo-articles-table', ArticlesTable::class);
+        Livewire::component('rpd::demo-articles-edit', ArticlesEdit::class);
+        Livewire::component('rpd::demo-articles-view', ArticlesView::class);
+        Livewire::component('rpd::demo-users-table', UsersTable::class);
     }
 
     public function register()

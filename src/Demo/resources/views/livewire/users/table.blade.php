@@ -1,8 +1,8 @@
-@extends('rapyd::table')
+@extends('rpd::table')
 
 @section('filters')
     <div class="col">
-        <x-rpd-input name="search" wire:model="search" placeholder="search..." />
+        <x-rpd::input name="search" wire:model="search" placeholder="search..." />
     </div>
     <div class="col">
     </div>

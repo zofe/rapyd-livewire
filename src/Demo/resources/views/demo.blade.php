@@ -1,4 +1,4 @@
-@extends('rapyd-demo::master')
+@extends('rpd-demo::master')
 
 @section('title','Demo')
 

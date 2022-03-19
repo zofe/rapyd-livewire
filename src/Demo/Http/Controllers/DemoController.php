@@ -17,7 +17,7 @@ class DemoController extends Controller
 
     public function index()
     {
-        return view('rapyd-demo::demo');
+        return view('rpd-demo::demo');
     }
 
     public function schema()
@@ -69,17 +69,17 @@ class DemoController extends Controller
 
         session()->flash('message', 'Database populated');
 
-        return view('rapyd-demo::demo');
+        return view('rpd-demo::demo');
     }
 
     public function users()
     {
-        return view('rapyd-demo::users');
+        return view('rpd-demo::users');
     }
 
 
     public function userEdit($id = null)
     {
-        return view('rapyd-demo::user', compact('id'));
+        return view('rpd-demo::user', compact('id'));
     }
 }

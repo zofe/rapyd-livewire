@@ -11,6 +11,6 @@ class UsersEdit extends AbstractDataEdit
     
     public function render()
     {
-        return view('rapyd-demo::livewire.users.edit');
+        return view('rpd-demo::livewire.users.edit');
     }
 }

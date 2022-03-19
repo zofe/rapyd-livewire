@@ -9,18 +9,18 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('rapyd-demo::articles.table');
+        return view('rpd-demo::articles.table');
     }
     
     public function view(DemoArticle $article)
     {
-        return view('rapyd-demo::articles.view', compact('article'));
+        return view('rpd-demo::articles.view', compact('article'));
     }
     
     public function edit(DemoArticle $article = null)
     {
         $article = $article ? $article : new DemoArticle();
 
-        return view('rapyd-demo::articles.edit', compact('article'));
+        return view('rpd-demo::articles.edit', compact('article'));
     }
 }

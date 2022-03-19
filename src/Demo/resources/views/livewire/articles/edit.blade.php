@@ -1,26 +1,26 @@
-@extends('rapyd::edit')
+@extends('rpd::edit')
 
 @section('edit')
     <div class="row">
 
         <div class="form-group col-md-4">
-            <x-rpd-input wire:model="model.title" name="model.title" label="Title" />
+            <x-rpd::input model="model.title" label="Title" />
         </div>
 
         <div class="form-group col-md-4">
-            <x-rpd-select wire:model="model.author_id" name="model.author_id" :options="$authors" label="Author" addempty />
+            <x-rpd::select model="model.author_id" :options="$authors" label="Author" addempty />
         </div>
 
         <div class="form-group col-md-4 pt-2">
-            <x-rpd-checkbox wire:model="model.public" name="model.public" label="Public" />
+            <x-rpd::checkbox model="model.public" label="Public" checkLabel="true" />
         </div>
 
     </div>
     <div class="row mb-2">
         <div class="form-group col-md-8">
-            <x-rpd-rich-text name="model.body">
+            <x-rpd::rich-text model="model.body" label="Body">
                 {!! @$model->body !!}
-            </x-rpd-rich-text>
+            </x-rpd::rich-text>
         </div>
     </div>
 @endsection

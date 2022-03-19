@@ -9,6 +9,7 @@ use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 class ArticlesTable extends AbstractDataTable
 {
     public $active_menu = 'articles';
+    public $search;
     public $author_id;
 
     public function getDataSet()
@@ -29,6 +30,6 @@ class ArticlesTable extends AbstractDataTable
         $items = $this->getDataSet();
         $authors = DemoUser::all()->pluck('firstname', 'id')->toArray();
 
-        return view('rapyd-demo::livewire.articles.table', compact('items', 'authors'));
+        return view('rpd-demo::livewire.articles.table', compact('items', 'authors'));
     }
 }

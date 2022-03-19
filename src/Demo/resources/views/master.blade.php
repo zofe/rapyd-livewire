@@ -26,7 +26,7 @@
 
     <div class="container py-3">
         <header>
-            @include('rapyd-demo::menu')
+            @include('rpd-demo::menu')
         </header>
 
         <main>

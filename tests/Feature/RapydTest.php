@@ -18,8 +18,8 @@ class RapydTest extends TestCase
     public function test_article_list()
     {
         $article = DemoArticle::find(1);
-        
-        Livewire::test('rapyd::demo-articles-table')
+
+        Livewire::test('rpd::demo-articles-table')
             ->set('search', substr($article->title, -10, 10))
             ->assertSee(substr($article->title, 0, 10));
     }

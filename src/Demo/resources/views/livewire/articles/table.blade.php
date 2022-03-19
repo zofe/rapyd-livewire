@@ -1,12 +1,12 @@
-@extends('rapyd::table')
+@extends('rpd::table')
 
 
 @section('filters')
     <div class="col">
-        <x-rpd-input name="search" wire:model="search" placeholder="search..." />
+        <x-rpd::input debounce="350" model="search"  placeholder="search..." />
     </div>
     <div class="col">
-        <x-rpd-select name="author" wire:model="author_id" :options="$authors" placeholder="author..." addempty />
+        <x-rpd::select model="author_id" :options="$authors" placeholder="author..." addempty />
     </div>
 @endsection
 
@@ -22,9 +22,7 @@
         <thead>
         <tr>
             <th>
-                <a wire:click.prevent="sortBy('id')" role="button" href="#">
-                   id <i class="{{ $this->getSortIcon('id') }}"></i>
-                </a>
+                <x-rpd::sort model="id" label="id" />
             </th>
             <th>title</th>
             <th>author</th>
@@ -32,7 +30,6 @@
         </tr>
         </thead>
         <tbody>
-        @php /** @var $article \Zofe\Rapyd\Demo\Models\DemoArticle */ @endphp
         @foreach ($items as $article)
             <tr>
                 <td>
