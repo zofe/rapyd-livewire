@@ -9,15 +9,12 @@
 
 is a laravel library of widgets (livewire abstract components) that you can extend to create administration interfaces in a concise, uncluttered, and testable manner.
 
+It also bundles Bootstrap, Vue, Alpine and Quill to be used as fast boilerplate for your laravel admin panels.
+
 min laravel version: ^8.27
 
 
 Demo: [rapyd.dev](https://rapyd.dev/rapyd-demo)  
- 
-
-Porting of https://github.com/zofe/rapyd-laravel as livewire component library
-
-
 
 
 ## Installation
@@ -44,44 +41,143 @@ but this is a bit of documentation:
 ### Widgets
 
 Abstract classes to be extended as livewire compoments.
+Main goal is to standardize a large laravel admin application in a set of 2/3 Widgets for each Model you need to manage.
 
-#### AbstractDataTable
-todo
+### AbstractDataTable
+extend AbstractDataTable if you need a "listing page" with these features:
+- "input filters" to search in a custom dataset 
+- "buttons" (for example "add" record or "reset" filters)
+- "pagination links"
+- "sort links"   
 
-#### AbstractDataView
-todo
-
-#### AbstractDataEdit
-todo
+demo: https://rapyd.dev/rapyd-demo/articles
 
 
+### AbstractDataView
+extend AbstractDataView if you need a "detail page" with these features:  
+
+- "buttons" (for example back to "list" or "edit" current record)
+
+demo: https://rapyd.dev/rapyd-demo/article/view/1
+
+
+### AbstractDataEdit
+extend AbstractDataEdit if you need a "form" binded to a model to edit it with these features:  
+
+- "buttons" and "actions" (undo, save)
+- form "rules"
+- smart "fields"
+
+demo: https://rapyd.dev/rapyd-demo/article/edit/1
+
+---
 ### Fields 
 
 inside some widget views you can drastically semplify the syntax using 
 predefined blade component that interacts with livewire
 
-
-Input:
-
 ```html
  <x-rpd::input debounce="350" model="search" placeholder="search..." />
 ```
 
+```html
+<x-rpd::select lazy model="author_id" :options="$authors" />
+```
+
+```html
+<x-rpd::textarea model="body" label="Body" rows="5" :help="__('the article summary')"/>
+```
+
+```html
+<!-- quill wysiwyg editor -->
+<x-rpd::rich-text model="model.body" label="Body" />
+```
+
+
 props
 
 - `label`: label to display above the input
-- `type`: input type e.g. `text`, `email`
-- `icon`: Font Awesome icon to show before input e.g. `cog`, `envelope`
+- `placeholder`: placeholder to use for the empty first option
+- `model`: Livewire model property key
+- `options`: array of options e.g. (used in selects)
+- `debounce`: Livewire time in ms to bind data on keyup
+- `lazy`: Livewire bind data only on change
 - `prepend`: addon to display before input, can be used via named slot
 - `append`: addon to display after input, can be used via named slot
-- `size`: Bootstrap input size e.g. `sm`, `lg`
 - `help`: helper label to display under the input
-- `model`: Livewire model property key
-- `debounce`: time in ms to bind Livewire data on keyup e.g. `500`
-- `lazy`: bind Livewire data on change
+- `icon`: Font Awesome icon to show before input e.g. `cog`, `envelope`
+- `size`: Bootstrap input size e.g. `sm`, `lg`
+- `rows`: rows nums
+
+
+special tags
+
+```html
+<!-- sort ascending/descending link actions (in a datatable view context)-->
+ <x-rpd::sort model="id" label="id" />
+```
+
+
+### minimal layout to display rapyd widgets
+there are some css/js dependencies (livewire, bootstrap, alpinejs)
+and some component needs to inject scripts/css so there are some nedded blade directives
+and some suggested cdn inclusions.
+
+so your master layout in laravel should be similar to:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="//fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @livewireStyles
+    @rapydStyles
+</head>
+<body>
+<div id="app">
+ <!-- your main content blade section -->
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+@livewireScripts
+@rapydScripts
+
+</body>
+</html>
+```
+if you don't care about the versions of bootstrap, alpinejs you can reduce to just 2 blade directives: 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="//fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
+    @rapydLivewireStyles
+</head>
+<body>
+<div id="app">
+ <!-- your main content blade section -->
+</div>
+@rapydLivewireScripts
+</body>
+</html>
+```
 
 
 
+
+
+## To-do
+
+- component generators (with custom stub for each abstract widget)
+- breadcrumb integration or development
+- buttons panel (blade component) to standardize widgets layout
+- modular saperation or "plugin" architecture (to support a rapyd-admin boilerplate application)
 
 ## Credits
 

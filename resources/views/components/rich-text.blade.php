@@ -13,12 +13,12 @@
 
 {{--todo move dependencies to rapyd css/js at build/publish time--}}
 @once
-@push('header_styles')
+@push('rapyd_styles')
     <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
 @endpush
 @endonce
 @once
-@push('footer_scripts')
+@push('rapyd_scripts')
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 @endpush
 @endonce
@@ -51,13 +51,10 @@
          quill.on('text-change', function () {
            $dispatch('quill-input', quill.root.innerHTML);
         });
-
        "
         x-on:quill-input.debounce.defer="@this.set('{{ $key }}', $event.detail)"
     >
-
-        {{ $slot }}
-
+        {!! dot_to_property($this, $key) !!}
     </div>
 </div>
 
