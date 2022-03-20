@@ -110,6 +110,15 @@ props
 - `rows`: rows nums
 
 
+special tags
+
+```html
+<!-- sort ascending/descending link actions (in a datatable view context)-->
+ <x-rpd::sort model="id" label="id" />
+```
+
+
+
 ## To-do
 
 - component generators (with custom stub for each abstract widget)
