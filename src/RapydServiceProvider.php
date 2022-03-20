@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd;
 
-
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
