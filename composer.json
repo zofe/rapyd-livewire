@@ -18,7 +18,8 @@
     "require": {
         "php": "^7.3|^8.0",
         "illuminate/contracts": "^8.27",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "tabuna/breadcrumbs": "^2.4"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -50,11 +51,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Zofe\\Rapyd\\RapydServiceProvider"
+                "Zofe\\Rapyd\\RapydServiceProvider",
+                "Tabuna\\Breadcrumbs\\BreadcrumbsServiceProvider"
             ],
             "aliases": {
-                "Rapyd": "Zofe\\Rapyd\\RapydFacade"
-            }
+                "Rapyd": "Zofe\\Rapyd\\RapydFacade",
+                "Breadcrumbs": "Tabuna\\Breadcrumbs\\Breadcrumbs"
+            },
         }
     },
     "minimum-stability": "dev",

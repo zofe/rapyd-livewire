@@ -2,6 +2,7 @@
 
 namespace Zofe\Rapyd;
 
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Zofe\Rapyd\Commands\RapydCommand;
