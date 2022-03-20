@@ -131,23 +131,39 @@ so your master layout in laravel should be similar to:
 <head>
     <meta charset="utf-8">
     <link href="//fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/css/bootstrap.min.css" integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('vendor/rapyd-livewire/rapyd.css') }}">
-    @stack('header_styles')
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @livewireStyles
+    @rapydStyles
 </head>
 <body>
 <div id="app">
  <!-- your main content blade section -->
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js" integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-<script src="{{ asset('vendor/rapyd-livewire/rapyd.js') }}" defer></script>
 @livewireScripts
-@stack('footer_scripts')
+@rapydScripts
 
+</body>
+</html>
+```
+if you don't care about the versions of bootstrap, alpinejs you can reduce to just 2 blade directives: 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="//fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
+    @rapydLivewireStyles
+</head>
+<body>
+<div id="app">
+ <!-- your main content blade section -->
+</div>
+@rapydLivewireScripts
 </body>
 </html>
 ```
