@@ -16,9 +16,12 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "illuminate/contracts": "^8.27",
-        "livewire/livewire": "^2.0"
+        "php": "^7.4|^8.0",
+        "diglactic/laravel-breadcrumbs": "^7.1",
+        "illuminate/contracts": "^8.27|^9.0",
+        "laravel/serializable-closure": "^1.1",
+        "livewire/livewire": "^2.0",
+        "tabuna/breadcrumbs": "^2.4"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
