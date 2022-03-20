@@ -6,14 +6,11 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
-use Tabuna\Breadcrumbs\BreadcrumbsComponent;
-use Tabuna\Breadcrumbs\Trail;
 use Zofe\Rapyd\Commands\RapydCommand;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesEdit;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesView;
 use Zofe\Rapyd\Demo\Http\Livewire\UsersTable;
-use Zofe\Rapyd\View\Components\Breadcrumbs;
 
 class RapydServiceProvider extends ServiceProvider
 {
