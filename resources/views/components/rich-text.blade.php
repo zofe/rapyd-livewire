@@ -51,13 +51,10 @@
          quill.on('text-change', function () {
            $dispatch('quill-input', quill.root.innerHTML);
         });
-
        "
         x-on:quill-input.debounce.defer="@this.set('{{ $key }}', $event.detail)"
     >
-
-        {{ $slot }}
-
+        {!! dot_to_property($this, $key) !!}
     </div>
 </div>
 

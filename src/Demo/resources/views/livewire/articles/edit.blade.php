@@ -18,9 +18,7 @@
     </div>
     <div class="row mb-2">
         <div class="form-group col-md-8">
-            <x-rpd::rich-text model="model.body" label="Body">
-                {!! @$model->body !!}
-            </x-rpd::rich-text>
+            <x-rpd::rich-text model="model.body" label="Body" />
         </div>
     </div>
 @endsection

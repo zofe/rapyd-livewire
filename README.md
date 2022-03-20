@@ -88,6 +88,12 @@ predefined blade component that interacts with livewire
 <x-rpd::textarea model="body" label="Body" rows="5" :help="__('the article summary')"/>
 ```
 
+```html
+<!-- quill wysiwyg editor -->
+<x-rpd::rich-text model="model.body" label="Body" />
+```
+
+
 props
 
 - `label`: label to display above the input
