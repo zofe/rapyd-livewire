@@ -53,12 +53,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Zofe\\Rapyd\\RapydServiceProvider",
-                "Tabuna\\Breadcrumbs\\BreadcrumbsServiceProvider"
+                "Zofe\\Rapyd\\RapydServiceProvider"
             ],
             "aliases": {
-                "Rapyd": "Zofe\\Rapyd\\RapydFacade",
-                "Breadcrumbs": "Tabuna\\Breadcrumbs\\Breadcrumbs"
+                "Rapyd": "Zofe\\Rapyd\\RapydFacade"
             },
         }
     },
