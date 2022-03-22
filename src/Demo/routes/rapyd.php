@@ -18,8 +18,8 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/article/view/{article:id?}', 'ArticlesController@view')->name('rapyd.demo.articles.view')->breadcrumbs(function ($trail, $article) {
             $trail->parent('rapyd.demo.articles')->push('View Article', route('rapyd.demo.articles.view', $article));
         });
-        Route::get('/article/edit/{article:id?}', 'ArticlesController@edit')->name('rapyd.demo.articles.edit')->breadcrumbs(function ($trail, $article=null) {
-            if($article) {
+        Route::get('/article/edit/{article:id?}', 'ArticlesController@edit')->name('rapyd.demo.articles.edit')->breadcrumbs(function ($trail, $article = null) {
+            if ($article) {
                 $trail->parent('rapyd.demo.articles.view', $article)->push('Edit Article', route('rapyd.demo.articles.edit', $article));
             } else {
                 $trail->parent('rapyd.demo.articles')->push('Create Article', route('rapyd.demo.articles.edit'));

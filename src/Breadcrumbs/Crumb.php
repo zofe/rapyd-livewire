@@ -41,7 +41,7 @@ class Crumb implements JsonSerializable
     {
         return [
             'title' => $this->title(),
-            'url'   => $this->url(),
+            'url' => $this->url(),
         ];
     }
 

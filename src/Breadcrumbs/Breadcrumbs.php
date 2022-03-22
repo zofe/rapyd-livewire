@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd\Breadcrumbs;
 
-
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 

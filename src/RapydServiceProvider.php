@@ -7,9 +7,9 @@ use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Laravel\SerializableClosure\SerializableClosure;
 use Livewire\Livewire;
 use Zofe\Rapyd\Breadcrumbs\Breadcrumbs;
-use Zofe\Rapyd\Breadcrumbs\BreadcrumbsComponent;
 use Zofe\Rapyd\Breadcrumbs\BreadcrumbsMiddleware;
 use Zofe\Rapyd\Breadcrumbs\BreadcrumbsServiceProvider;
 use Zofe\Rapyd\Breadcrumbs\Manager;
@@ -18,7 +18,6 @@ use Zofe\Rapyd\Demo\Http\Livewire\ArticlesEdit;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesView;
 use Zofe\Rapyd\Demo\Http\Livewire\UsersTable;
-use Laravel\SerializableClosure\SerializableClosure;
 
 class RapydServiceProvider extends ServiceProvider
 {
@@ -129,6 +128,5 @@ class RapydServiceProvider extends ServiceProvider
 
 //        App::register(BreadcrumbsServiceProvider::class);
 //        App::alias('Breadcrumbs', Breadcrumbs::class);
-
     }
 }

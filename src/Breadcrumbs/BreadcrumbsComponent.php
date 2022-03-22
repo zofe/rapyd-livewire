@@ -48,8 +48,7 @@ class BreadcrumbsComponent extends Component
         $parameters = null,
         string $class = null,
         string $active = null
-    )
-    {
+    ) {
         $this->breadcrumbs = $manager;
         $this->route = $route;
         $this->parameters = $parameters;

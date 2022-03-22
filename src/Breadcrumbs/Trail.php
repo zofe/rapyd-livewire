@@ -91,7 +91,7 @@ class Trail
      */
     private function getRouteByNameParameters(string $name, array $parameters): array
     {
-        if (!empty($parameters)) {
+        if (! empty($parameters)) {
             return $parameters;
         }
 

@@ -25,9 +25,11 @@ class Registrar
      */
     public function get(string $name): Closure
     {
-        throw_unless($this->has($name),
+        throw_unless(
+            $this->has($name),
             Exception::class,
-            "No breadcrumbs defined for route [{$name}].");
+            "No breadcrumbs defined for route [{$name}]."
+        );
 
         return $this->definitions[$name];
     }

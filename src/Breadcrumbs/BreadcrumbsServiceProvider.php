@@ -22,7 +22,6 @@ class BreadcrumbsServiceProvider extends ServiceProvider
     {
         //Blade::component('tabuna-breadcrumbs', BreadcrumbsComponent::class);
         Blade::component('rpd-breadcrumbs', BreadcrumbsComponent::class);
-
     }
 
     /**
