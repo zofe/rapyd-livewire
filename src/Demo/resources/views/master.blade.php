@@ -21,6 +21,16 @@
     <div class="container py-3">
         <header>
             @include('rpd-demo::menu')
+
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <x-rpd-breadcrumbs class="breadcrumb-item" active="active" />
+                </ol>
+            </nav>
+
+
+
         </header>
 
         <main>

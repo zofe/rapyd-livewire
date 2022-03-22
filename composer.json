@@ -20,8 +20,7 @@
         "diglactic/laravel-breadcrumbs": "^7.1",
         "illuminate/contracts": "^8.27|^9.0",
         "laravel/serializable-closure": "^1.1",
-        "livewire/livewire": "^2.0",
-        "tabuna/breadcrumbs": "^2.4"
+        "livewire/livewire": "^2.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -57,7 +56,7 @@
             ],
             "aliases": {
                 "Rapyd": "Zofe\\Rapyd\\RapydFacade"
-            },
+            }
         }
     },
     "minimum-stability": "dev",

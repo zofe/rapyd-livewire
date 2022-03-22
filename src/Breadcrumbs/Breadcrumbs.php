@@ -1,0 +1,28 @@
+<?php
+
+namespace Zofe\Rapyd\Breadcrumbs;
+
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Facade;
+
+/**
+ * Class Breadcrumbs.
+ *
+ * @method static bool has(string $name = null)
+ * @method static Collection current($parameters = null)
+ * @method static Collection generate(string $name, $parameters = null)
+ * @method static void for(string $route, \Closure $definition)
+ */
+class Breadcrumbs extends Facade
+{
+    /**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */
+    protected static function getFacadeAccessor()
+    {
+        return Manager::class;
+    }
+}
