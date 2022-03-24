@@ -24,7 +24,7 @@
 
 
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb px-3">
                     <x-rpd-breadcrumbs class="breadcrumb-item" active="active" />
                 </ol>
             </nav>
