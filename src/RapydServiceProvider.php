@@ -90,6 +90,5 @@ class RapydServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/rapyd-livewire.php', 'rapyd-livewire');
         $this->app->register(BreadcrumbsServiceProvider::class);
-
     }
 }
