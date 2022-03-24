@@ -19,11 +19,22 @@
 
     @livewire('rpd::demo-articles-view',['model'=>$article])
 
-    <div v-pre class="documenter mt-2">
-        {!! \Zofe\Rapyd\Demo\Documenter::showCode("Http/Livewire/ArticlesView.php") !!}
+    <div class="row">
+        <div class="col-5">
+            <div v-pre class="documenter mt-2">
+                <h4>component</h4>
+                {!! \Zofe\Rapyd\Demo\Documenter::showCode("Http/Livewire/ArticlesView.php") !!}
+            </div>
+        </div>
+        <div class="col-7">
+            <div v-pre class="documenter mt-2">
+                <h4>view</h4>
+                {!! \Zofe\Rapyd\Demo\Documenter::showCode("resources/views/livewire/articles/view.blade.php", true) !!}
+            </div>
+        </div>
     </div>
-    <div v-pre class="documenter mt-2">
-        {!! \Zofe\Rapyd\Demo\Documenter::showCode("resources/views/livewire/articles/view.blade.php", true) !!}
-    </div>
+
+
+
 
 @endsection

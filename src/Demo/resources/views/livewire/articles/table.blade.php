@@ -1,6 +1,5 @@
 @extends('rpd::table')
 
-
 @section('filters')
     <div class="col">
         <x-rpd::input debounce="350" model="search"  placeholder="search..." />
@@ -42,7 +41,4 @@
         @endforeach
         </tbody>
     </table>
-
-
-
 @endsection
