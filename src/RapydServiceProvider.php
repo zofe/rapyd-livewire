@@ -2,17 +2,10 @@
 
 namespace Zofe\Rapyd;
 
-use Closure;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Laravel\SerializableClosure\SerializableClosure;
 use Livewire\Livewire;
-use Zofe\Rapyd\Breadcrumbs\Breadcrumbs;
-use Zofe\Rapyd\Breadcrumbs\BreadcrumbsMiddleware;
 use Zofe\Rapyd\Breadcrumbs\BreadcrumbsServiceProvider;
-use Zofe\Rapyd\Breadcrumbs\Manager;
 use Zofe\Rapyd\Commands\RapydCommand;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesEdit;
 use Zofe\Rapyd\Demo\Http\Livewire\ArticlesTable;
@@ -44,8 +37,6 @@ class RapydServiceProvider extends ServiceProvider
                 RapydCommand::class,
             ]);
         }
-
-
 
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rpd');
@@ -98,35 +89,7 @@ class RapydServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/rapyd-livewire.php', 'rapyd-livewire');
-
         $this->app->register(BreadcrumbsServiceProvider::class);
-//        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-//        $loader->alias('Breadcrumbs', Breadcrumbs::class );
-//
-//
-//
-//        $this->app->singleton(Manager::class);
-////        $this->loadViewsFrom(__DIR__ . '/../views', 'breadcrumbs');
-//
-//        \Illuminate\Support\Facades\Route::middlewareGroup('breadcrumbs', [
-//            BreadcrumbsMiddleware::class,
-//        ]);
-//
-//        if (Route::hasMacro('breadcrumbs')) {
-//            return;
-//        }
-//
-//        Route::macro('breadcrumbs', function (Closure $closure) {
-//            /** @var Route $this */
-//            $this->middleware('breadcrumbs')
-//                ->defaults(BreadcrumbsMiddleware::class, serialize(new SerializableClosure($closure)));
-//
-//            return $this;
-//        });
 
-
-
-//        App::register(BreadcrumbsServiceProvider::class);
-//        App::alias('Breadcrumbs', Breadcrumbs::class);
     }
 }
