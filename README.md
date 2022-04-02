@@ -38,11 +38,12 @@ php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="p
 the demo is auto-documented [rapyd.dev](https://rapyd.dev/rapyd-demo)  
 but this is a bit of documentation:
 
-### Widgets
 
-Abstract classes to be extended as livewire compoments.
+after you have installed the library you can create your livewire components
+extending rapyd abstract component classes.  
 Main goal is to standardize a large laravel admin application in a set of 2/3 Widgets for each Model you need to manage.
 
+---
 ### DataTable
 DataTable extend AbstractDataTable if you need a "listing page" with these features:
 - "input filters" to search in a custom dataset 
@@ -141,7 +142,7 @@ tag in
 
 demo: https://rapyd.dev/rapyd-demo/articles
 
-
+---
 ### DataView
 DataView extend AbstractDataView for a "detail page" with:  
 
@@ -196,7 +197,7 @@ content/slots
 
 demo: https://rapyd.dev/rapyd-demo/article/view/1
 
-
+---
 ### DataEdit
 DataEdit component extend AbstractDataEdit for a "form" binded to a model with:  
 
