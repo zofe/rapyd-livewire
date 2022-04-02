@@ -29,24 +29,12 @@ class RapydServiceProvider extends ServiceProvider
                 __DIR__.'/../public' => public_path('vendor/rapyd-livewire'),
             ], 'public');
 
-            $this->publishes([
-                __DIR__.'/Demo/routes/rapyd.php' => base_path('routes/rapyd.php'),
-            ], 'routes');
-
             $this->commands([
                 RapydCommand::class,
             ]);
         }
 
-
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rpd');
-        $this->loadViewsFrom(__DIR__ . '/Demo/resources/views', 'rpd-demo');
-
-        if (file_exists(base_path('routes/rapyd.php'))) {
-            $this->loadRoutesFrom(base_path('routes/rapyd.php'));
-        } else {
-            $this->loadRoutesFrom(__DIR__.'/Demo/routes/rapyd.php');
-        }
 
 
         Blade::directive('rapydScripts', function () {
@@ -79,11 +67,6 @@ class RapydServiceProvider extends ServiceProvider
 
             return $styles;
         });
-
-        Livewire::component('rpd::demo-articles-table', ArticlesTable::class);
-        Livewire::component('rpd::demo-articles-edit', ArticlesEdit::class);
-        Livewire::component('rpd::demo-articles-view', ArticlesView::class);
-        Livewire::component('rpd::demo-users-table', UsersTable::class);
     }
 
     public function register()

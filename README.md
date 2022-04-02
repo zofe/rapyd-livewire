@@ -71,13 +71,65 @@ extend AbstractDataEdit if you need a "form" binded to a model to edit it with t
 demo: https://rapyd.dev/rapyd-demo/article/edit/1
 
 ---
-### Fields 
+### Widgets Tags
+
+
+#### rpd::edit
+
+DataEdit widget must use this tag to define a standard crud for a model.
+
+Should have a title as content/slot should pass form fields
+ 
+
+```html
+    <x-rpd::edit title="Article Edit">
+
+       <x-rpd::input model="article.title" label="Title" />
+       <x-rpd::rich-text model="article.body" label="Body" />
+
+    </x-rpd::edit>
+```
+
+props
+- `title`: the heading title for this crud
+content/slots
+- form fields
+
+
+#### rpd::view
+
+DataView widget must use this tag to define a standard detail view for a model.
+Should have a title, buttons slot, and the main slot should some content
+
+```html
+    <x-rpd::view title="Article Detail">
+
+        <x-slot name="buttons">
+            <a href="{{ route('articles') }}" class="btn btn-outline-primary">list</a>
+            <a href="{{ route('articles.edit',$model->getKey()) }}" class="btn btn-outline-primary">edit</a>
+        </x-slot>
+
+        <div>Title: {{ $article->title }}</div>
+        <div>Author: {{ $article->author->firstname }} {{ $model->author->lastname }}</div>
+          
+    </x-rpd::view>
+```
+
+props
+- `title`: the heading title for this crud
+content/slots
+- should be a detail of $model 
+- `buttons`: buttons panel
+
+
+
+### Fields Tags
 
 inside some widget views you can drastically semplify the syntax using 
 predefined blade component that interacts with livewire
 
 ```html
- <x-rpd::input debounce="350" model="search" placeholder="search..." />
+<x-rpd::input debounce="350" model="search" placeholder="search..." />
 ```
 
 ```html
@@ -90,7 +142,7 @@ predefined blade component that interacts with livewire
 
 ```html
 <!-- quill wysiwyg editor -->
-<x-rpd::rich-text model="model.body" label="Body" />
+<x-rpd::rich-text model="body" label="Body" />
 ```
 
 
@@ -114,7 +166,7 @@ special tags
 
 ```html
 <!-- sort ascending/descending link actions (in a datatable view context)-->
- <x-rpd::sort model="id" label="id" />
+<x-rpd::sort model="id" label="id" />
 ```
 
 
@@ -138,7 +190,7 @@ so your master layout in laravel should be similar to:
 </head>
 <body>
 <div id="app">
- <!-- your main content blade section -->
+<!-- your main content blade section -->
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

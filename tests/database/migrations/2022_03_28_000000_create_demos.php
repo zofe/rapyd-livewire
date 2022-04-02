@@ -1,30 +1,19 @@
 <?php
 
-namespace Zofe\Rapyd\Demo\Http\Controllers;
-
-#use App\Http\Controllers\Controller;
 use Faker\Factory;
-use Illuminate\Routing\Controller;
+use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class DemoController extends Controller
+class CreateDemos extends Migration
 {
-    public function __construct()
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
     {
-        view()->share('db_filled', Schema::hasTable('rapyd_demo_users'));
-    }
-
-    public function index()
-    {
-        return view('rpd-demo::demo');
-    }
-
-    public function schema()
-    {
-        Schema::dropIfExists("rapyd_demo_users");
-        Schema::dropIfExists("rapyd_demo_articles");
-
         Schema::table("rapyd_demo_users", function ($table) {
             $table->create();
             $table->increments('id');
@@ -45,14 +34,14 @@ class DemoController extends Controller
         });
 
         $faker = Factory::create();
-        for ($i = 1;$i <= 10;$i++) {
+        for ($i = 1; $i <= 10; $i++) {
             DB::table('rapyd_demo_users')->insert(
                 [
                     'firstname' => $faker->firstName,
                     'lastname' => $faker->lastName,
                 ]
             );
-            for ($j = 1;$j <= 2;$j++) {
+            for ($j = 1; $j <= 2; $j++) {
                 DB::table('rapyd_demo_articles')->insert(
                     [
                         'author_id' => $i,
@@ -65,21 +54,17 @@ class DemoController extends Controller
                 );
             }
         }
-
-
-        session()->flash('message', 'Database populated');
-
-        return view('rpd-demo::demo');
     }
 
-    public function users()
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
     {
-        return view('rpd-demo::users');
-    }
+        Schema::dropIfExists("rapyd_demo_users");
+        Schema::dropIfExists("rapyd_demo_articles");
 
-
-    public function userEdit($id = null)
-    {
-        return view('rpd-demo::user', compact('id'));
     }
 }

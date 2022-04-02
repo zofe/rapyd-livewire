@@ -1,4 +1,4 @@
-@extends('rpd-demo::master')
+@extends('master')
 
 @section('title','Demo')
 
@@ -28,11 +28,11 @@
             @if (!$db_filled)
                 it seems that no demo data is present, please:<br />
                 <br />
-                <a href="{{ route('rapyd.schema') }}" class="btn btn-primary">Populate Database</a>
+                <a href="{{ route('test.schema') }}" class="btn btn-primary">Populate Database</a>
             @else
                 You can reset database  demo data by:<br />
                 <br />
-                <a href="{{ route('rapyd.schema') }}" class="btn btn-primary">Re-Populate Database</a>
+                <a href="{{ route('test.schema') }}" class="btn btn-primary">Re-Populate Database</a>
             @endif
         @endif
         <br />

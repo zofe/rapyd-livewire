@@ -1,12 +1,12 @@
 <?php
 
-namespace Zofe\Rapyd\Demo\Models;
+namespace Zofe\Rapyd\Tests\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Zofe\Rapyd\Traits\SSearch;
 
-class DemoUser extends Model
+class Author extends Model
 {
     use HasFactory;
     use SSearch;
@@ -21,6 +21,6 @@ class DemoUser extends Model
 
     public function articles()
     {
-        return $this->hasMany(DemoArticle::class, 'author_id', 'id');
+        return $this->hasMany(Article::class, 'author_id', 'id');
     }
 }

@@ -20,7 +20,7 @@
 
     <div class="container py-3">
         <header>
-            @include('rpd-demo::menu')
+            @include('menu')
 
 
             <nav aria-label="breadcrumb">

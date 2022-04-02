@@ -1,12 +1,12 @@
 <?php
 
-namespace Zofe\Rapyd\Demo\Models;
+namespace Zofe\Rapyd\Tests\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Zofe\Rapyd\Traits\SSearch;
 
-class DemoArticle extends Model
+class Article extends Model
 {
     use HasFactory;
     use SSearch;
@@ -15,7 +15,7 @@ class DemoArticle extends Model
     protected $attributes = [
         'public' => 0,
     ];
-    
+
     public static function ssearchFallback($query)
     {
         return  static::query()->where(function ($q) use ($query) {
@@ -32,6 +32,6 @@ class DemoArticle extends Model
 
     public function author()
     {
-        return $this->belongsTo(DemoUser::class, 'author_id', 'id');
+        return $this->belongsTo(Author::class, 'author_id', 'id');
     }
 }

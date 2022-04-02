@@ -1,10 +1,9 @@
 <?php
 
-namespace Zofe\Rapyd\Demo\Http\Livewire;
+namespace Zofe\Rapyd\Http\Livewire;
 
-use Zofe\Rapyd\Demo\Models\DemoArticle;
-use Zofe\Rapyd\Demo\Models\DemoUser;
-use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
+use Zofe\Rapyd\Tests\Models\Article;
+use Zofe\Rapyd\Tests\Models\Author;
 
 class ArticlesTable extends AbstractDataTable
 {
@@ -14,7 +13,7 @@ class ArticlesTable extends AbstractDataTable
 
     public function getDataSet()
     {
-        $items = DemoArticle::ssearch($this->search);
+        $items = Article::ssearch($this->search);
         if ($this->author_id) {
             $items = $items->where('author_id', '=', $this->author_id);
         }
@@ -27,9 +26,10 @@ class ArticlesTable extends AbstractDataTable
 
     public function render()
     {
-        $items = $this->getDataSet();
-        $authors = DemoUser::all()->pluck('firstname', 'id')->toArray();
 
-        return view('rpd-demo::livewire.articles.table', compact('items', 'authors'));
+        $items = $this->getDataSet();
+        $authors = Author::all()->pluck('firstname', 'id')->toArray();
+
+        return view('livewire.articles.table', compact('items', 'authors'));
     }
 }
