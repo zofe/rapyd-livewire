@@ -2,9 +2,9 @@
 
 namespace Zofe\Rapyd\Tests\Http\Livewire;
 
+use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 use Zofe\Rapyd\Tests\Models\Article;
 use Zofe\Rapyd\Tests\Models\Author;
-use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
 
 class ArticlesTable extends AbstractDataTable
 {

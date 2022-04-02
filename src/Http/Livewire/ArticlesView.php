@@ -2,8 +2,6 @@
 
 namespace Zofe\Rapyd\Http\Livewire;
 
-
-
 class ArticlesView extends AbstractDataView
 {
     public $active_menu = 'articles';

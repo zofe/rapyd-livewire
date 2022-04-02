@@ -65,6 +65,5 @@ class CreateDemos extends Migration
     {
         Schema::dropIfExists("rapyd_demo_users");
         Schema::dropIfExists("rapyd_demo_articles");
-
     }
 }
