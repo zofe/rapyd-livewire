@@ -43,13 +43,14 @@ but this is a bit of documentation:
 Abstract classes to be extended as livewire compoments.
 Main goal is to standardize a large laravel admin application in a set of 2/3 Widgets for each Model you need to manage.
 
-### AbstractDataTable
-extend AbstractDataTable if you need a "listing page" with these features:
+### DataTable
+DataTable extend AbstractDataTable if you need a "listing page" with these features:
 - "input filters" to search in a custom dataset 
 - "buttons" (for example "add" record or "reset" filters)
 - "pagination links"
 - "sort links"   
 
+example 
 ```php
 <?php
 namespace App\Http\Livewire;
@@ -86,8 +87,8 @@ class ArticlesTable extends AbstractDataTable
 
 ```
 
-the tag in
-/livewire/articles/table.blade.php
+tag in
+`/livewire/articles/table.blade.php`
 
 ```html
 <x-rpd::table
@@ -138,14 +139,13 @@ the tag in
 
 ```
 
-
 demo: https://rapyd.dev/rapyd-demo/articles
 
 
-### AbstractDataView
-extend AbstractDataView if you need a "detail page" with these features:  
+### DataView
+DataView extend AbstractDataView for a "detail page" with:  
 
-- "buttons" (for example back to "list" or "edit" current record)
+- "buttons" slot (for example back to "list" or "edit" current record)
 
 ```php
 <?php
@@ -171,8 +171,7 @@ class ArticlesView extends AbstractDataView
 }
 ```
 
-the tag in
-/livewire/articles/view.blade.php
+the tag in `/livewire/articles/view.blade.php`
 
 ```html
     <x-rpd::view title="Article Detail">
@@ -198,8 +197,8 @@ content/slots
 demo: https://rapyd.dev/rapyd-demo/article/view/1
 
 
-### AbstractDataEdit
-{{MODEL}}Edit component should extend AbstractDataEdit for a "form" binded to a model with:  
+### DataEdit
+DataEdit component extend AbstractDataEdit for a "form" binded to a model with:  
 
 - "buttons" and "actions" (undo, save)
 - form "rules"
@@ -254,9 +253,7 @@ class ArticlesEdit extends AbstractDataEdit
 }
 
 ```
-
-the tag in
-/livewire/articles/edit.blade.php
+the tag in `/livewire/articles/edit.blade.php`
 
 ```html
     <x-rpd::edit title="Article Edit">
@@ -276,9 +273,6 @@ content/slots
 demo: https://rapyd.dev/rapyd-demo/article/edit/1
 
 ---
-
-
-
 
 
 ### Fields Tags
