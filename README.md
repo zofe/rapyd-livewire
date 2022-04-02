@@ -156,7 +156,6 @@ use Zofe\Rapyd\Http\Livewire\AbstractDataView;
 
 class ArticlesView extends AbstractDataView
 {
-    public $active_menu = 'articles';
     public $article;
 
     public function mount(Article $article)
