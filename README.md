@@ -88,8 +88,7 @@ class ArticlesTable extends AbstractDataTable
 
 ```
 
-tag in
-`/livewire/articles/table.blade.php`
+the view`/resources/views/livewire/articles/table.blade.php`
 
 ```html
 <x-rpd::table
@@ -172,7 +171,7 @@ class ArticlesView extends AbstractDataView
 }
 ```
 
-the tag in `/livewire/articles/view.blade.php`
+the view `/resources/views/livewire/articles/view.blade.php`
 
 ```html
     <x-rpd::view title="Article Detail">
@@ -254,7 +253,7 @@ class ArticlesEdit extends AbstractDataEdit
 }
 
 ```
-the tag in `/livewire/articles/edit.blade.php`
+the view `/resources/views/livewire/articles/edit.blade.php`
 
 ```html
     <x-rpd::edit title="Article Edit">
