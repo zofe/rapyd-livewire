@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd\Tests\Feature;
 
-
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Livewire\Livewire;
 use Zofe\Rapyd\Tests\Models\Article;

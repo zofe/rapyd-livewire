@@ -42,14 +42,13 @@ class TestCase extends Orchestra
     protected function defineRoutes($router)
     {
         $router->group(['prefix' => 'test-demo'], function () use ($router) {
-            $router->get('/', function() {
+            $router->get('/', function () {
                 return view('master');
             })->name('test');
 
             $router->get('/articles', ['as' => 'test.articles', 'uses' => ArticlesTable::class]);
-            $router->get('/articles/view/{article:id}',['as' => 'test.articles.view', 'uses' => ArticlesView::class]);
-            $router->get('/articles/edit/{article:id?}',['as' => 'test.articles.edit', 'uses' => ArticlesEdit::class]);
-
+            $router->get('/articles/view/{article:id}', ['as' => 'test.articles.view', 'uses' => ArticlesView::class]);
+            $router->get('/articles/edit/{article:id?}', ['as' => 'test.articles.edit', 'uses' => ArticlesEdit::class]);
         });
     }
 
