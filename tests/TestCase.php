@@ -44,13 +44,13 @@ class TestCase extends Orchestra
     protected function defineRoutes($router)
     {
         $router->group(['prefix' => 'test-demo'], function () use ($router) {
-            $router->get('/', function() {
+            $router->get('/', function () {
                 return view('master');
             })->name('test');
 
             $router->get('/articles', ['as' => 'test.articles', 'uses' => ArticlesTable::class]);
-            $router->get('/articles/view/{article:id}',['as' => 'test.articles.view', 'uses' => ArticlesView::class]);
-            $router->get('/articles/edit/{article:id?}',['as' => 'test.articles.edit', 'uses' => ArticlesEdit::class]);
+            $router->get('/articles/view/{article:id}', ['as' => 'test.articles.view', 'uses' => ArticlesView::class]);
+            $router->get('/articles/edit/{article:id?}', ['as' => 'test.articles.edit', 'uses' => ArticlesEdit::class]);
 
 
 //            $router->get('/article/view/{article:id?}', [ArticlesController::class, 'view'])->name('articles.view')->breadcrumbs(function ($trail, $article) {
@@ -90,7 +90,6 @@ class TestCase extends Orchestra
 //                }
 //            });
 //        });
-
     }
 
     public function makeACleanSlate()
@@ -123,7 +122,7 @@ class TestCase extends Orchestra
         ]);
 
         $app['config']->set('session.driver', 'file');
-       // $app['config']->set('livewire.class_namespace','Zofe\\Rapyd\\Tests\\Http\\Livewire');
+        // $app['config']->set('livewire.class_namespace','Zofe\\Rapyd\\Tests\\Http\\Livewire');
 
         /*
         include_once __DIR__.'/../database/migrations/create_rapyd_livewire_table.php.stub';

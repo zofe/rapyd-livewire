@@ -26,7 +26,7 @@ class RapydTest extends TestCase
     {
         $article = Article::find(1);
 
-        Livewire::test('test-articles-view', ['article'=>$article])
+        Livewire::test('test-articles-view', ['article' => $article])
             ->assertSee($article->title);
     }
 
@@ -34,13 +34,12 @@ class RapydTest extends TestCase
     {
         $article = Article::find(1);
 
-        Livewire::test('test-articles-edit', ['article'=>$article])
-            ->set('article.title','modified title')
+        Livewire::test('test-articles-edit', ['article' => $article])
+            ->set('article.title', 'modified title')
             ->call('update')
             ->assertRedirect('/test-demo/articles/view/1');
 
         $article->refresh();
         $this->assertEquals($article->title, 'modified title');
-
     }
 }

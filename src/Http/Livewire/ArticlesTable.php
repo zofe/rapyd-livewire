@@ -26,7 +26,6 @@ class ArticlesTable extends AbstractDataTable
 
     public function render()
     {
-
         $items = $this->getDataSet();
         $authors = Author::all()->pluck('firstname', 'id')->toArray();
 

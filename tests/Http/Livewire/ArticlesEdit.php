@@ -2,10 +2,9 @@
 
 namespace Zofe\Rapyd\Tests\Http\Livewire;
 
-
+use Zofe\Rapyd\Http\Livewire\AbstractDataEdit;
 use Zofe\Rapyd\Tests\Models\Article;
 use Zofe\Rapyd\Tests\Models\Author;
-use Zofe\Rapyd\Http\Livewire\AbstractDataEdit;
 
 class ArticlesEdit extends AbstractDataEdit
 {
@@ -13,10 +12,10 @@ class ArticlesEdit extends AbstractDataEdit
     public $article;
 
     protected $rules = [
-        'article.title'   => 'required',
-        'article.author_id'=> 'required',
-        'article.body'    => 'nullable',
-        'article.public'  => 'nullable|boolean',
+        'article.title' => 'required',
+        'article.author_id' => 'required',
+        'article.body' => 'nullable',
+        'article.public' => 'nullable|boolean',
     ];
 
     public function mount(Article $article = null)
@@ -29,6 +28,7 @@ class ArticlesEdit extends AbstractDataEdit
     {
         $this->validate();
         $this->article->save();
+
         return redirect()->to(route('test.articles.view', $this->article->getKey()));
     }
 
