@@ -2,12 +2,16 @@
 
 namespace Zofe\Rapyd\Tests\Feature;
 
+
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Livewire\Livewire;
 use Zofe\Rapyd\Tests\Models\Article;
 use Zofe\Rapyd\Tests\TestCase;
 
 class RapydTest extends TestCase
 {
+    use DatabaseMigrations;
+
     protected function setUp(): void
     {
         parent::setUp();

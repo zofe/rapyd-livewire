@@ -34,10 +34,8 @@ class TestCase extends Orchestra
         Livewire::component('test-articles-table', \Zofe\Rapyd\Tests\Http\Livewire\ArticlesTable::class);
         Livewire::component('test-articles-edit', \Zofe\Rapyd\Tests\Http\Livewire\ArticlesEdit::class);
         Livewire::component('test-articles-view', \Zofe\Rapyd\Tests\Http\Livewire\ArticlesView::class);
-    }
 
-    protected function defineDatabaseMigrations()
-    {
+
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
     }
 
@@ -52,45 +50,7 @@ class TestCase extends Orchestra
             $router->get('/articles/view/{article:id}',['as' => 'test.articles.view', 'uses' => ArticlesView::class]);
             $router->get('/articles/edit/{article:id?}',['as' => 'test.articles.edit', 'uses' => ArticlesEdit::class]);
 
-
-//            $router->get('/article/view/{article:id?}', [ArticlesController::class, 'view'])->name('articles.view')->breadcrumbs(function ($trail, $article) {
-//                $trail->parent('articles')->push('View Article', route('articles.view', $article));
-//            });
-//            $router->get('/article/edit/{article:id?}', [ArticlesController::class, 'edit'])->name('articles.edit')->breadcrumbs(function ($trail, $article = null) {
-//                if ($article) {
-//                    $trail->parent('articles.view', $article)->push('Edit Article', route('articles.edit', $article));
-//                } else {
-//                    $trail->parent('articles')->push('Create Article', route('articles.edit'));
-//                }
-//            });
         });
-
-
-//        Route::prefix('test-demo')->group(function () {
-////            Route::get('/',                 [DemoController::class, 'index'])->name('demo')->breadcrumbs(function ($trail) {
-////                $trail->push('Home', route('test'));
-////            });
-////            Route::get('/schema',           [DemoController::class, 'schema'])->name('demo.schema')->breadcrumbs(function ($trail) {
-////                $trail->parent('test')->push('Schema', route('test.schema'));
-////            });
-////            // Route::get('/users',            [DemoController::class, 'users'])->name('demo.users');
-////            // Route::get('/users/{user:id?}', [DemoController::class, 'userEdit'])->name('demo.users.edit');
-//
-//            Route::get('/articles',         [ArticlesController::class, 'index'])->name('articles')->breadcrumbs(function ($trail) {
-//                $trail->parent('demo')->push('Articles', route('test.articles'));
-//            });
-//            Route::get('/article/view/{article:id?}', [ArticlesController::class, 'view'])->name('articles.view')->breadcrumbs(function ($trail, $article) {
-//                $trail->parent('articles')->push('View Article', route('articles.view', $article));
-//            });
-//            Route::get('/article/edit/{article:id?}', [ArticlesController::class, 'edit'])->name('articles.edit')->breadcrumbs(function ($trail, $article = null) {
-//                if ($article) {
-//                    $trail->parent('articles.view', $article)->push('Edit Article', route('articles.edit', $article));
-//                } else {
-//                    $trail->parent('articles')->push('Create Article', route('articles.edit'));
-//                }
-//            });
-//        });
-
     }
 
     public function makeACleanSlate()
@@ -123,11 +83,5 @@ class TestCase extends Orchestra
         ]);
 
         $app['config']->set('session.driver', 'file');
-       // $app['config']->set('livewire.class_namespace','Zofe\\Rapyd\\Tests\\Http\\Livewire');
-
-        /*
-        include_once __DIR__.'/../database/migrations/create_rapyd_livewire_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
     }
 }
