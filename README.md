@@ -7,7 +7,7 @@
 
 ## What is it?
 
-is a laravel library of widgets (livewire abstract components) that you can extend to create administration interfaces in a concise, uncluttered, and testable manner.
+is a laravel library of widgets (blade & livewire components) that you can extend to create administration interfaces in a concise, uncluttered, and testable manner.
 
 It also bundles Bootstrap, Vue, Alpine and Quill to be used as fast boilerplate for your laravel admin panels.
 
