@@ -50,6 +50,95 @@ extend AbstractDataTable if you need a "listing page" with these features:
 - "pagination links"
 - "sort links"   
 
+```php
+<?php
+namespace App\Http\Livewire;
+
+use App\Models\Article;
+use App\Models\Author;
+use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
+
+class ArticlesTable extends AbstractDataTable
+{
+    public $search;
+    public $author_id;
+
+    public function getDataSet()
+    {
+        $items = Article::ssearch($this->search);
+        if ($this->author_id) {
+            $items = $items->where('author_id', '=', $this->author_id);
+        }
+
+        return $items = $items
+            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            ->paginate($this->perPage)
+            ;
+    }
+
+    public function render()
+    {
+        $items = $this->getDataSet();
+        $authors = Author::all()->pluck('firstname', 'id')->toArray();
+        return view('livewire.articles.table', compact('items', 'authors'));
+    }
+}
+
+```
+
+the tag in
+/livewire/articles/table.blade.php
+
+```html
+<x-rpd::table
+    title="Article List"
+    :items="$items"
+>
+    
+    <x-slot name="filters">
+        <div class="col">
+            <x-rpd::input debounce="350" model="search"  placeholder="search..." />
+        </div>
+        <div class="col">
+            <x-rpd::select lazy model="author_id" :options="$authors" placeholder="author..." addempty />
+        </div>
+    </x-slot>
+
+    <x-slot name="buttons">
+            <a href="{{ route('articles') }}" class="btn btn-outline-dark">reset</a>
+            <a href="{{ route('articles.edit') }}" class="btn btn-outline-primary">add</a>
+    </x-slot>
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                <x-rpd::sort model="id" label="id" />
+            </th>
+            <th>title</th>
+            <th>author</th>
+            <th>body</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($items as $article)
+            <tr>
+                <td>
+                    <a href="{{ route('articles.view',$article->id) }}">{{ $article->id }}</a>
+                </td>
+                <td>{{ $article->title }}</td>
+                <td>{{ $article->author->firstname }}</td>
+                <td>{{ Str::limit($article->body,50) }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    
+</x-rpd::table>
+
+```
+
+
 demo: https://rapyd.dev/rapyd-demo/articles
 
 
@@ -58,48 +147,32 @@ extend AbstractDataView if you need a "detail page" with these features:
 
 - "buttons" (for example back to "list" or "edit" current record)
 
-demo: https://rapyd.dev/rapyd-demo/article/view/1
+```php
+<?php
+namespace App\Http\Livewire;
 
+use App\Models\Article;
+use Zofe\Rapyd\Http\Livewire\AbstractDataView;
 
-### AbstractDataEdit
-extend AbstractDataEdit if you need a "form" binded to a model to edit it with these features:  
+class ArticlesView extends AbstractDataView
+{
+    public $active_menu = 'articles';
+    public $article;
 
-- "buttons" and "actions" (undo, save)
-- form "rules"
-- smart "fields"
+    public function mount(Article $article)
+    {
+        $this->article = $article;
+    }
 
-demo: https://rapyd.dev/rapyd-demo/article/edit/1
-
----
-### Widgets Tags
-
-
-#### rpd::edit
-
-DataEdit widget must use this tag to define a standard crud for a model.
-
-Should have a title as content/slot should pass form fields
- 
-
-```html
-    <x-rpd::edit title="Article Edit">
-
-       <x-rpd::input model="article.title" label="Title" />
-       <x-rpd::rich-text model="article.body" label="Body" />
-
-    </x-rpd::edit>
+    public function render()
+    {
+        return view('livewire.articles.view');
+    }
+}
 ```
 
-props
-- `title`: the heading title for this crud
-content/slots
-- form fields
-
-
-#### rpd::view
-
-DataView widget must use this tag to define a standard detail view for a model.
-Should have a title, buttons slot, and the main slot should some content
+the tag in
+/livewire/articles/view.blade.php
 
 ```html
     <x-rpd::view title="Article Detail">
@@ -117,9 +190,94 @@ Should have a title, buttons slot, and the main slot should some content
 
 props
 - `title`: the heading title for this crud
+
 content/slots
-- should be a detail of $model 
+- should be a detail of $model
 - `buttons`: buttons panel
+
+demo: https://rapyd.dev/rapyd-demo/article/view/1
+
+
+### AbstractDataEdit
+{{MODEL}}Edit component should extend AbstractDataEdit for a "form" binded to a model with:  
+
+- "buttons" and "actions" (undo, save)
+- form "rules"
+- form "fields"
+
+example 
+```php
+<?php
+namespace App\Http\Livewire;
+
+use App\Models\Article;
+use App\Models\Author;
+use Zofe\Rapyd\Http\Livewire\AbstractDataEdit;
+
+class ArticlesEdit extends AbstractDataEdit
+{
+    public $article;
+   
+    protected $rules = [
+        'article.title'   => 'required',
+        'article.author_id'=> 'required',
+        'article.body'    => 'nullable',
+        'article.public'  => 'nullable|boolean',
+    ];
+
+    public function mount(Article $article = null)
+    {
+        $this->article = $article;
+        $this->action = ($article->exists) ? 'update' : 'create';
+    }
+
+    public function create()
+    {
+        $this->validate();
+        $this->article->save();
+        return redirect()->to(route('articles.view', $this->article->getKey()));
+    }
+
+    public function update()
+    {
+        $this->validate();
+        $this->article->save();
+        return redirect()->to(route('articles.view', $this->article->getKey()));
+    }
+
+    public function render()
+    {
+        $authors = Author::all()->pluck('firstname', 'id')->toArray();
+
+        return view('livewire.articles.edit', compact('authors'));
+    }
+}
+
+```
+
+the tag in
+/livewire/articles/edit.blade.php
+
+```html
+    <x-rpd::edit title="Article Edit">
+
+       <x-rpd::input model="article.title" label="Title" />
+       <x-rpd::rich-text model="article.body" label="Body" />
+
+    </x-rpd::edit>
+```
+
+props
+- `title`: the heading title for this crud
+
+content/slots
+- form fields
+
+demo: https://rapyd.dev/rapyd-demo/article/edit/1
+
+---
+
+
 
 
 
