@@ -7,7 +7,6 @@ use Zofe\Rapyd\Tests\Models\Article;
 
 class ArticlesView extends AbstractDataView
 {
-    public $active_menu = 'articles';
     public $article;
 
     public function mount(Article $article)

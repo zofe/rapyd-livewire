@@ -8,7 +8,6 @@ use Zofe\Rapyd\Tests\Models\Author;
 
 class ArticlesTable extends AbstractDataTable
 {
-    public $active_menu = 'articles';
     public $search;
     public $author_id;
 

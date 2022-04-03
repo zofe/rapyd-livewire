@@ -6,8 +6,6 @@ use Zofe\Rapyd\Tests\Models\Author;
 
 class ArticlesEdit extends AbstractDataEdit
 {
-    public $active_menu = 'articles';
-
     protected $rules = [
         'model.title' => 'required',
         'model.author_id' => 'required',
