@@ -14,7 +14,7 @@
 
     $attributes = $attributes->class([
         'nav-link',
-        'active' => $href == Request::url(),
+        'active' => $href == url()->current(),
     ])->merge([
         'href' => $href,
         'wire:click.prevent' => $click,
