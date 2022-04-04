@@ -318,7 +318,17 @@ special tags
 ```html
 <!-- sort ascending/descending link actions (in a datatable view context)-->
 <x-rpd::sort model="id" label="id" />
+
+<!--bootstrap nav-link menu with self-determined active link -->
+<ul class="nav nav-tabs">
+    <x-rpd::nav-link label="Home" route="home" />
+    <x-rpd::nav-link label="Articles" route="articles" />
+    <x-rpd::nav-link label="Article Detail" route="articles.view" :params="1"/>
+    <x-rpd::nav-link label="Article edit" route="articles.edit" />
+</ul>
+
 ```
+
 
 
 ### minimal layout to display rapyd widgets

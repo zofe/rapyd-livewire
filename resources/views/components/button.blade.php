@@ -30,7 +30,7 @@
 @endphp
 
 <{{ $href ? 'a' : 'button' }} {{ $attributes }}>
-<x-bs::icon :name="$icon"/>
+<x-rpd::icon :name="$icon"/>
 
 {{ $label ?? $slot }}
 </{{ $href ? 'a' : 'button' }}>
