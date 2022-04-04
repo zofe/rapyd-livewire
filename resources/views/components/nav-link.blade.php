@@ -12,9 +12,6 @@
     if ($route) $href = route($route, $params);
     else if ($url) $href = url($url);
 
-
-    dump($href, Request::url());
-    echo '<hr>';
     $attributes = $attributes->class([
         'nav-link',
         'active' => $href == Request::url(),
