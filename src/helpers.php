@@ -29,7 +29,6 @@ if (! function_exists('dot_to_property')) {
 }
 
 if (! function_exists('url_contains')) {
-
     function url_contains($needle, $strict = false)
     {
         $needle = trim($needle, ' \\/');
