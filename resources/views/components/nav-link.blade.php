@@ -6,15 +6,25 @@
     'href' => null,
     'click' => null,
     'params' => [],
+    'active' => false,
 ])
 
 @php
-    if ($route) $href = route($route, $params);
-    else if ($url) $href = url($url);
+    if(is_string($active) && strlen($active)>2 && !in_array(strtolower($active),['true','false']) ) {
+        $active = url_contains($active);
+    }
+    if ($route) {
+        $href = route($route, $params);
+        $active = $active ?: request()->routeIs($route);
+    } else if ($url){
+        $href = url($url);
+        $active = $active  ?: $href == url()->current();
+    }
+
 
     $attributes = $attributes->class([
         'nav-link',
-        'active' => $href == url()->current(),
+        'active' => $active,
     ])->merge([
         'href' => $href,
         'wire:click.prevent' => $click,

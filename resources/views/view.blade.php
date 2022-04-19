@@ -1,5 +1,5 @@
 <div class="rpd-view">
-    <form autocomplete="off">
+<form autocomplete="off">
         <div class="d-flex mb-4">
             <div class="flex-grow-1">
                 <div class="row g-2">

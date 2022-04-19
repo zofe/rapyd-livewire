@@ -1,29 +1,13 @@
 
 let path = require('path');
 let mix = require('laravel-mix');
-//let webpack = require('webpack');
 
-//mix
-    // .options({
-    //     terser: {
-    //         terserOptions: {
-    //             compress: {
-    //                 drop_console: true
-    //             }
-    //         }
-    //     }
-    // })
-    //.setPublicPath("public")
+
+mix.setPublicPath('public');
+mix.setResourceRoot('./');
 mix.js("resources/js/rapyd.js", "public")
+    .js("resources/js/bootstrap.js", "public")
+    .js("resources/js/alpine.js", "public")
     .vue()
     .sass('resources/sass/rapyd.scss', 'public').sourceMaps(true, 'source-map')
-//.version()
-    // .webpackConfig({
-    //     resolve: {
-    //         symlinks: false,
-    //         alias: {
-    //             "@": path.resolve(__dirname, "resources/js/")
-    //         }
-    //     },
-    //     plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
-    // });
+    .sass('resources/sass/bootstrap.scss', 'public').sourceMaps(true, 'source-map')

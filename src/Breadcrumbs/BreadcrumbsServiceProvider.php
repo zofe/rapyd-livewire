@@ -21,7 +21,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
     public function boot()
     {
         //Blade::component('tabuna-breadcrumbs', BreadcrumbsComponent::class);
-        Blade::component('rpd-breadcrumbs', BreadcrumbsComponent::class);
+        Blade::component('rpd::breadcrumbs', BreadcrumbsComponent::class);
     }
 
     /**
@@ -34,17 +34,17 @@ class BreadcrumbsServiceProvider extends ServiceProvider
         $this->app->singleton(Manager::class);
         //$this->loadViewsFrom(__DIR__ . '/../views', 'breadcrumbs');
 
-        \Illuminate\Support\Facades\Route::middlewareGroup('breadcrumbs', [
+        \Illuminate\Support\Facades\Route::middlewareGroup('crumbs', [
             BreadcrumbsMiddleware::class,
         ]);
 
-        if (Route::hasMacro('breadcrumbs')) {
+        if (Route::hasMacro('crumbs')) {
             return;
         }
 
-        Route::macro('breadcrumbs', function (Closure $closure) {
+        Route::macro('crumbs', function (Closure $closure) {
             /** @var Route $this */
-            $this->middleware('breadcrumbs')
+            $this->middleware('crumbs')
                 ->defaults(BreadcrumbsMiddleware::class, serialize(new SerializableClosure($closure)));
 
             return $this;

@@ -8,6 +8,6 @@ coverage
 docs
 phpunit.xml
 psalm.xml
-vendor
+/vendor
 .DS_Store
 /node_modules

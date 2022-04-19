@@ -1,5 +1,3 @@
-
-
 @props([
 'title' => null,
 'buttons' => null,

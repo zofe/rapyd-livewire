@@ -1,28 +1,25 @@
 @props([
 'title' => null,
 'buttons' => null,
-'viewRoute' => $__data['_instance']->viewRoute,
-'editRoute' => $__data['_instance']->editRoute,
-
 'items'=> null,
 'pagination'=> null,
-//'model'=> $__data['_instance']->model,
-//'action'=> $__data['_instance']->action
 ])
 @php
-    $__data['_instance']->viewRoute = $viewRoute;
-    $__data['_instance']->editRoute = $editRoute;
+    $variablesInScope = get_defined_vars();
 
+//dump($variablesInScope);
+//    $except = ['_instance', '__data', '__env', 'attributes', 'app', 'errors', 'slot','__laravel_slots','filters','buttons'];
+//    $vars = array_filter($variablesInScope, fn ($key) => !in_array($key, $except), ARRAY_FILTER_USE_KEY);
 
+//dd($vars);
 @endphp
-
 <div class="rpd-table">
     <form autocomplete="off">
         <div class="d-flex mb-4">
             <div class="flex-grow-1">
                 <div class="row g-2">
-                    @if($filters)
-                        {{ $filters }}
+                    @if($filters ?? '')
+                        {{ $filters ?? '' }}
                     @else
                         <div class="col">
                             <x-rpd::input name="search" wire:model="search" placeholder="search..." />
@@ -36,12 +33,6 @@
                     <div class="btn-group">
                         @if($buttons)
                             {{ $buttons }}
-                        @else
-                            @if($viewRoute && $model->exists)
-                                <a href="{{ route($viewRoute,$model->getKey()) }}" class="btn btn-outline-primary">undo</a>
-                            @elseif($listRoute)
-                                <a href="{{ route($listRoute) }}" class="btn btn-outline-primary">undo</a>
-                            @endif
                         @endif
                     </div>
                 </div>

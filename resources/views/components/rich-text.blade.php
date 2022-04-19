@@ -40,19 +40,17 @@
 @endphp
 
 
-<div class="mt-2 bg-white" wire:ignore>
-
+<div class="mt-2 bg-white" wire:ignore >
     <x-rpd::label :for="$id" :label="$label"/>
-
-    <div
-        x-data
+    <div x-data
+         x-init="
+               console.log($refs.quillEditor);
+               quill = new Quill($refs.quillEditor, {theme: 'snow'});
+               quill.on('text-change', function () {
+                   $dispatch('quill-input', quill.root.innerHTML);
+               });
+         "
         x-ref="quillEditor"
-        x-init="
-         quill = new Quill($refs.quillEditor, {theme: 'snow'});
-         quill.on('text-change', function () {
-           $dispatch('quill-input', quill.root.innerHTML);
-        });
-       "
         x-on:quill-input.debounce.defer="@this.set('{{ $key }}', $event.detail)"
     >
         {!! dot_to_property($this, $key) !!}

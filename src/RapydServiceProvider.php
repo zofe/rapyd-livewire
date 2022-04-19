@@ -4,8 +4,10 @@ namespace Zofe\Rapyd;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 use Zofe\Rapyd\Breadcrumbs\BreadcrumbsServiceProvider;
 use Zofe\Rapyd\Commands\RapydCommand;
+use Zofe\Rapyd\Http\Livewire\RapydApp;
 
 class RapydServiceProvider extends ServiceProvider
 {
@@ -31,11 +33,10 @@ class RapydServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rpd');
 
-
         Blade::directive('rapydScripts', function () {
             $scripts = '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
             $scripts .= "<?php echo \$__env->yieldPushContent('rapyd_scripts'); ?>\n";
-
+            $scripts .= '{!! \Livewire\Livewire::mount(\'rpd-app\')->html(); !!}'."\n";
             return $scripts;
         });
         Blade::directive('rapydStyles', function () {
@@ -46,22 +47,26 @@ class RapydServiceProvider extends ServiceProvider
         });
 
         Blade::directive('rapydLivewireScripts', function ($expression) {
-            $scripts = '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>' . "\n";
-            $scripts .= '<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>' . "\n";
-            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
-            $scripts .= '{!! \Livewire\Livewire::scripts('.$expression.') !!}'."\n";
+            $scripts = '{!! \Livewire\Livewire::scripts('.$expression.') !!}'."\n";
             $scripts .= "<?php echo \$__env->yieldPushContent('rapyd_scripts'); ?>\n";
+            $scripts .= '{!! \Livewire\Livewire::mount(\'rpd-app\')->html(); !!}'."\n";
+            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
+            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/bootstrap.js\') }}" defer></script>'."\n";
+            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/alpine.js\') }}" defer></script>'."\n";
 
             return $scripts;
         });
         Blade::directive('rapydLivewireStyles', function ($expression) {
-            $styles = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />'."\n";
-            $styles .= '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/rapyd.css\') }}">'."\n";
+            $styles = '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/rapyd.css\') }}">'."\n";
+            $styles .= '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/bootstrap.css\') }}">'."\n";
             $styles .= '{!! \Livewire\Livewire::styles('.$expression.') !!}';
             $styles .= "<?php echo \$__env->yieldPushContent('rapyd_styles'); ?>\n";
 
             return $styles;
         });
+
+        Livewire::component('rpd-app', RapydApp::class);
+
     }
 
     public function register()

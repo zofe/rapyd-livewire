@@ -27,3 +27,22 @@ if (! function_exists('dot_to_property')) {
         return $instance;
     }
 }
+
+if (! function_exists('url_contains')) {
+
+    function url_contains($needle, $strict = false)
+    {
+        $needle = trim($needle, ' \\/');
+        $haystack = request()->path();
+        $existance = strpos($haystack, $needle);
+        if ($existance !== false) {
+            if ($strict) {
+                return $existance === 0 ? true : false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+}

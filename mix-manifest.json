@@ -1,4 +1,7 @@
 {
     "/public/rapyd.js": "/public/rapyd.js",
+    "/public/bootstrap.js": "/public/bootstrap.js",
+    "/public/alpine.js": "/public/alpine.js",
+    "/public/bootstrap.css": "/public/bootstrap.css",
     "/public/rapyd.css": "/public/rapyd.css"
 }
