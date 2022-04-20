@@ -4,15 +4,6 @@
 'items'=> null,
 'pagination'=> null,
 ])
-@php
-    $variablesInScope = get_defined_vars();
-
-//dump($variablesInScope);
-//    $except = ['_instance', '__data', '__env', 'attributes', 'app', 'errors', 'slot','__laravel_slots','filters','buttons'];
-//    $vars = array_filter($variablesInScope, fn ($key) => !in_array($key, $except), ARRAY_FILTER_USE_KEY);
-
-//dd($vars);
-@endphp
 <div class="rpd-table">
     <form autocomplete="off">
         <div class="d-flex mb-4">

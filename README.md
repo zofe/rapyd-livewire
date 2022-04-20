@@ -330,52 +330,28 @@ special tags
 ```
 
 
-
 ### minimal layout to display rapyd widgets
-there are some css/js dependencies (livewire, bootstrap, alpinejs)
-and some component needs to inject scripts/css so there are some nedded blade directives
-and some suggested cdn inclusions.
+there are some css/js dependencies (livewire, bootstrap, alpinejs, vuejs)
+but rapyd has two directive to simplify all needed inclusions.
 
-so your master layout in laravel should be similar to:
+Consider to use `{{ $slot }}` as entry-point if you plan to use 
+[Full-page components](https://laravel-livewire.com/docs/2.x/rendering-components#page-components)
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link href="//fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @livewireStyles
-    @rapydStyles
-</head>
-<body>
-<div id="app">
-<!-- your main content blade section -->
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-@livewireScripts
-@rapydScripts
-
-</body>
-</html>
-```
-if you don't care about the versions of bootstrap, alpinejs you can reduce to just 2 blade directives: 
+don't forget to add "app" class to your main div if you plan to use vuejs components
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="//fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css" />
     @rapydLivewireStyles
 </head>
 <body>
 <div id="app">
- <!-- your main content blade section -->
+   <!-- your main content blade section -->
+   {{ $slot ??'' }}
 </div>
+
 @rapydLivewireScripts
 </body>
 </html>
