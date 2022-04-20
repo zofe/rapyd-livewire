@@ -37,6 +37,7 @@ class RapydServiceProvider extends ServiceProvider
             $scripts = '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
             $scripts .= "<?php echo \$__env->yieldPushContent('rapyd_scripts'); ?>\n";
             $scripts .= '{!! \Livewire\Livewire::mount(\'rpd-app\')->html(); !!}'."\n";
+
             return $scripts;
         });
         Blade::directive('rapydStyles', function () {
@@ -66,7 +67,6 @@ class RapydServiceProvider extends ServiceProvider
         });
 
         Livewire::component('rpd-app', RapydApp::class);
-
     }
 
     public function register()
