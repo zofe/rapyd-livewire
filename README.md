@@ -285,7 +285,7 @@ demo: https://rapyd.dev/rapyd-demo/article/edit/1
 ### Fields Tags
 
 inside some widget views you can drastically semplify the syntax using 
-predefined blade component that interacts with livewire
+predefined blade components that interacts with livewire
 
 ```html
 <x-rpd::input debounce="350" model="search" placeholder="search..." />
@@ -348,7 +348,6 @@ Nav Sidebar: bootstrap sidebar with self-determined or segment-based active link
 </x-rpd::sidebar>
 ```
 
-```
 
 
 ## minimal application layout
