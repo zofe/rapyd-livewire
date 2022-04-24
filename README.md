@@ -329,24 +329,37 @@ props
 - `rows`: rows nums
 
 
-special tags
+## special tags
 
 ```html
 <!-- sort ascending/descending link actions (in a datatable view context)-->
 <x-rpd::sort model="id" label="id" />
+```
+## navigation
 
-<!--bootstrap nav-link menu with self-determined active link -->
+Nav Tabs: bootstrap nav-link menu with self-determined active link
+
+```html
 <ul class="nav nav-tabs">
     <x-rpd::nav-link label="Home" route="home" />
     <x-rpd::nav-link label="Articles" route="articles" />
     <x-rpd::nav-link label="Article Detail" route="articles.view" :params="1"/>
     <x-rpd::nav-link label="Article edit" route="articles.edit" />
 </ul>
+```
+
+Nav Sidebar: bootstrap sidebar with self-determined or segment-based active link
+```html
+<x-rpd::sidebar title="Rapyd.dev" class="p-3 text-white border-end">
+   <x-rpd::nav-item label="Demo" route="demo" active="/rapyd-demo" />
+   <x-rpd::nav-item label="Page" route="page"  />
+</x-rpd::sidebar>
+```
 
 ```
 
 
-### minimal layout to display rapyd widgets
+## minimal application layout
 there are some css/js dependencies (livewire, bootstrap, alpinejs, vuejs)
 but rapyd has two directive to simplify all needed inclusions.
 
