@@ -19,7 +19,8 @@
         "php": "^7.4|^8.0",
         "illuminate/contracts": "^8.27|^9.0",
         "laravel/serializable-closure": "^1.1",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "touhidurabir/laravel-stub-generator": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.8.0",

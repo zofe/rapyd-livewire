@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Zofe\Rapyd\Breadcrumbs\BreadcrumbsServiceProvider;
+use Zofe\Rapyd\Commands\DataTableCommand;
 use Zofe\Rapyd\Commands\RapydCommand;
 use Zofe\Rapyd\Http\Livewire\RapydApp;
 
@@ -28,6 +29,7 @@ class RapydServiceProvider extends ServiceProvider
 
             $this->commands([
                 RapydCommand::class,
+                DataTableCommand::class,
             ]);
         }
 

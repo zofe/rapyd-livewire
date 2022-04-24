@@ -20,18 +20,9 @@ class ArticlesEdit extends AbstractDataEdit
     public function mount(Article $article = null)
     {
         $this->article = $article;
-        $this->action = ($article->exists) ? 'update' : 'create';
     }
 
-    public function create()
-    {
-        $this->validate();
-        $this->article->save();
-
-        return redirect()->to(route('test.articles.view', $this->article->getKey()));
-    }
-
-    public function update()
+    public function save()
     {
         $this->validate();
         $this->article->save();

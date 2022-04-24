@@ -39,7 +39,7 @@ class RapydTest extends TestCase
 
         Livewire::test('test-articles-edit', ['article' => $article])
             ->set('article.title', 'modified title')
-            ->call('update')
+            ->call('save')
             ->assertRedirect('/test-demo/articles/view/1');
 
         $article->refresh();

@@ -1,8 +1,8 @@
 @props([
 'title' => null,
 'buttons' => null,
-//'model'=> $__data['_instance']->model,
-'action'=> $__data['_instance']->action
+'action'=> 'save',
+'actions'=> null
 ])
 @php
 @endphp
@@ -11,17 +11,8 @@
         <div class="d-flex mb-4">
             <div class="flex-grow-1">
                 <div class="row g-2">
-                    @if($title)
-                        <h4>{{$title}}</h4>
-                    @endif
-                </div>
-            </div>
-            <div class="d-flex justify-content-end px-2">
-                <div class="mr-2">
-                    <div class="btn-group">
-                        {{ $buttons }}
-                    </div>
-
+                    <x-rpd::heading :title="$title" />
+                    <x-rpd::button-group :buttons="$buttons" />
                 </div>
             </div>
         </div>
@@ -29,15 +20,16 @@
 
     <div>
         <form wire:submit.prevent="{{ $action }}">
-
             {{ $slot }}
-
-            <div class="row">
-                <div class="form-group col-md-8 text-center">
-                    <button type="submit" class="btn btn-primary">{{ $action }}</button>
-                </div>
-            </div>
         </form>
+    </div>
+
+    <div class="d-flex">
+        <div class="flex-grow-1">
+            <div class="row g-2">
+                <x-rpd::button-group :buttons="$actions" position="center" />
+            </div>
+        </div>
     </div>
 
 </div>

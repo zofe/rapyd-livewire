@@ -7,7 +7,7 @@
 
 ## What is it?
 
-is a laravel library of widgets (blade & livewire components) that you can extend to create administration interfaces in a concise, uncluttered, and testable manner.
+is a laravel library of widgets (blade & livewire components) that you can generate/ extend to create administration interfaces in a concise, uncluttered, and testable manner.
 
 It also bundles Bootstrap, Vue, Alpine and Quill to be used as fast boilerplate for your laravel admin panels.
 
@@ -31,6 +31,22 @@ You can publish assets using:
 ```bash
 php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="public"
 ```
+
+
+## widgets logic & layout
+
+![alt text for screen readers](./public/components.png).
+
+- `heading` is a simple h4 title
+- `buttons` is a slot to display a group of buttons
+- `slot` is the main slot where to put widget content
+- `actions` is a secondary slot for a group of buttons
+
+
+- `filters` is a slot to display for example search inputs
+- `pagination` is a slot to display pagination
+
+the last two are specific of DataTable component
 
 
 ## Usage

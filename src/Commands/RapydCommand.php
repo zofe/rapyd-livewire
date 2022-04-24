@@ -6,12 +6,12 @@ use Illuminate\Console\Command;
 
 class RapydCommand extends Command
 {
-    public $signature = 'rapyd-livewire';
+    public $signature = 'rpd:hello';
 
-    public $description = 'My command';
+    public $description = 'Simple hello command';
 
     public function handle()
     {
-        $this->comment('All done');
+        $this->comment('Hello');
     }
 }

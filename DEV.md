@@ -1,5 +1,10 @@
 # library development
 
+run tests
+```bash
+
+```
+
 ### build & publish static assets
 
 ```bash
