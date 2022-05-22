@@ -2,13 +2,18 @@
 
 namespace Zofe\Rapyd;
 
+
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Touhidurabir\StubGenerator\StubGeneratorServiceProvider;
 use Zofe\Rapyd\Breadcrumbs\BreadcrumbsServiceProvider;
 use Zofe\Rapyd\Commands\DataTableCommand;
 use Zofe\Rapyd\Commands\RapydCommand;
+use Zofe\Rapyd\Commands\RapydMakeCommand;
 use Zofe\Rapyd\Http\Livewire\RapydApp;
+use Zofe\Rapyd\Modules\ModuleServiceProvider;
+use Zofe\Rapyd\Modules\RouteServiceProvider;
 
 class RapydServiceProvider extends ServiceProvider
 {
@@ -29,11 +34,13 @@ class RapydServiceProvider extends ServiceProvider
 
             $this->commands([
                 RapydCommand::class,
+                RapydMakeCommand::class,
                 DataTableCommand::class,
             ]);
         }
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rpd');
+
 
         Blade::directive('rapydScripts', function () {
             $scripts = '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
@@ -73,7 +80,14 @@ class RapydServiceProvider extends ServiceProvider
 
     public function register()
     {
+
         $this->mergeConfigFrom(__DIR__ . '/../config/rapyd-livewire.php', 'rapyd-livewire');
         $this->app->register(BreadcrumbsServiceProvider::class);
+        $this->app->register(ModuleServiceProvider::class);
+        $this->app->register(RouteServiceProvider::class);
+        $this->app->register(StubGeneratorServiceProvider::class);
+
+        //$this->app->register(NotificationServiceProvider::class);
+
     }
 }

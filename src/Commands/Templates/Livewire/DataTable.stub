@@ -1,0 +1,29 @@
+<?php
+
+namespace {{classNamespace}};
+
+use {{baseClass}};
+use {{modelNamespace}}\{{model}};
+
+class {{class}} extends {{baseClassName}}
+{
+    public $search;
+    public $author_id;
+
+    public function getDataSet()
+    {
+        $items = {{model}}::query(); //{{model}}::ssearch($this->search);
+
+        return $items = $items
+            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            ->paginate($this->perPage)
+            ;
+    }
+
+    public function render()
+    {
+
+        $items = $this->getDataSet();
+        return view('{{view}}', compact('items'));
+    }
+}

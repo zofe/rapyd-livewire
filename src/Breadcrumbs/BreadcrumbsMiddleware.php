@@ -45,21 +45,20 @@ class BreadcrumbsMiddleware
     {
         collect($this->router->getRoutes()->getIterator())
             ->filter(function (Route $route) {
-                return array_key_exists(self::class, $route->defaults);
+                return array_key_exists(self::class, $route->action);
             })
             ->filter(function (Route $route) {
                 return ! $this->breadcrumbs->has($route->getName());
             })
             ->each(function (Route $route) {
-                $serialize = $route->defaults[self::class];
+
+                $serialize = $route->action[self::class];
 
                 /** @var SerializableClosure $callback */
                 $callback = unserialize($serialize);
 
                 $this->breadcrumbs->for($route->getName(), $callback->getClosure());
             });
-
-        optional($request->route())->forgetParameter(self::class);
 
         return $next($request);
     }

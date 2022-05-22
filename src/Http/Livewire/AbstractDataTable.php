@@ -34,26 +34,6 @@ abstract class AbstractDataTable extends BaseComponent
         $this->sortField = $field;
     }
 
-//    public function view($id)
-//    {
-//        return redirect(route($this->viewRoute, [$id]));
-//    }
-//
-//    public function edit($id)
-//    {
-//        return redirect(route($this->editRoute, ['id' => $id]));
-//    }
-
-    public function getSortIcon($field)
-    {
-        if ($this->sortField !== $field) {
-            return "fas fa-sort text-muted";
-        } elseif ($this->sortAsc) {
-            return "fas fa-sort-up";
-        } else {
-            return "fas fa-sort-down";
-        }
-    }
 
     public function updatingPerPage()
     {

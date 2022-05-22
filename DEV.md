@@ -24,3 +24,51 @@ ln -s /application/packages/zofe/rapyd-livewire/public /application/public/vendo
 ```
 
 
+Standard folder structure in a laravel + livewire application
+```
+laravel/
+├─ app/
+│  ├─ Http/
+│  │   ├─ Livewire/
+│  │   │  ├─ Component.php
+│  ├─ Models/
+│  │   ├─ ComponentModel.php  
+├─ resources/
+│  ├─ views/
+│  │  ├─ component_view.blade.php
+├─ routes/
+│  ├─ web.php
+```
+
+Rapyd folder structure "component based"
+```
+laravel/
+├─ app/
+│  ├─ Components/
+|  |  ├─ ComponentName/
+│  │  │  ├─ Component.php
+│  │  │  ├─ component_view.blade.php
+│  │  ├─ routes.php
+│  ├─ Http/
+│  ├─ Models/
+│  │   ├─ Model.php  
+```
+
+Rapyd folder structure "modules based"
+```
+laravel/
+├─ app/
+│  ├─ Modules/
+│  │  ├─ ModuleName/
+│  │  │  ├─ Components/
+│  │  │  │  ├─ ComponentName/
+│  │  │  │  │  ├─ Component.php
+│  │  │  │  │  ├─ component_view.blade.php
+│  │  │  │  ├─ routes.php
+│  │  │  ├─ config.php
+│  │  │  ├─ Http/
+│  │  │  ├─ Models/
+│  │  │  │  ├─ Model.php  
+ 
+```
+

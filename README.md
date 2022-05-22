@@ -11,7 +11,7 @@ is a laravel library of widgets (blade & livewire components) that you can gener
 
 It also bundles Bootstrap, Vue, Alpine and Quill to be used as fast boilerplate for your laravel admin panels.
 
-min laravel version: ^8.27
+min laravel version: ^8.65
 
 
 Demo: [rapyd.dev](https://rapyd.dev/rapyd-demo)  
