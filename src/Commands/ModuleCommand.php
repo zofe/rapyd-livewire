@@ -2,9 +2,9 @@
 
 namespace Zofe\Rapyd\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ModuleCommand extends Command
 {
@@ -30,8 +30,7 @@ class ModuleCommand extends Command
         $module = Str::studly($this->argument('module'));
         $moduleRaw = Str::snake($this->argument('module'));
 
-        if($module) {
-
+        if ($module) {
             $this->warn("--------------------------------");
             $this->warn("Creating a new module: " .$module);
             $this->warn("--------------------------------");
@@ -48,8 +47,7 @@ class ModuleCommand extends Command
             $moduleControllerPath = app_path('Modules/'. $module. '/Controllers');
             $moduleEnTranslationPath = app_path('Modules/'. $module. '/Translations/en');
 
-            if( !File::exists($routePath) )
-            {
+            if (! File::exists($routePath)) {
                 $this->warn("Creating Folder Structure ...");
                 File::makeDirectory($moduleViewPath, 0755, true);
                 $this->info("Created: " .$moduleViewPath);
@@ -84,30 +82,29 @@ class ModuleCommand extends Command
             $file_tpl = __DIR__. '/Templates/routes.tpl';
             $this->create($file_tpl, $routePath, [
                 'module' => $module,
-                'module_lower' => $moduleRaw
+                'module_lower' => $moduleRaw,
             ]);
 
             // generate config file
             $file_tpl = __DIR__. '/Templates/config.tpl';
             $this->create($file_tpl, $configPath, [
                 'module' => $module,
-                'module_lower' => $moduleRaw
+                'module_lower' => $moduleRaw,
             ]);
 
             // generate config file
             $file_tpl = __DIR__. '/Templates/index.tpl';
             $this->create($file_tpl, $indexPath, [
                 'module' => $module,
-                'module_lower' => $moduleRaw
+                'module_lower' => $moduleRaw,
             ]);
 
             // en trans
             $file_tpl = __DIR__. '/Templates/en_trans.tpl';
             $this->create($file_tpl, $enTransPath, [
                 'module' => $module,
-                'module_lower' => $moduleRaw
+                'module_lower' => $moduleRaw,
             ]);
-
         }
     }
 
@@ -117,14 +114,14 @@ class ModuleCommand extends Command
      * @param array $variables
      * @throws \Exception
      */
-    private function create($template_path, $target_path, $variables=[])
+    private function create($template_path, $target_path, $variables = [])
     {
-        if(!file_exists($template_path)) {
+        if (! file_exists($template_path)) {
             throw new \Exception("File {$template_path}.tpl does not exists.");
         }
 
         $template = file_get_contents($template_path);
-        foreach($variables as $key => $value) {
+        foreach ($variables as $key => $value) {
             $template = str_replace('[['.$key.']]', $value, $template);
         }
 

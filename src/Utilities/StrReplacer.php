@@ -2,7 +2,8 @@
 
 namespace Zofe\Rapyd\Utilities;
 
-class StrReplacer {
+class StrReplacer
+{
     private const START = '{{';
     private const END = '}}';
     private array $values = [];
@@ -14,10 +15,11 @@ class StrReplacer {
         $this->default = $default;
     }
 
-    public function replace($string =null): string
+    public function replace($string = null): string
     {
         $start = preg_quote(self::START);
         $end = preg_quote(self::END);
+
         return preg_replace_callback("/{$start}(.+?){$end}/u", [$this, 'replaceVars'], $string);
     }
 
@@ -26,6 +28,7 @@ class StrReplacer {
         $matched = $match[0];
         $name = $match[1];
         $default = is_null($this->default) ? $matched : $this->default;
+
         return isset($this->values[$name]) ? $this->values[$name] : $default;
     }
 }

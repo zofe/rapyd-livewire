@@ -2,7 +2,6 @@
 
 namespace Zofe\Rapyd;
 
-
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -80,7 +79,6 @@ class RapydServiceProvider extends ServiceProvider
 
     public function register()
     {
-
         $this->mergeConfigFrom(__DIR__ . '/../config/rapyd-livewire.php', 'rapyd-livewire');
         $this->app->register(BreadcrumbsServiceProvider::class);
         $this->app->register(ModuleServiceProvider::class);
@@ -88,6 +86,5 @@ class RapydServiceProvider extends ServiceProvider
         $this->app->register(StubGeneratorServiceProvider::class);
 
         //$this->app->register(NotificationServiceProvider::class);
-
     }
 }

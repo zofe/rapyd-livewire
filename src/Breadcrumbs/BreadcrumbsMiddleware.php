@@ -51,7 +51,6 @@ class BreadcrumbsMiddleware
                 return ! $this->breadcrumbs->has($route->getName());
             })
             ->each(function (Route $route) {
-
                 $serialize = $route->action[self::class];
 
                 /** @var SerializableClosure $callback */

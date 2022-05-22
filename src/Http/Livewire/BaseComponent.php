@@ -11,7 +11,7 @@ abstract class BaseComponent extends Component
 
     public function getQueryString()
     {
-       // dump($_SERVER['QUERY_STRING'],$this->queryString);
+        // dump($_SERVER['QUERY_STRING'],$this->queryString);
 
         //dd($this->queryString,http_build_query($this->queryString));
         //return array_merge(['Zofe%5CRapyd%5CBreadcrumbs%5CBreadcrumbsMiddleware' => ['except' => '*']], $this->queryString);

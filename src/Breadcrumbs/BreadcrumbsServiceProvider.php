@@ -48,6 +48,5 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
             return $this;
         });
-
     }
 }
