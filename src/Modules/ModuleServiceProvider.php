@@ -66,11 +66,12 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $moduleBasePath = $modulePath = app_path(). '/Modules/';
 
-        $dirs = File::directories($moduleBasePath);
+        if(File::exists($moduleBasePath)) {
+            $dirs = File::directories($moduleBasePath);
 
 
-        foreach ($dirs as $moduleP)
-        {
+            foreach ($dirs as $moduleP)
+            {
                 $module = Str::lower(basename($moduleP));
                 $modulePath = $moduleP. DIRECTORY_SEPARATOR; //$moduleBasePath .Str::studly($module). DIRECTORY_SEPARATOR;
 
@@ -124,7 +125,9 @@ class ModuleServiceProvider extends ServiceProvider
 
                 }
 
+            }
         }
+
     }
 
     protected function registerComponentDirectory($directory, $namespace, $aliasPrefix = '')

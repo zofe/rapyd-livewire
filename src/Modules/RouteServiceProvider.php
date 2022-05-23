@@ -42,9 +42,11 @@ class RouteServiceProvider extends ServiceProvider
             }
 
             $moduleBasePath =  app_path(). '/Modules/';
-            $dirs = File::directories($moduleBasePath);
 
-            foreach ($dirs as $moduleP) {
+            if(File::exists($moduleBasePath)) {
+                $dirs = File::directories($moduleBasePath);
+
+                foreach ($dirs as $moduleP) {
 
                     $module = Str::lower(basename($moduleP));
                     $modulePath = $moduleP. DIRECTORY_SEPARATOR; //$moduleBasePath .Str::studly($module). DIRECTORY_SEPARATOR;
@@ -65,7 +67,9 @@ class RouteServiceProvider extends ServiceProvider
                             ->group($moduleRoutes);
                     }
 
+                }
             }
+
         });
     }
 }
