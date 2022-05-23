@@ -2,10 +2,10 @@
 
 namespace Zofe\Rapyd\Modules;
 
-use Illuminate\Support\Str;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Str;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $lang_prefix = '';
         $locale = request()->segment(1);
 
@@ -42,8 +41,7 @@ class RouteServiceProvider extends ServiceProvider
 
             $moduleBasePath = app_path(). '/Modules/';
 
-            if(File::exists($moduleBasePath)) {
-
+            if (File::exists($moduleBasePath)) {
                 $dirs = File::directories($moduleBasePath);
                 foreach ($dirs as $moduleP) {
                     $module = Str::lower(basename($moduleP));

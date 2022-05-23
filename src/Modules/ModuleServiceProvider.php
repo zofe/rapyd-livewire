@@ -38,7 +38,7 @@ class ModuleServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                ModuleCommand::class
+                ModuleCommand::class,
             ]);
         }
 
@@ -64,7 +64,7 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $moduleBasePath = $modulePath = app_path(). '/Modules/';
 
-        if(File::exists($moduleBasePath)) {
+        if (File::exists($moduleBasePath)) {
             $dirs = File::directories($moduleBasePath);
 
 
