@@ -7,9 +7,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\Livewire;
-use ReflectionClass;
 use Mhmiton\LaravelModulesLivewire\Support\Decomposer;
 use Nwidart\Modules\Facades\Module;
+use ReflectionClass;
 use Symfony\Component\Finder\SplFileInfo;
 
 class LivewireComponentServiceProvider extends ServiceProvider
@@ -59,7 +59,6 @@ class LivewireComponentServiceProvider extends ServiceProvider
 
     protected function registerCustomModuleComponents()
     {
-
         $modules = collect(config('modules-livewire.custom_modules', []));
 
         $modules->each(function ($module, $moduleName) {
