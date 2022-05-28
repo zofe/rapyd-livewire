@@ -4,6 +4,7 @@ namespace Zofe\Rapyd\Modules;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -14,21 +15,6 @@ use Zofe\Rapyd\Commands\ModuleCommand;
 
 class ModuleServiceProvider extends ServiceProvider
 {
-    /**
-     * @var string
-     */
-    private $config = 'modules';
-
-//    /**
-//     * Register any application services.
-//     *
-//     * @return void
-//     */
-//    public function register(): void
-//    {
-//        $this->mergeConfigFrom(dirname(__DIR__). '/config.php', $this->config);
-//    }
-
     /**
      * Bootstrap any application services.
      *
@@ -52,8 +38,7 @@ class ModuleServiceProvider extends ServiceProvider
         $componentsBasePath = $componentsPath = app_path(). '/Components';
 
         $this->loadViewsFrom($componentsPath, 'components');
-        //dump("App\\Components\\","component::");
-        $this->registerComponentDirectory($componentsBasePath, "App\\Components\\", "component::");//"component::"
+        $this->registerComponentDirectory($componentsBasePath, "App\\Components\\", "component::");
     }
 
     /**
@@ -67,15 +52,17 @@ class ModuleServiceProvider extends ServiceProvider
         if(File::exists($moduleBasePath)) {
             $dirs = File::directories($moduleBasePath);
 
-
             foreach ($dirs as $moduleP) {
                 $module = Str::lower(basename($moduleP));
-                $modulePath = $moduleP . DIRECTORY_SEPARATOR; //$moduleBasePath .Str::studly($module). DIRECTORY_SEPARATOR;
-
-                //dd($moduleP, $module, $modulePath);
+                $modulePath = $moduleP . DIRECTORY_SEPARATOR;
 
                 $moduleName = Str::snake($module);
                 $moduleConfigPath = $modulePath . 'config.php';
+
+                $lang_prefix = $this->detectLocaleByPrefix();
+                if (File::exists($modulePath.'routes.php')) {
+                    Route::prefix($lang_prefix)->middleware(['web'])->group($modulePath.'routes.php');
+                }
 
                 if (File::exists($moduleConfigPath)) {
                     $this->mergeConfigFrom($moduleConfigPath, $moduleName);
@@ -84,6 +71,15 @@ class ModuleServiceProvider extends ServiceProvider
                     $this->loadViewsFrom($modulePath . 'Components', $moduleName);//'components');
                     $this->loadMigrationsFrom($modulePath . 'Migrations');
                     $this->loadTranslationsFrom($modulePath . 'Translations', $moduleName);
+
+                    $routePrefix = $lang_prefix . '/' . Str::lower($module);
+
+                    if (File::exists($modulePath . 'Components/routes.php')) {
+
+                        Route::prefix($routePrefix)->middleware(config($module . '.route_middleware', ['web']))
+                            ->group($modulePath . 'Components/routes.php');
+
+                    }
 
                     if ($this->app->runningInConsole()) {
                         $moduleCommands = [];
@@ -95,13 +91,6 @@ class ModuleServiceProvider extends ServiceProvider
                             }
                             $this->commands($moduleCommands);
                         }
-                    }
-
-                    // register middle wares
-                    $moduleMiddleware = config($module . '.middleware');
-                    //dd($moduleMiddleware);
-                    foreach ($moduleMiddleware as $key => $middleware) {
-                        $this->app->get('router')->aliasMiddleware($key, $middleware);
                     }
 
                     // register service provider
@@ -155,5 +144,22 @@ class ModuleServiceProvider extends ServiceProvider
                     Livewire::component($alias, $class);
                 });
         }
+    }
+
+
+    public function detectLocaleByPrefix()
+    {
+        $lang_prefix = '';
+        $locale = request()->segment(1);
+
+        if (in_array($locale, config('app.locales', ['en']))) {
+            $lang_prefix = ($locale !== config('app.fallback_locale')) ? $locale : '';
+
+            if ($lang_prefix) {
+                session(['lang_prefix' => $lang_prefix]);
+            }
+            app()->setlocale($locale);
+        }
+        return $lang_prefix;
     }
 }

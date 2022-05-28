@@ -82,9 +82,6 @@ class RapydServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/rapyd-livewire.php', 'rapyd-livewire');
         $this->app->register(BreadcrumbsServiceProvider::class);
         $this->app->register(ModuleServiceProvider::class);
-        $this->app->register(RouteServiceProvider::class);
         $this->app->register(StubGeneratorServiceProvider::class);
-
-        //$this->app->register(NotificationServiceProvider::class);
     }
 }
