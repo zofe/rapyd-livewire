@@ -12,7 +12,6 @@ use Zofe\Rapyd\Commands\RapydCommand;
 use Zofe\Rapyd\Commands\RapydMakeCommand;
 use Zofe\Rapyd\Http\Livewire\RapydApp;
 use Zofe\Rapyd\Modules\ModuleServiceProvider;
-use Zofe\Rapyd\Modules\RouteServiceProvider;
 
 class RapydServiceProvider extends ServiceProvider
 {
