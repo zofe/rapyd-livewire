@@ -37,6 +37,13 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $componentsBasePath = $componentsPath = app_path(). '/Components';
 
+        $lang_prefix = $this->detectLocaleByPrefix();
+        if (File::exists($componentsBasePath.DIRECTORY_SEPARATOR.'routes.php')) {
+
+            Route::prefix($lang_prefix)->middleware(['web'])->group($componentsBasePath.DIRECTORY_SEPARATOR.'routes.php');
+        }
+
+
         $this->loadViewsFrom($componentsPath, 'components');
         $this->registerComponentDirectory($componentsBasePath, "App\\Components\\", "component::");
     }
