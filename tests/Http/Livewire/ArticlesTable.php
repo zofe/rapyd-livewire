@@ -21,7 +21,7 @@ class ArticlesTable extends AbstractDataTable
         return $items = $items
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage)
-            ;
+        ;
     }
 
     public function render()

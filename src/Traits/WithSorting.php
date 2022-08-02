@@ -40,5 +40,4 @@ trait WithSorting
 
         $this->sortField = $field;
     }
-
 }

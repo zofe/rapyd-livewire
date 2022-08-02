@@ -24,7 +24,7 @@ class Article extends Model
                 ->orWhereHas('author', function ($subq) use ($query) {
                     $subq->where('firstname', 'like',  $query . '%')
                         ->orWhere('lastname', 'like',  $query . '%')
-                        ;
+                    ;
                 })
             ;
         });
