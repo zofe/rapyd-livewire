@@ -4,11 +4,11 @@ namespace {{classNamespace}};
 
 use {{baseClass}};
 use {{modelNamespace}}\{{model}};
+use {{traitNamespace}}\{{traitClass}};
 
 class {{class}} extends {{baseClassName}}
 {
-    public $search;
-    public $author_id;
+    use {{traitClass}};
 
     public function getDataSet()
     {

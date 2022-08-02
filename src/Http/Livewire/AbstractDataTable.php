@@ -12,8 +12,7 @@ abstract class AbstractDataTable extends BaseComponent
     public $sortField = 'id';
     public $sortAsc = false;
     public $search = '';
-    public $editRoute;
-    public $viewRoute;
+
 
     protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search', 'sortAsc', 'sortField'];

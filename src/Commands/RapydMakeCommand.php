@@ -95,8 +95,10 @@ class RapydMakeCommand extends Command
                 'table' => $table,
                 'view' => $viewPath,
                 'modelNamespace' => $modelNamespace,
-                'baseClass' => 'Zofe\\Rapyd\\Http\\Livewire\\AbstractDataTable',
-                'baseClassName' => 'AbstractDataTable',
+                'traitNamespace' => 'Zofe\\Rapyd\\Traits',
+                'baseClass' => 'Livewire\\Component',
+                'baseClassName' => 'Component',
+                'traitClass' => 'WithDataTable',
                 'classNamespace' => $classNamespace,
             ])
             ->save();
