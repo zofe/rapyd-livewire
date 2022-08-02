@@ -39,7 +39,6 @@ class ModuleServiceProvider extends ServiceProvider
 
         $lang_prefix = $this->detectLocaleByPrefix();
         if (File::exists($componentsBasePath.DIRECTORY_SEPARATOR.'routes.php')) {
-
             Route::prefix($lang_prefix)->middleware(['web'])->group($componentsBasePath.DIRECTORY_SEPARATOR.'routes.php');
         }
 
