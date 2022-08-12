@@ -1,5 +1,5 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb px-3">
+    <ol class="breadcrumb pr-3">
         @foreach ($generate() as $crumbs)
             @if ($crumbs->url() && !$loop->last)
                 <li class="{{$class}}">

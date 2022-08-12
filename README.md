@@ -7,9 +7,17 @@
 
 ## What is it?
 
-is a laravel library of widgets (blade & livewire components) that you can generate/ extend to create administration interfaces in a concise, uncluttered, and testable manner.
+is a laravel library of **blade components** & **livewire traits** that you can use to generate 
+administration interfaces in a concise, uncluttered, and testable manner.
 
-It also bundles Bootstrap, Vue, Alpine and Quill to be used as fast boilerplate for your laravel admin panels.
+It also bundles standard libraries like 
+Bootstrap, Vue, Alpine and Quill to be used as fast boilerplate for your laravel admin panels.
+
+The idea is to speed up and organize the development of large laravel applications, using 
+modules, components, advanced forms items, using a simple CRUD architecture.
+
+
+
 
 min laravel version: ^8.65
 
@@ -26,46 +34,21 @@ composer require zofe/rapyd-livewire
 ```
 
 
-
-You can publish assets using:
+You can publish static assets using:
 ```bash
 php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="public"
 ```
 
 
-## widgets logic & layout
-
-![alt text for screen readers](./public/components.png).
-
-- `heading` is a simple h4 title
-- `buttons` is a slot to display a group of buttons
-- `slot` is the main slot where to put widget content
-- `actions` is a secondary slot for a group of buttons
-
-
-- `filters` is a slot to display for example search inputs
-- `pagination` is a slot to display pagination
-
-the last two are specific of DataTable component
-
-
 ## Usage
-
-the demo is auto-documented [rapyd.dev](https://rapyd.dev/rapyd-demo)  
-but this is a bit of documentation:
-
-
-after you have installed the library you can create your livewire components
-extending rapyd abstract component classes.  
-Main goal is to standardize a large laravel admin application in a set of 2/3 Widgets for each Model you need to manage.
 
 ---
 ### DataTable
-DataTable extend AbstractDataTable if you need a "listing page" with these features:
-- "input filters" to search in a custom dataset 
+A DataTable is "listing component" with these features:
+- "input filters" to search in a custom data set 
 - "buttons" (for example "add" record or "reset" filters)
 - "pagination links"
-- "sort links"   
+- "sort links" 
 
 example 
 ```php
@@ -74,10 +57,13 @@ namespace App\Http\Livewire;
 
 use App\Models\Article;
 use App\Models\Author;
-use Zofe\Rapyd\Http\Livewire\AbstractDataTable;
+use Livewire\Component;
+use Zofe\Rapyd\Traits\WithDataTable;
 
-class ArticlesTable extends AbstractDataTable
+class ArticlesTable extends Component
 {
+    use WithDataTable;
+
     public $search;
     public $author_id;
 
@@ -155,28 +141,33 @@ the view`/resources/views/livewire/articles/table.blade.php`
 
 ```
 
-demo: https://rapyd.dev/rapyd-demo/articles
 
 ---
 ### DataView
-DataView extend AbstractDataView for a "detail page" with:  
+a DataView is "detail page" with :  
 
 - "buttons" slot (for example back to "list" or "edit" current record)
+- "actions" any link that trigger a server-side  
 
 ```php
 <?php
 namespace App\Http\Livewire;
 
 use App\Models\Article;
-use Zofe\Rapyd\Http\Livewire\AbstractDataView;
 
-class ArticlesView extends AbstractDataView
+class ArticleView extends Component
 {
     public $article;
 
     public function mount(Article $article)
     {
         $this->article = $article;
+    }
+
+    public function someAction()
+    {
+        //some server-side computation
+        return response()->download(storage_path("app/public/somefile.txt"));
     }
 
     public function render()
@@ -198,6 +189,7 @@ the view `/resources/views/livewire/articles/view.blade.php`
 
         <div>Title: {{ $article->title }}</div>
         <div>Author: {{ $article->author->firstname }} {{ $model->author->lastname }}</div>
+        <div><a wire:click.prevent="someAction">Download TXT version</a></div>
           
     </x-rpd::view>
 ```
@@ -209,11 +201,10 @@ content/slots
 - should be a detail of $model
 - `buttons`: buttons panel
 
-demo: https://rapyd.dev/rapyd-demo/article/view/1
 
 ---
 ### DataEdit
-DataEdit component extend AbstractDataEdit for a "form" binded to a model with:  
+DataEdit is a "form" binded to a model with:  
 
 - "buttons" and "actions" (undo, save)
 - form "rules"
@@ -226,9 +217,9 @@ namespace App\Http\Livewire;
 
 use App\Models\Article;
 use App\Models\Author;
-use Zofe\Rapyd\Http\Livewire\AbstractDataEdit;
 
-class ArticlesEdit extends AbstractDataEdit
+
+class ArticlesEdit extends Component
 {
     public $article;
    
@@ -277,7 +268,7 @@ props
 content/slots
 - form fields
 
-demo: https://rapyd.dev/rapyd-demo/article/edit/1
+
 
 ---
 
@@ -293,6 +284,19 @@ predefined blade components that interacts with livewire
 
 ```html
 <x-rpd::select lazy model="author_id" :options="$authors" />
+```
+
+```html
+<x-rpd::select-list model="roles" label="Roles" multiple :options="$available_roles" />
+
+<x-rpd::select-list model="roles" label="Roles" multiple endpoint="/ajax/roles" />
+```
+
+```html
+<x-rpd::date-time model="date_time" format="dd/MM/yyyy HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss" label="DateTime" />
+
+<x-rpd::date model="date" format="dd/MM/yyyy" value-format="yyyy-MM-dd" label="Date" />
+
 ```
 
 ```html
@@ -319,6 +323,10 @@ props
 - `icon`: Font Awesome icon to show before input e.g. `cog`, `envelope`
 - `size`: Bootstrap input size e.g. `sm`, `lg`
 - `rows`: rows nums
+- `multiple`: allow multiple option selection (used in select-list)
+- `endpoint`: a remote url for fetch optioms (used in select-list)
+- `format`: the client-side field format (used in date and date-time)
+- `value-format`: the server-side field value format (used in date and date-time)
 
 
 ## special tags

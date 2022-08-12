@@ -1,5 +1,5 @@
 <template>
-    <span>
+    <span class="w-100">
         <el-date-picker
             v-model="value"
             v-bind="$attrs"

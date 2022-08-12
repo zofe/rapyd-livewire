@@ -12,16 +12,16 @@
 ])
 
 {{--todo move dependencies to rapyd css/js at build/publish time--}}
-@once
-@push('rapyd_styles')
-    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
-@endpush
-@endonce
-@once
-@push('rapyd_scripts')
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-@endpush
-@endonce
+{{--@once--}}
+{{--@push('rapyd_styles')--}}
+{{--    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">--}}
+{{--@endpush--}}
+{{--@endonce--}}
+{{--@once--}}
+{{--@push('rapyd_scripts')--}}
+{{--    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>--}}
+{{--@endpush--}}
+{{--@endonce--}}
 
 @php
 
@@ -40,11 +40,10 @@
 @endphp
 
 
-<div class="mt-2 bg-white" wire:ignore >
+<div class="mt-2" wire:ignore >
     <x-rpd::label :for="$id" :label="$label"/>
     <div x-data
          x-init="
-               console.log($refs.quillEditor);
                quill = new Quill($refs.quillEditor, {theme: 'snow'});
                quill.on('text-change', function () {
                    $dispatch('quill-input', quill.root.innerHTML);

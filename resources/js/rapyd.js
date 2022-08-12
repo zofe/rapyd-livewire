@@ -11,19 +11,24 @@ import lang_it from 'element-ui/lib/locale/lang/it';
 import locale from 'element-ui/lib/locale';
 locale.use(lang_en);
 
+//quill
+import Quill from 'quill/dist/quill';
+window.Quill = Quill;
 
+//tom select
+import TomSelect from 'tom-select/dist/js/tom-select.complete';
+window.TomSelect = TomSelect;
 
-
-
-
+//element
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+//import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 Vue.config.ignoredElements = [/^ion-/,/^x-rpd/]
 Vue.component('rpd-select', require('./components/Select').default)
 Vue.component('rpd-select-multiple', require('./components/SelectMultiple').default)
 Vue.component('rpd-date', require('./components/Date').default)
+Vue.component('rpd-date-time', require('./components/DateTime').default)
 // Vue.component('rpd-input', require('./components/Input').default)
 
 

@@ -8,10 +8,10 @@
 ])
 <div class="rpd-table">
     <form autocomplete="off">
+        <div><x-rpd::heading :title="$title" /></div>
         <div class="d-flex mb-4">
             <div class="flex-grow-1">
                 <div class="row g-2">
-                    <x-rpd::heading :title="$title" />
                     {{ $filters }}
                     <x-rpd::button-group :buttons="$buttons" />
                 </div>

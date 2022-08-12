@@ -6,7 +6,10 @@ use Closure;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Opis\Closure\SerializableClosure;
+use Laravel\SerializableClosure\SerializableClosure;
+
+//use Opis\Closure\SerializableClosure;
+
 
 /**
  * included as source, tabuna/breadcrumbs no way to make it work as composer injected dep.

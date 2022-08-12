@@ -34,6 +34,7 @@ class RapydServiceProvider extends ServiceProvider
                 RapydCommand::class,
                 RapydMakeCommand::class,
                 DataTableCommand::class,
+
             ]);
         }
 
@@ -54,12 +55,13 @@ class RapydServiceProvider extends ServiceProvider
             return $styles;
         });
 
+
         Blade::directive('rapydLivewireScripts', function ($expression) {
             $scripts = '{!! \Livewire\Livewire::scripts('.$expression.') !!}'."\n";
             $scripts .= "<?php echo \$__env->yieldPushContent('rapyd_scripts'); ?>\n";
             $scripts .= '{!! \Livewire\Livewire::mount(\'rpd-app\')->html(); !!}'."\n";
             $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
-            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/bootstrap.js\') }}" defer></script>'."\n";
+            //$scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/bootstrap.js\') }}" defer></script>'."\n";
             $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/alpine.js\') }}" defer></script>'."\n";
 
             return $scripts;
