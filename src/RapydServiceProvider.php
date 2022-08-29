@@ -61,14 +61,20 @@ class RapydServiceProvider extends ServiceProvider
             $scripts .= "<?php echo \$__env->yieldPushContent('rapyd_scripts'); ?>\n";
             $scripts .= '{!! \Livewire\Livewire::mount(\'rpd-app\')->html(); !!}'."\n";
             $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
-            //$scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/bootstrap.js\') }}" defer></script>'."\n";
-            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/alpine.js\') }}" defer></script>'."\n";
+            if(config('rapyd_livewire.include_scripts.bootstrap')) {
+                $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/bootstrap.js\') }}" defer></script>'."\n";
+            }
+            if(config('rapyd_livewire.include_scripts.alpine')) {
+                $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/alpine.js\') }}" defer></script>' . "\n";
+            }
 
             return $scripts;
         });
         Blade::directive('rapydLivewireStyles', function ($expression) {
             $styles = '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/rapyd.css\') }}">'."\n";
-            $styles .= '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/bootstrap.css\') }}">'."\n";
+            if(config('rapyd_livewire.include_styles.bootstrap')) {
+                $styles .= '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/bootstrap.css\') }}">' . "\n";
+            }
             $styles .= '{!! \Livewire\Livewire::styles('.$expression.') !!}';
             $styles .= "<?php echo \$__env->yieldPushContent('rapyd_styles'); ?>\n";
 

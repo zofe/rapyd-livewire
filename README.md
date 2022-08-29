@@ -11,7 +11,7 @@ is a laravel library of **blade components** & **livewire traits** that you can 
 administration interfaces in a concise, uncluttered, and testable manner.
 
 It also bundles standard libraries like 
-Bootstrap, Vue, Alpine and Quill to be used as fast boilerplate for your laravel admin panels.
+Bootstrap, Vue, Alpine, Tom Select and Quill to be used as fast boilerplate for your laravel admin panels.
 
 The idea is to speed up and organize the development of large laravel applications, using 
 modules, components, advanced forms items, using a simple CRUD architecture.
@@ -273,23 +273,24 @@ content/slots
 ---
 
 
-### Fields Tags
+### Fields 
 
 inside some widget views you can drastically semplify the syntax using 
 predefined blade components that interacts with livewire
 
 ```html
-<x-rpd::input debounce="350" model="search" placeholder="search..." />
+<x-rpd::input model="search" debounce="350" placeholder="search..." />
 ```
 
 ```html
-<x-rpd::select lazy model="author_id" :options="$authors" />
+<x-rpd::select model="author_id" lazy :options="$authors" />
 ```
 
 ```html
-<x-rpd::select-list model="roles" label="Roles" multiple :options="$available_roles" />
-
-<x-rpd::select-list model="roles" label="Roles" multiple endpoint="/ajax/roles" />
+<!-- tom select dropdown -->
+<x-rpd::select-list model="roles" multiple :options="$available_roles" label="Roles" />
+or
+<x-rpd::select-list model="roles" multiple endpoint="/ajax/roles" label="Roles" />
 ```
 
 ```html
