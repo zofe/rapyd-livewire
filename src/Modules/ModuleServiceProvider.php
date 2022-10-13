@@ -124,13 +124,12 @@ class ModuleServiceProvider extends ServiceProvider
 
         $directories = [];
         if (basename($directory) == 'Components') {
-
             foreach ($filesystem->directories($directory) as $dir) {
                 $component_namespace = $namespace.basename($dir);
                 $directories[$component_namespace] = $dir;
             }
-            $directories[rtrim($namespace,'\\')] = $directory;
-           // dd($directories);
+            $directories[rtrim($namespace, '\\')] = $directory;
+        // dd($directories);
         } else {
             $directories[$namespace] = $directory;
         }
@@ -141,8 +140,8 @@ class ModuleServiceProvider extends ServiceProvider
             : app()->bootstrapPath('cache/livewire-components.php');
         $livewire_manifest = config('livewire.manifest_path') ?: $defaultManifestPath;
         $livewire_array = [];
-        if( file_exists($livewire_manifest)) {
-            $livewire_array =  include $livewire_manifest;
+        if (file_exists($livewire_manifest)) {
+            $livewire_array = include $livewire_manifest;
         }
 
         foreach ($directories as $namespace => $directory) {
@@ -160,11 +159,10 @@ class ModuleServiceProvider extends ServiceProvider
 
                     Livewire::component($alias, $class);
 
-                    if(!isset($livewire_array[$alias])) {
+                    if (! isset($livewire_array[$alias])) {
                         $livewire_array[$alias] = $class;
-                        file_put_contents($livewire_manifest,"<?php\nreturn ".var_export($livewire_array, true).";");
+                        file_put_contents($livewire_manifest, "<?php\nreturn ".var_export($livewire_array, true).";");
                     }
-
                 });
         }
     }
