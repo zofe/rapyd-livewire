@@ -4,6 +4,6 @@ namespace Zofe\Rapyd\Traits;
 
 trait WithDataTable
 {
-    use WithPagination;
+    use WithPaginationCustom;
     use WithSorting;
 }

@@ -3,6 +3,6 @@
 ])
 @if($title)
 <div class="col">
-    <h4>{{$title}}</h4>
+    <h4>{{ __($title) }}</h4>
 </div>
 @endif

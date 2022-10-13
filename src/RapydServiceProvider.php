@@ -27,7 +27,7 @@ class RapydServiceProvider extends ServiceProvider
             ], 'views');
 
             $this->publishes([
-                __DIR__.'/../public' => public_path('vendor/rapyd-livewire'),
+                __DIR__.'/../public' => public_path('vendor/rapyd_livewire'),
             ], 'public');
 
             $this->commands([
@@ -38,8 +38,8 @@ class RapydServiceProvider extends ServiceProvider
             ]);
         }
 
+        $this->loadViewsFrom(resource_path('views/vendor/rapyd-livewire'), 'rpd');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rpd');
-
 
         Blade::directive('rapydScripts', function () {
             $scripts = '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
@@ -57,22 +57,24 @@ class RapydServiceProvider extends ServiceProvider
 
 
         Blade::directive('rapydLivewireScripts', function ($expression) {
-            $scripts = '{!! \Livewire\Livewire::scripts('.$expression.') !!}'."\n";
+            $scripts = "";
+
+            $scripts .= '{!! \Livewire\Livewire::scripts('.$expression.') !!}'."\n";
             $scripts .= "<?php echo \$__env->yieldPushContent('rapyd_scripts'); ?>\n";
             $scripts .= '{!! \Livewire\Livewire::mount(\'rpd-app\')->html(); !!}'."\n";
-            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}" defer></script>'."\n";
-            if(config('rapyd_livewire.include_scripts.bootstrap')) {
-                $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/bootstrap.js\') }}" defer></script>'."\n";
-            }
-            if(config('rapyd_livewire.include_scripts.alpine')) {
+            $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/rapyd.js\') }}"></script>'."\n";
+            if(in_array('alpine',config('rapyd_livewire.include_scripts'))) {
                 $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/alpine.js\') }}" defer></script>' . "\n";
+            }
+            if(in_array('bootstrap',config('rapyd_livewire.include_scripts'))) {
+                $scripts .= '<script src="{{ asset(\'vendor/rapyd-livewire/bootstrap.js\') }}" defer></script>'."\n";
             }
 
             return $scripts;
         });
         Blade::directive('rapydLivewireStyles', function ($expression) {
             $styles = '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/rapyd.css\') }}">'."\n";
-            if(config('rapyd_livewire.include_styles.bootstrap')) {
+            if(in_array('bootstrap', config('rapyd_livewire.include_styles.bootstrap'))) {
                 $styles .= '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/bootstrap.css\') }}">' . "\n";
             }
             $styles .= '{!! \Livewire\Livewire::styles('.$expression.') !!}';

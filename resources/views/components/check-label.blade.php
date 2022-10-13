@@ -12,6 +12,6 @@
 
 @if($label || !$slot->isEmpty())
     <label {{ $attributes }}>
-        {{ $label ?? $slot }}
+        {{ __($label) ?? $slot }}
     </label>
 @endif

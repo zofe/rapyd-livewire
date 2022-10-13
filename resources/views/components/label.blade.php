@@ -3,6 +3,8 @@
 ])
 
 @php
+    //$label = $attributes->get('label', null);
+    $label = __($label);
     $attributes = $attributes->class([
         'form-label',
     ])->merge([

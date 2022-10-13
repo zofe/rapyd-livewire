@@ -3,9 +3,12 @@
 'position' => 'end',
 ])
 @php
+
+    $width = ($position == 'center') ? 'w-100' : 'ms-auto';
+
     $attributes = $attributes->class([
-        'col d-flex px-2',
-        'justify-content-'. $position,
+        'col-auto d-flex flex-column px-2 '.$width,
+        'align-items-'. $position,
     ])->merge([
 
     ]);

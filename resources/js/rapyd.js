@@ -24,11 +24,15 @@ import ElementUI from 'element-ui';
 //import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+window.bus = new Vue({data: {}});
+
 Vue.config.ignoredElements = [/^ion-/,/^x-rpd/]
 Vue.component('rpd-select', require('./components/Select').default)
 Vue.component('rpd-select-multiple', require('./components/SelectMultiple').default)
 Vue.component('rpd-date', require('./components/Date').default)
 Vue.component('rpd-date-time', require('./components/DateTime').default)
+Vue.component('rpd-address', require('./components/AddressAutocomplete').default)
+Vue.component('rpd-notifies', require('./components/Notifies').default)
 // Vue.component('rpd-input', require('./components/Input').default)
 
 

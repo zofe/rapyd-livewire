@@ -25,10 +25,7 @@ trait WithSorting
 //            : 'asc';
 //    }
 
-    public function getDataSet()
-    {
-        return collect([]);
-    }
+
 
     public function sortBy($field)
     {
@@ -39,5 +36,7 @@ trait WithSorting
         }
 
         $this->sortField = $field;
+
+        $this->resetPage($this->pageName());
     }
 }

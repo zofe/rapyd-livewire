@@ -9,6 +9,7 @@
 'model' => null,
 'debounce' => false,
 'lazy' => false,
+'col'  => null,
 ])
 
 {{--todo move dependencies to rapyd css/js at build/publish time--}}
@@ -40,7 +41,7 @@
 @endphp
 
 
-<div class="mt-2" wire:ignore >
+<div class="{{$col}}" wire:ignore >
     <x-rpd::label :for="$id" :label="$label"/>
     <div x-data
          x-init="
@@ -48,7 +49,7 @@
                quill.on('text-change', function () {
                    $dispatch('quill-input', quill.root.innerHTML);
                });
-         "
+        "
         x-ref="quillEditor"
         x-on:quill-input.debounce.defer="@this.set('{{ $key }}', $event.detail)"
     >

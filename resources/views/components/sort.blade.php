@@ -14,5 +14,5 @@
 
 
 <a wire:click.prevent="sortBy('{{$key}}')" role="button" href="#">
-    {{ $label }} <x-rpd::icon :name="$icon"/>
+    {{ __($label) }} <x-rpd::icon :name="$icon"/>
 </a>

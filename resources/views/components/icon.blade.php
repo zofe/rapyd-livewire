@@ -5,6 +5,9 @@
 'color' => null,
 'spin' => false,
 'pulse' => false,
+'dismiss' => null,
+'toggle' => null,
+'target' => null,
 ])
 
 @php
@@ -15,7 +18,9 @@
         'fa-spin' => $spin,
         'fa-pulse' => $pulse,
     ])->merge([
-        //
+        'data-bs-dismiss' => $dismiss,
+        'data-bs-target' => $target ? '#'.$target.'Modal':null,
+        'data-bs-toggle' => $target ? 'modal' : $toggle,
     ]);
 @endphp
 

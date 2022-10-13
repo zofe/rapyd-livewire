@@ -5,6 +5,7 @@
 'switch' => false,
 'model' => null,
 'lazy' => false,
+'col' => null,
 ])
 
 @php
@@ -24,10 +25,11 @@
     ]);
 @endphp
 
-<div>
+<div class="{{$col}}">
     <x-rpd::label :label="$label"/>
 
     <div class="form-check {{ $switch ? 'form-switch' : '' }}">
+
         <input {{ $attributes }}>
 
         <x-rpd::check-label :for="$id" :label="$checkLabel"/>

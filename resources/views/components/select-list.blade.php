@@ -1,4 +1,5 @@
 @props([
+'col'   => null,
 'label' => null,
 'placeholder' => null,
 'options' => [],
@@ -9,6 +10,7 @@
 'help' => null,
 'model' => null,
 'lazy' => false,
+'col'  => null,
 ])
 
 @php
@@ -33,7 +35,7 @@
 @endphp
 
 
-<div wire:ignore>
+<div  class="{{$col}}" wire:ignore>
     <x-rpd::label :for="$id" :label="$label"/>
 
     <div class="input-group">

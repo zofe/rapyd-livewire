@@ -9,6 +9,7 @@
 'model' => null,
 'debounce' => false,
 'lazy' => false,
+'col'  => null,
 ])
 
 @php
@@ -36,13 +37,13 @@
     ]);
 @endphp
 
-<div>
+<div class="{{$col}}">
     <x-rpd::label :for="$id" :label="$label"/>
 
     <div class="input-group">
         <x-rpd::input-addon :icon="$icon" :label="$prepend"/>
 
-        <input {{ $attributes->except(['id']) }}>
+        <input {{ $attributes }}>
 
         <x-rpd::input-addon :label="$append" class="rounded-end"/>
 
