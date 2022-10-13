@@ -4,14 +4,17 @@ namespace Zofe\Rapyd\Traits;
 
 use Illuminate\Pagination\Paginator;
 
-
 trait WithPaginationCustom
 {
     use WithPagination;
 
-    public function pageName(): string {
+    public function pageName(): string
+    {
         if (property_exists($this, 'pageName')) {
-            if(!isset($this->{$this->pageName})) $this->{$this->pageName} = 1;
+            if (! isset($this->{$this->pageName})) {
+                $this->{$this->pageName} = 1;
+            }
+
             return $this->pageName;
         } else {
             return 'page';
@@ -23,7 +26,8 @@ trait WithPaginationCustom
         return array_merge([$this->pageName() => ['except' => 1]], $this->queryString);
     }
 
-    public function initializeWithPagination() {
+    public function initializeWithPagination()
+    {
         $this->{$this->pageName()} = $this->resolvePage();
 
         Paginator::currentPageResolver(function () {
@@ -49,11 +53,13 @@ trait WithPaginationCustom
         $this->{$this->pageName()} = $page;
     }
 
-    public function resolvePage() {
+    public function resolvePage()
+    {
         return request()->query($this->pageName(), $this->{$this->pageName()});
     }
 
-    public function getPublicPropertiesDefinedBySubClass() {
+    public function getPublicPropertiesDefinedBySubClass()
+    {
         return tap(parent::getPublicPropertiesDefinedBySubClass(), function (&$props) {
             $props[$this->pageName()] = $this->{$this->pageName()};
         });

@@ -44,7 +44,6 @@ class BreadcrumbsServiceProvider extends ServiceProvider
         }
 
         Route::macro('crumbs', function (Closure $closure) {
-
             /** @var Route $this */
             $this->action[BreadcrumbsMiddleware::class] = serialize(new SerializableClosure($closure));
             $this->middleware('crumbs');
