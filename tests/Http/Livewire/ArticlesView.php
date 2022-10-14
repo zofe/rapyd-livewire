@@ -2,10 +2,11 @@
 
 namespace Zofe\Rapyd\Tests\Http\Livewire;
 
-use Zofe\Rapyd\Http\Livewire\AbstractDataView;
+use Livewire\Component;
+
 use Zofe\Rapyd\Tests\Models\Article;
 
-class ArticlesView extends AbstractDataView
+class ArticlesView extends Component
 {
     public $article;
 

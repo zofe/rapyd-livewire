@@ -2,11 +2,11 @@
 
 namespace Zofe\Rapyd\Tests\Http\Livewire;
 
-use Zofe\Rapyd\Http\Livewire\AbstractDataEdit;
+use Livewire\Component;
 use Zofe\Rapyd\Tests\Models\Article;
 use Zofe\Rapyd\Tests\Models\Author;
 
-class ArticlesEdit extends AbstractDataEdit
+class ArticlesEdit extends Component
 {
     public $article;
 
