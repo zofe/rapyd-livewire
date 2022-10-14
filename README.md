@@ -7,22 +7,20 @@
 
 ## What is it?
 
-is a laravel library of **blade components** & **livewire traits** that you can use to generate 
-administration interfaces in a concise, uncluttered, and testable manner.
+is a laravel library of **blade components**, **livewire traits**, and **modules** scaffolder  that you can use to generate 
+administration interfaces in a concise, reusable, uncluttered, and testable manner.
 
 It also bundles standard libraries like 
 Bootstrap, Vue, Alpine, Tom Select and Quill to be used as fast boilerplate for your laravel admin panels.
 
-The idea is to speed up and organize the development of large laravel applications, using 
-modules, components, advanced forms items, using a simple CRUD architecture.
+The idea is to speed up and organize the development of large laravel applications using:
+- modular approach
+- livewire component based (no controllers, no javascript interaction, only pure livewire classes and blade views)
+- blade component based (to standardize frontend in few "bootstrap based" spacialized tags)
 
+requirements: laravel ^8.65 | 9
 
-
-
-min laravel version: ^8.65
-
-
-Demo: [rapyd.dev](https://rapyd.dev/rapyd-demo)  
+Demo: [rapyd.dev](https://rapyd.dev/demo)  
 
 
 ## Installation
@@ -44,60 +42,19 @@ php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="p
 
 ---
 ### DataTable
-A DataTable is "listing component" with these features:
+A DataTable is a "listing component" with these features:
 - "input filters" to search in a custom data set 
 - "buttons" (for example "add" record or "reset" filters)
 - "pagination links"
 - "sort links" 
 
-example 
-```php
-<?php
-namespace App\Http\Livewire;
-
-use App\Models\Article;
-use App\Models\Author;
-use Livewire\Component;
-use Zofe\Rapyd\Traits\WithDataTable;
-
-class ArticlesTable extends Component
-{
-    use WithDataTable;
-
-    public $search;
-    public $author_id;
-
-    public function getDataSet()
-    {
-        $items = Article::ssearch($this->search);
-        if ($this->author_id) {
-            $items = $items->where('author_id', '=', $this->author_id);
-        }
-
-        return $items = $items
-            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-            ->paginate($this->perPage)
-            ;
-    }
-
-    public function render()
-    {
-        $items = $this->getDataSet();
-        $authors = Author::all()->pluck('firstname', 'id')->toArray();
-        return view('livewire.articles.table', compact('items', 'authors'));
-    }
-}
-
-```
-
-the view`/resources/views/livewire/articles/table.blade.php`
 
 ```html
 <x-rpd::table
     title="Article List"
     :items="$items"
 >
-    
+
     <x-slot name="filters">
         <div class="col">
             <x-rpd::input debounce="350" model="search"  placeholder="search..." />
@@ -107,11 +64,6 @@ the view`/resources/views/livewire/articles/table.blade.php`
         </div>
     </x-slot>
 
-    <x-slot name="buttons">
-            <a href="{{ route('articles') }}" class="btn btn-outline-dark">reset</a>
-            <a href="{{ route('articles.edit') }}" class="btn btn-outline-primary">add</a>
-    </x-slot>
-    
     <table class="table">
         <thead>
         <tr>
@@ -125,59 +77,37 @@ the view`/resources/views/livewire/articles/table.blade.php`
         </thead>
         <tbody>
         @foreach ($items as $article)
-            <tr>
-                <td>
-                    <a href="{{ route('articles.view',$article->id) }}">{{ $article->id }}</a>
-                </td>
-                <td>{{ $article->title }}</td>
-                <td>{{ $article->author->firstname }}</td>
-                <td>{{ Str::limit($article->body,50) }}</td>
-            </tr>
+        <tr>
+            <td>
+                <a href="{{ route('articles.view',$article->id) }}">{{ $article->id }}</a>
+            </td>
+            <td>{{ $article->title }}</td>
+            <td>{{ $article->author->firstname }}</td>
+            <td>{{ Str::limit($article->body,50) }}</td>
+        </tr>
         @endforeach
         </tbody>
     </table>
-    
-</x-rpd::table>
 
+</x-rpd::table>
 ```
+    
+props
+- `title`: the heading title for this crud
+
+content/slots
+- should be a html table that loops model $items
+- `buttons`: buttons panel
+
+example: [rapyd.dev/demo/articles](https://rapyd.dev/demo/articles)
 
 
 ---
 ### DataView
-a DataView is "detail page" with :  
+a DataView is a "detail page component" with :  
 
 - "buttons" slot (for example back to "list" or "edit" current record)
 - "actions" any link that trigger a server-side  
-
-```php
-<?php
-namespace App\Http\Livewire;
-
-use App\Models\Article;
-
-class ArticleView extends Component
-{
-    public $article;
-
-    public function mount(Article $article)
-    {
-        $this->article = $article;
-    }
-
-    public function someAction()
-    {
-        //some server-side computation
-        return response()->download(storage_path("app/public/somefile.txt"));
-    }
-
-    public function render()
-    {
-        return view('livewire.articles.view');
-    }
-}
-```
-
-the view `/resources/views/livewire/articles/view.blade.php`
 
 ```html
     <x-rpd::view title="Article Detail">
@@ -200,58 +130,19 @@ props
 content/slots
 - should be a detail of $model
 - `buttons`: buttons panel
+- `actions`: buttons panel
+
+example: [rapyd.dev/demo/article/view/1](https://rapyd.dev/demo/article/view/1)
 
 
 ---
 ### DataEdit
-DataEdit is a "form" binded to a model with:  
+DataEdit is a "form component" usually binded to a model with:  
 
-- "buttons" and "actions" (undo, save)
-- form "rules"
+- "buttons" and "actions" (undo, save, etc..)
 - form "fields"
+- automatic errors massages / rules management
 
-example 
-```php
-<?php
-namespace App\Http\Livewire;
-
-use App\Models\Article;
-use App\Models\Author;
-
-
-class ArticlesEdit extends Component
-{
-    public $article;
-   
-    protected $rules = [
-        'article.title'   => 'required',
-        'article.author_id'=> 'required',
-        'article.body'    => 'nullable',
-        'article.public'  => 'nullable|boolean',
-    ];
-
-    public function mount(Article $article = null)
-    {
-        $this->article = $article;
-    }
-
-    public function save()
-    {
-        $this->validate();
-        $this->article->save();
-        return redirect()->to(route('articles.view', $this->article->getKey()));
-    }
-
-    public function render()
-    {
-        $authors = Author::all()->pluck('firstname', 'id')->toArray();
-
-        return view('livewire.articles.edit', compact('authors'));
-    }
-}
-
-```
-the view `/resources/views/livewire/articles/edit.blade.php`
 
 ```html
     <x-rpd::edit title="Article Edit">
@@ -266,8 +157,9 @@ props
 - `title`: the heading title for this crud
 
 content/slots
-- form fields
+- form fields binded with public/model properties
 
+example: [rapyd.dev/demo/article/edit/1](https://rapyd.dev/demo/article/edit/1)
 
 
 ---
