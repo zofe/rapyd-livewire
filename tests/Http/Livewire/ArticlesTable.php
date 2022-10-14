@@ -25,7 +25,7 @@ class ArticlesTable extends Component
         return $items = $items
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage)
-            ;
+        ;
     }
 
     public function render()
