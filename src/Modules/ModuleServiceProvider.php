@@ -109,7 +109,6 @@ class ModuleServiceProvider extends ServiceProvider
 
                 $namespace = namespace_module('App\\Components\\', Str::studly($module));
                 $this->registerComponentDirectory($directory, $namespace, Str::lower($module) . '::');
-
             }
         }
     }
