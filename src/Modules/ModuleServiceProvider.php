@@ -72,44 +72,44 @@ class ModuleServiceProvider extends ServiceProvider
 
                 if (File::exists($moduleConfigPath)) {
                     $this->mergeConfigFrom($moduleConfigPath, $moduleName);
-
-                    $this->loadViewsFrom($modulePath . 'Views', $moduleName);
-                    $this->loadViewsFrom($modulePath . 'Components', $moduleName);//'components');
-                    $this->loadMigrationsFrom($modulePath . 'Database/Migrations');
-                    $this->loadTranslationsFrom($modulePath . 'Lang', $moduleName);
-
-                    $routePrefix = $lang_prefix . '/' . Str::lower($module);
-
-                    if (File::exists($modulePath . 'Components/routes.php')) {
-                        Route::prefix($routePrefix)->middleware(config($module . '.route_middleware', ['web']))
-                            ->group($modulePath . 'Components/routes.php');
-                    }
-
-                    if ($this->app->runningInConsole()) {
-                        $moduleCommands = [];
-                        $commandDirPath = $modulePath . 'Commands';
-                        if (File::isDirectory($commandDirPath)) {
-                            foreach (File::files($modulePath . 'Commands') as $file) {
-                                $pathInfo = pathinfo($file);
-                                $moduleCommands[] = namespace_module("App\\Commands\\{$pathInfo['filename']}", Str::studly($module));
-                            }
-                            $this->commands($moduleCommands);
-                        }
-                    }
-
-                    // register service provider
-                    $moduleProviders = config($module . '.providers', []);
-                    foreach ($moduleProviders as $provider) {
-                        $this->app->register($provider);
-                    }
-
-                    //register livewire components
-                    $directory = (string)Str::of($modulePath . 'Components')
-                        ->replace(['\\'], '/');
-
-                    $namespace = namespace_module('App\\Components\\', Str::studly($module));
-                    $this->registerComponentDirectory($directory, $namespace, Str::lower($module) . '::');
                 }
+                $this->loadViewsFrom($modulePath . 'Views', $moduleName);
+                $this->loadViewsFrom($modulePath . 'Components', $moduleName);//'components');
+                $this->loadMigrationsFrom($modulePath . 'Database/Migrations');
+                $this->loadTranslationsFrom($modulePath . 'Lang', $moduleName);
+
+                $routePrefix = $lang_prefix . '/' . Str::lower($module);
+
+                if (File::exists($modulePath . 'Components/routes.php')) {
+                    Route::prefix($routePrefix)->middleware(config($module . '.route_middleware', ['web']))
+                        ->group($modulePath . 'Components/routes.php');
+                }
+
+                if ($this->app->runningInConsole()) {
+                    $moduleCommands = [];
+                    $commandDirPath = $modulePath . 'Commands';
+                    if (File::isDirectory($commandDirPath)) {
+                        foreach (File::files($modulePath . 'Commands') as $file) {
+                            $pathInfo = pathinfo($file);
+                            $moduleCommands[] = namespace_module("App\\Commands\\{$pathInfo['filename']}", Str::studly($module));
+                        }
+                        $this->commands($moduleCommands);
+                    }
+                }
+
+                // register service provider
+                $moduleProviders = config($module . '.providers', []);
+                foreach ($moduleProviders as $provider) {
+                    $this->app->register($provider);
+                }
+
+                //register livewire components
+                $directory = (string)Str::of($modulePath . 'Components')
+                    ->replace(['\\'], '/');
+
+                $namespace = namespace_module('App\\Components\\', Str::studly($module));
+                $this->registerComponentDirectory($directory, $namespace, Str::lower($module) . '::');
+
             }
         }
     }
