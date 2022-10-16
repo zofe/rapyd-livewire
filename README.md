@@ -16,10 +16,10 @@ administration interfaces in a concise, reusable, uncluttered, and testable mann
 It also bundles standard libraries like 
 Bootstrap, Vue, Alpine, Tom Select and Quill to be used as fast boilerplate for your laravel admin panels.
 
-The idea is to speed up and organize the development of large laravel applications using:
+The idea is to speed up and organize the development of large laravel applications:
 - modular approach
-- livewire component based (no controllers, no javascript interaction, only pure livewire classes and blade views)
-- blade component based (to standardize frontend in few "bootstrap based" spacialized tags)
+- livewire component based (no controllers, naturally reactive, only pure livewire classes and blade views, easily testable)
+- dozens of available anonymous blade components (to standardize frontend in few "bootstrap based" spacialized tags, which you can eventually extend)
 
 requirements: laravel ^8.65 | 9
 
