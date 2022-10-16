@@ -59,12 +59,8 @@ A DataTable is a "listing component" with these features:
 >
 
     <x-slot name="filters">
-        <div class="col">
-            <x-rpd::input debounce="350" model="search"  placeholder="search..." />
-        </div>
-        <div class="col">
-            <x-rpd::select lazy model="author_id" :options="$authors" placeholder="author..." addempty />
-        </div>
+        <x-rpd::input col="col-8" debounce="350" model="search"  placeholder="search..." />
+        <x-rpd::select col="col-4" lazy model="author_id" :options="$authors" placeholder="author..." addempty />
     </x-slot>
 
     <table class="table">
