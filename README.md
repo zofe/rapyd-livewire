@@ -283,10 +283,8 @@ don't forget to add "app" class to your main div if you plan to use vuejs compon
 
 ## To-do
 
-- component generators (with custom stub for each abstract widget)
-- breadcrumb integration or development
-- buttons panel (blade component) to standardize widgets layout
-- modular saperation or "plugin" architecture (to support a rapyd-admin boilerplate application)
+- component generators (with custom stub for DataTable,DataEdit,DataView)
+- "plugin" architecture (a way to download a module from a public or private repository.. or just a composer way to deploy in app/Modules)
 
 ## Credits
 
@@ -296,7 +294,7 @@ don't forget to add "app" class to your main div if you plan to use vuejs compon
 
 Inspirations:
 
-- [rapyd-laravel](https://github.com/zofe/rapyd-laravel) my old laravel library (140k downloads)
+- [rapyd-laravel](https://github.com/zofe/rapyd-laravel) my old laravel library (150k downloads)
 - [livewire](https://laravel-livewire.com/)  widely used "full-stack framework" to compose laravel application by widgets
 - [laravel-bootstrap-components](https://github.com/bastinald/laravel-bootstrap-components) smart library which reduced the complexity of this one
 
