@@ -13,7 +13,7 @@
 is a laravel library of **blade components**, **livewire traits**, and **modules** scaffolder  that you can use to generate 
 administration interfaces in a concise, reusable, uncluttered, and testable manner.
 
-It also bundles standard libraries like 
+It also bundles standard frontend libraries like 
 Bootstrap, Vue, Alpine, Tom Select and Quill to be used as fast boilerplate for your laravel admin panels.
 
 The idea is to speed up and organize the development of large laravel applications:
