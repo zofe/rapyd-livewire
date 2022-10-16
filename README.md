@@ -7,6 +7,10 @@
 [![rapyd.dev](screencast.gif)](https://rapyd.dev/demo)
 
 
+requirements: laravel ^8.65 | 9
+
+Demo: [rapyd.dev](https://rapyd.dev/demo)
+
 
 ## What is it?
 
@@ -21,9 +25,35 @@ The idea is to speed up and organize the development of large laravel applicatio
 - **livewire component** based (no needed controllers, each component is naturally reactive, you can get away with few pure livewire classes and blade views, easily testable and maintainable)
 - **blade component** based (dozens of available anonymous components to standardize frontend in few "bootstrap based" spacialized tags, which you can eventually extend)
 
-requirements: laravel ^8.65 | 9
+## Modules
 
-Demo: [rapyd.dev](https://rapyd.dev/demo)  
+example of out of the box module structure you can use after installing rapyd.
+
+- You can create "Modules" folder in you app/ directory of your laravel application.  
+- Then you can create your Module Folders i.e.: `Blog`
+- Livewire components will be searched in the `Components` subfolder
+- You can refer to the views in your module using intuitive shortcut i.e.: `blog::Articles.views.articles_edit`
+- Inside your Module folder you can reply (if needed) the laravel application folder structure (controllers, migrations, jobs, etc..)
+
+```
+laravel/
+├─ app/
+│  ├─ Modules/
+│  │  ├─ Blog/
+│  │  │  ├─ Components/
+│  │  │  │  ├─ Articles/
+│  │  │  │  │  ├─ views/
+│  │  │  │  │  │  ├─ articles_edit.blade.php
+│  │  │  │  │  │  ├─ articles_table.blade.php
+│  │  │  │  │  │  ├─ articles_view.blade.php
+│  │  │  │  │  ├─ ArticlesEdit.php
+│  │  │  │  │  ├─ ArticlesTable.php
+│  │  │  │  │  ├─ ArticlesView.php
+│  │  │  │  ├─ routes.php
+```
+
+
+
 
 
 ## Installation
