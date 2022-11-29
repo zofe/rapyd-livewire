@@ -52,6 +52,10 @@ laravel/
 │  │  │  │  ├─ routes.php
 ```
 
+Rapyd has also some public modules available via "composer require":
+
+[zofe/demo-module](https://github.com/zofe/demo-module) rapyd demo
+
 
 
 
