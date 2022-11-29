@@ -30,7 +30,7 @@ The idea is to speed up and organize the development of large laravel applicatio
 example of out of the box module structure you can use after installing rapyd.
 
 - You can create "Modules" folder in you app/ directory of your laravel application.  
-- Then you can create your Module Folders i.e.: `Blog`
+- Then you can create your Module Folder i.e.: `Blog`
 - Livewire components will be searched in the `Components` subfolder
 - You can refer to the views in your module using intuitive shortcut i.e.: `blog::Articles.views.articles_edit`
 - Inside your Module folder you can reply (if needed) the laravel application folder structure (controllers, migrations, jobs, etc..)
@@ -54,8 +54,12 @@ laravel/
 
 Rapyd has also some public modules available via "composer require":
 
-[zofe/demo-module](https://github.com/zofe/demo-module) rapyd demo
 
+* [zofe/demo-module](https://github.com/zofe/demo-module) rapyd demo
+
+
+Rapyd has a "module installer": [zofe/rapyd-module-installer](https://github.com/zofe/rapyd-module-installer)   
+this means that you can plan to create & distribute modules as packages by following a simple naming convention.
 
 
 
