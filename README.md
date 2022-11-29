@@ -78,6 +78,13 @@ You can publish static assets using:
 php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="public"
 ```
 
+if you want you can download the demo module in your laravel-rapyd application:
+
+```bash
+composer require zofe/rapyd-module-installer zofe/demo-module
+```
+then the route **/demo** will be like this https://rapyd.dev/demo 
+
 
 ## Usage
 
