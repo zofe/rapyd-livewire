@@ -27,7 +27,7 @@ class RapydServiceProvider extends ServiceProvider
             ], 'views');
 
             $this->publishes([
-                __DIR__.'/../public' => public_path('vendor/rapyd_livewire'),
+                __DIR__.'/../public' => public_path('vendor/rapyd-livewire'),
             ], 'public');
 
             $this->commands([
