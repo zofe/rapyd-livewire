@@ -2,6 +2,7 @@
 
 namespace Zofe\Rapyd;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -17,6 +18,7 @@ class RapydServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        Paginator::useBootstrap();
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/rapyd-livewire.php' => config_path('rapyd-livewire.php'),
