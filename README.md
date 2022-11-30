@@ -55,7 +55,8 @@ laravel/
 Rapyd has also some public modules available via "composer require":
 
 
-* [zofe/demo-module](https://github.com/zofe/demo-module) rapyd demo
+* [zofe/demo-module](https://github.com/zofe/demo-module) demo
+* [zofe/knowledgebase-module](https://github.com/zofe/knowledgebase-module) knowledgebase 
 
 
 Rapyd has a "module installer": [zofe/rapyd-module-installer](https://github.com/zofe/rapyd-module-installer)   
