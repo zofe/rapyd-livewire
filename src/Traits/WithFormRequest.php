@@ -2,6 +2,7 @@
 
 namespace Zofe\Rapyd\Traits;
 use Livewire\Livewire;
+use Zofe\Rapyd\Http\Livewire\FormRequest;
 
 trait WithFormRequest
 {
@@ -14,4 +15,14 @@ trait WithFormRequest
 
         return parent::validateResolved();
     }
+
+    public function validate($rules = null, $messages = [], $attributes = [])
+    {
+        if (is_a($rules, FormRequest::class)) {
+            return parent::validate($rules->rules(), $rules->messages(), $rules->attributes());
+        }
+
+        return parent::validate($rules, $messages, $attributes);
+    }
+
 }
