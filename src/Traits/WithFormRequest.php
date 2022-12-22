@@ -1,11 +1,12 @@
 <?php
 
 namespace Zofe\Rapyd\Traits;
+
 use Livewire\Livewire;
 
 trait WithFormRequest
 {
-    function validateResolved()
+    public function validateResolved()
     {
         // Avoid validation on resolution if it's a Livewire request
         if (Livewire::isDefinitelyLivewireRequest()) {
