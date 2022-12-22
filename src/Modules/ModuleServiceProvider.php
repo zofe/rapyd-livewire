@@ -117,7 +117,6 @@ class ModuleServiceProvider extends ServiceProvider
 //            })->toArray())){
 //                $this->loadViewsFrom(resource_path('views'), 'layout');
 //            }
-
         }
     }
 
