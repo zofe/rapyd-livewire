@@ -25,5 +25,4 @@ trait WithFormRequest
 
         return parent::validate($rules, $messages, $attributes);
     }
-
 }
