@@ -11,8 +11,8 @@ class RapydApp extends BaseComponent
         session()->put('sidebar-show', ! session()->get('sidebar-show'));
     }
 
-    public function render()
-    {
-        return view('rpd::app');
-    }
+//    public function render()
+//    {
+//        return view('rpd::app');
+//    }
 }
