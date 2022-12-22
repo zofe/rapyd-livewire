@@ -110,6 +110,14 @@ class ModuleServiceProvider extends ServiceProvider
                 $namespace = namespace_module('App\\Components\\', Str::studly($module));
                 $this->registerComponentDirectory($directory, $namespace, Str::lower($module) . '::');
             }
+
+//            //todo se non c'è modulo Layout mettere per default layout:: puntato a rapyd:: ?
+//            if(!in_array('Layout',collect($dirs)->map(function ($dir){
+//                return basename($dir);
+//            })->toArray())){
+//                $this->loadViewsFrom(resource_path('views'), 'layout');
+//            }
+
         }
     }
 
