@@ -31,6 +31,9 @@ const fields = {
      administrative_area_level_1: "region_id",
      country: "country_id",
 };
+const fieldsCodes = {
+    country: "country_code_id",
+};
 
 //binding del tipo di valore voluta da places
 const componentForm = {
@@ -41,6 +44,9 @@ const componentForm = {
     administrative_area_level_2: "short_name",
     country: "long_name",
     postal_code: "short_name",
+};
+const componentFormCodes = {
+    country: "short_name",
 };
 
 const editableFields = [
@@ -62,7 +68,7 @@ export default {
         'province_id',
         'region_id',
         'country_id',
-
+        'country_code_id',
         'address_lat',
         'address_lon',
     ],
@@ -143,7 +149,15 @@ export default {
                     if(field){
                         Livewire.find(this.wire).set(this.$props[fieldId],fieldValue);
                     }
-
+                }
+                if (componentFormCodes[addressType]) {
+                    let fieldName = componentFormCodes[addressType];
+                    let fieldValue = component[fieldName];
+                    let fieldId = fieldsCodes[addressType];
+                    let field = document.getElementById(this.$props[fieldId]);
+                    if(field){
+                        Livewire.find(this.wire).set(this.$props[fieldId],fieldValue);
+                    }
                 }
             }
             console.log(place);
