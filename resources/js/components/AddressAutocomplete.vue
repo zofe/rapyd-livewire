@@ -27,8 +27,9 @@ const fields = {
      street_number: "streetnumber_id",
      postal_code: "zipcode_id",
      locality: "city_id",
-     administrative_area_level_2: "province_id",
      administrative_area_level_1: "region_id",
+     administrative_area_level_2: "province_id",
+     administrative_area_level_3: "province_id",
      country: "country_id",
 };
 const fieldsCodes = {
@@ -42,6 +43,7 @@ const componentForm = {
     locality: "long_name",
     administrative_area_level_1: "short_name",
     administrative_area_level_2: "short_name",
+    administrative_area_level_3: "short_name",
     country: "long_name",
     postal_code: "short_name",
 };
