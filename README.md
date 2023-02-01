@@ -1,8 +1,8 @@
 # rapyd-livewire
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/zofe/rapyd-livewire.svg?style=flat-square)](https://packagist.org/packages/zofe/rapyd-livewire)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/zofe/rapyd-livewire/Tests?label=Tests)](https://github.com/zofe/rapyd-livewire/actions?query=workflow%3ATests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/zofe/rapyd-livewire.svg?style=flat-square)](https://packagist.org/packages/zofe/rapyd-livewire)
+<a href="https://github.com/zofe/rapyd-livewire/actions/workflows/run-tests.yml"><img src="https://github.com/zofe/rapyd-livewire/actions/workflows/run-tests.yml/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/zofe/rapyd-livewire"><img src="https://img.shields.io/packagist/dt/zofe/rapyd-livewire" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/zofe/rapyd-livewire"><img src="https://img.shields.io/packagist/v/zofe/rapyd-livewire" alt="Latest Stable Version"></a>
 
 [![rapyd.dev](screencast.gif)](https://rapyd.dev/demo)
 
