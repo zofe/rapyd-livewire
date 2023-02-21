@@ -73,8 +73,8 @@ class ModuleServiceProvider extends ServiceProvider
                 if (File::exists($moduleConfigPath)) {
                     $this->mergeConfigFrom($moduleConfigPath, $moduleName);
                     //overrire default layout
-                    if(config($moduleName.'.layout')) {
-                       config(['livewire.layout'=>config($moduleName.'.layout')]);
+                    if (config($moduleName.'.layout')) {
+                        config(['livewire.layout' => config($moduleName.'.layout')]);
                     }
                 }
                 $this->loadViewsFrom($modulePath . 'Views', $moduleName);
