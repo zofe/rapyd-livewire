@@ -85,6 +85,14 @@ class RapydServiceProvider extends ServiceProvider
             return $styles;
         });
 
+        Blade::directive('ifcomponent', function ($expression) {
+            return "<?php if((bool) array_key_exists($expression, app(\Livewire\LivewireComponentsFinder::class)->getManifest())): ?>\n";
+        });
+
+        Blade::directive('endifcomponent', function ($expression) {
+            return "<?php endif; ?>\n";
+        });
+
         Livewire::component('rpd-app', RapydApp::class);
     }
 
