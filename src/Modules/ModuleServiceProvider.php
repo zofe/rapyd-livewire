@@ -84,10 +84,10 @@ class ModuleServiceProvider extends ServiceProvider
 
                 $routePrefix = $lang_prefix . '/' . Str::lower($module);
 
-                if (File::exists($modulePath . 'Components/routes.php')) {
-                    Route::prefix($routePrefix)->middleware(config($module . '.route_middleware', ['web']))
-                        ->group($modulePath . 'Components/routes.php');
-                }
+//                if (File::exists($modulePath . 'Components/routes.php')) {
+//                    Route::prefix($routePrefix)->middleware(config($module . '.route_middleware', ['web']))
+//                        ->group($modulePath . 'Components/routes.php');
+//                }
 
                 if ($this->app->runningInConsole()) {
                     $moduleCommands = [];
