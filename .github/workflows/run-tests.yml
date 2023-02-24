@@ -14,18 +14,14 @@ jobs:
         stability: [prefer-lowest, prefer-stable]
         include:
           - laravel: 8.*
+            php: [7.4]
             testbench: 6.8.*
           - laravel: 9.*
+            php: [8.0, 8.1]
             testbench: 7.*
           - laravel: 10.*
+            php: [8.1]
             testbench: 8.*
-        exclude:
-          - laravel: 8.*
-            php: 8.1
-          - laravel: 9.*
-            php: 7.4
-          - laravel: 10.*
-            php: [7.4, 8.0]
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
