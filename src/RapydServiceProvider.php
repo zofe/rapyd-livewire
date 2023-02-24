@@ -6,7 +6,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Touhidurabir\StubGenerator\StubGeneratorServiceProvider;
+//use Touhidurabir\StubGenerator\StubGeneratorServiceProvider;
 use Zofe\Rapyd\Breadcrumbs\BreadcrumbsServiceProvider;
 use Zofe\Rapyd\Commands\DataTableCommand;
 use Zofe\Rapyd\Commands\RapydCommand;
@@ -103,6 +103,6 @@ class RapydServiceProvider extends ServiceProvider
 
         $this->app->register(BreadcrumbsServiceProvider::class);
         $this->app->register(ModuleServiceProvider::class);
-        $this->app->register(StubGeneratorServiceProvider::class);
+        //$this->app->register(StubGeneratorServiceProvider::class);
     }
 }
