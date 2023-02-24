@@ -34,7 +34,7 @@ class RapydServiceProvider extends ServiceProvider
 
             $this->commands([
                 RapydCommand::class,
-                RapydMakeCommand::class,
+               // RapydMakeCommand::class,
                 DataTableCommand::class,
 
             ]);
