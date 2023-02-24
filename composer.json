@@ -16,9 +16,9 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/config": "^8.65|^9.0",
-        "illuminate/contracts": "^8.65|^9.0",
+        "php": "^7.4|^8.0|^8.1",
+        "illuminate/config": "^8.65|^9.0|^10.0",
+        "illuminate/contracts": "^8.65|^9.0|^10.0",
         "laravel/serializable-closure": "^1.1",
         "livewire/livewire": "^2.0",
         "touhidurabir/laravel-stub-generator": "^1.0"
