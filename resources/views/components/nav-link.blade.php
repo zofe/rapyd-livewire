@@ -7,6 +7,7 @@
     'click' => null,
     'params' => [],
     'active' => false,
+    'type'  => 'nav-link'
 ])
 
 @php
@@ -23,7 +24,7 @@
 
 
     $attributes = $attributes->class([
-        'nav-link',
+        $type,
         'active' => $active,
     ])->merge([
         'href' => $href,
