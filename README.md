@@ -79,9 +79,7 @@ You can publish static assets using:
 php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="public"
 ```
 
-if you want you can download the demo module in your laravel-rapyd application try the
-
-[zofe/demo-module](https://github.com/zofe/demo-module) demo-module
+if you want you can download the demo module in your laravel-rapyd application try the [zofe/demo-module](https://github.com/zofe/demo-module) 
 
 
 
