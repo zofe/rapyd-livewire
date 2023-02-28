@@ -102,10 +102,11 @@ class ModuleServiceProvider extends ServiceProvider
                 }
 
                 // register service provider
-                $moduleProviders = config($module . '.providers', []);
-                foreach ($moduleProviders as $provider) {
-                    $this->app->register($provider);
-                }
+//                $moduleProviders = config($module . '.providers', []);
+//                foreach ($moduleProviders as $provider) {
+//                    dd($provider);
+//                    $this->app->register($provider);
+//                }
 
                 //register livewire components
                 $directory = (string)Str::of($modulePath . 'Components')
