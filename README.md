@@ -334,6 +334,11 @@ don't forget to add "app" class to your main div if you plan to use vuejs compon
 ```
 
 
+## layout module
+
+If you want to isolate the layout as well and make it a module, reusable in multiple projects, be rapyd does that as well, and it has a default module that you can customize or take as an example:
+
+* [zofe/layout-module](https://github.com/zofe/layout-module) layout module
 
 
 
