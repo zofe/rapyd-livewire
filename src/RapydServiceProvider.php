@@ -2,7 +2,9 @@
 
 namespace Zofe\Rapyd;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -94,6 +96,29 @@ class RapydServiceProvider extends ServiceProvider
         });
 
         Livewire::component('rpd-app', RapydApp::class);
+
+
+        if(!Collection::hasMacro('paginate')) {
+            Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
+                $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
+
+                // $page = $page ?: Paginator::resolveCurrentPage($pageName);
+                $total = $total ?: $this->count();
+                $items = $total ? $this : $this->forPage($page, $perPage);
+
+                return new LengthAwarePaginator(
+                    $items,
+                    $total,
+                    $perPage,
+                    $page,
+                    [
+                        'path' => LengthAwarePaginator::resolveCurrentPath(),
+                        'pageName' => $pageName,
+                    ]
+                );
+            });
+        }
+
     }
 
     public function register()
