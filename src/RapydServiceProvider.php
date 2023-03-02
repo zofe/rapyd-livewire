@@ -2,6 +2,7 @@
 
 namespace Zofe\Rapyd;
 
+use Illuminate\Container\Container;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -99,23 +100,22 @@ class RapydServiceProvider extends ServiceProvider
 
 
         if (! Collection::hasMacro('paginate')) {
+
             Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
-                $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
 
-                // $page = $page ?: Paginator::resolveCurrentPage($pageName);
+                $currentPage = LengthAwarePaginator::resolveCurrentPage($pageName);
                 $total = $total ?: $this->count();
-                $items = $total ? $this : $this->forPage($page, $perPage);
+                $items = $this->forPage($currentPage, $perPage);
+                $options = [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                    'pageName' => $pageName,
+                ];
 
-                return new LengthAwarePaginator(
-                    $items,
-                    $total,
-                    $perPage,
-                    $page,
-                    [
-                        'path' => LengthAwarePaginator::resolveCurrentPath(),
-                        'pageName' => $pageName,
-                    ]
-                );
+                return Container::getInstance()->makeWith(LengthAwarePaginator::class,
+                    compact(
+                        'items', 'total', 'perPage', 'currentPage', 'options'
+                    ))->withQueryString();
+
             });
         }
     }
