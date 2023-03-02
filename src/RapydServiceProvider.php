@@ -98,7 +98,7 @@ class RapydServiceProvider extends ServiceProvider
         Livewire::component('rpd-app', RapydApp::class);
 
 
-        if(!Collection::hasMacro('paginate')) {
+        if (! Collection::hasMacro('paginate')) {
             Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
                 $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
 
@@ -118,7 +118,6 @@ class RapydServiceProvider extends ServiceProvider
                 );
             });
         }
-
     }
 
     public function register()
