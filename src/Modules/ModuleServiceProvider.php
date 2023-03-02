@@ -101,6 +101,7 @@ class ModuleServiceProvider extends ServiceProvider
                     }
                 }
 
+
                 // register service provider
 //                $moduleProviders = config($module . '.providers', []);
 //                foreach ($moduleProviders as $provider) {
