@@ -100,9 +100,7 @@ class RapydServiceProvider extends ServiceProvider
 
 
         if (! Collection::hasMacro('paginate')) {
-
             Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
-
                 $currentPage = LengthAwarePaginator::resolveCurrentPage($pageName);
                 $total = $total ?: $this->count();
                 $items = $this->forPage($currentPage, $perPage);
@@ -111,11 +109,16 @@ class RapydServiceProvider extends ServiceProvider
                     'pageName' => $pageName,
                 ];
 
-                return Container::getInstance()->makeWith(LengthAwarePaginator::class,
+                return Container::getInstance()->makeWith(
+                    LengthAwarePaginator::class,
                     compact(
-                        'items', 'total', 'perPage', 'currentPage', 'options'
-                    ))->withQueryString();
-
+                        'items',
+                        'total',
+                        'perPage',
+                        'currentPage',
+                        'options'
+                    )
+                )->withQueryString();
             });
         }
     }
