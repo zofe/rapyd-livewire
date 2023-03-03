@@ -216,7 +216,7 @@ class ModuleServiceProvider extends ServiceProvider
                     ];
                 }
             }
-            usort($menuArray[$area], function ($a, $b) {
+            usort($menuArray[$area], function ($a, $b) use($area) {
                 return $a["menu_{$area}_position"] <=> $b["menu_{$area}_position"];
             });
 
