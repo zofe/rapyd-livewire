@@ -30,6 +30,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         $this->enableComponents();
         $this->enableModules();
+        $this->configMenus();
     }
 
 
@@ -54,6 +55,7 @@ class ModuleServiceProvider extends ServiceProvider
     private function enableModules(): void
     {
         $moduleBasePath = $modulePath = app_path(). '/Modules/';
+        config(['rapyd-livewire.modules'=>[]]);
 
         if (File::exists($moduleBasePath)) {
             $dirs = File::directories($moduleBasePath);
@@ -64,7 +66,9 @@ class ModuleServiceProvider extends ServiceProvider
 
                 $moduleName = Str::snake($module);
                 $moduleConfigPath = $modulePath . 'config.php';
+                $modules[] = $module;
 
+                config(['rapyd-livewire.modules'=>$modules]);
                 $lang_prefix = $this->detectLocaleByPrefix();
                 if (File::exists($modulePath.'routes.php')) {
                     Route::prefix($lang_prefix)->middleware(['web'])->group($modulePath.'routes.php');
@@ -195,5 +199,29 @@ class ModuleServiceProvider extends ServiceProvider
         }
 
         return $lang_prefix;
+    }
+
+    public function configMenus()
+    {
+        $menuArray = ['admin'=> [], 'frontend'=>[]];
+        foreach (['admin','frontend'] as $area)
+        {
+            foreach (config('rapyd-livewire.modules') as $module) {
+                $config = config($module);
+                if(isset($config["menu_{$area}"])) {
+                    $position = isset($config["menu_{$area}_position"]) ? $config["menu_{$area}_position"] : 0;
+                    $menuArray[$area][] = [
+                        "menu_{$area}" => $config["menu_{$area}"],
+                        "menu_{$area}_position" => $position
+                    ];
+                }
+            }
+            usort($menuArray[$area], function ($a, $b) {
+                return $a["menu_{$area}_position"] <=> $b["menu_{$area}_position"];
+            });
+
+            $menuArray[$area] = array_column( $menuArray[$area], "menu_{$area}");
+        }
+        config(['rapyd-livewire.menus'=>$menuArray]);
     }
 }

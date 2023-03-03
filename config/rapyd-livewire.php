@@ -10,8 +10,5 @@ return [
         "bootstrap",
         "alpine",
     ],
-    "modules"  => [
-        'comments'=>true
-    ]
 
 ];
