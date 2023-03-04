@@ -57,11 +57,48 @@ Rapyd has also some public modules available via "composer require":
 
 * [zofe/demo-module](https://github.com/zofe/demo-module) demo
 * [zofe/knowledgebase-module](https://github.com/zofe/knowledgebase-module) knowledgebase 
+* [zofe/knowledgebase-module](https://github.com/zofe/auth-module) auth
 
+* [zofe/layout-module](https://github.com/zofe/layout-module) layout
 
 Rapyd has a "module installer": [zofe/rapyd-module-installer](https://github.com/zofe/rapyd-module-installer)   
-this means that you can plan to create & distribute modules as packages by following a simple naming convention.
+this means that you can plan to create & distribute your modules as packages including it as dependency and following a simple naming convention, for example with a composer.json file like this:
 
+```
+{
+    "name": "yourname/mymodule-module",
+    "description": "my custom module for laravel application",
+    "license": "mit",
+    "type": "rapyd-module",
+    "authors": [
+        {
+            "name": "Me",
+            "email": "me@email.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0|^8.1|^8.2",
+        "illuminate/config": "^8.65|^9.0|^10.0",
+        "illuminate/contracts": "^8.65|^9.0|^10.0",
+        "livewire/livewire": "^2.0",
+        "zofe/rapyd-livewire": "dev-main|^0.8",
+        "zofe/rapyd-module-installer": "^0.0|^0.1",
+        "zofe/layout-module": "dev-main|^0.0|^0.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "zofe/rapyd-module-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+```
+
+then you can include your own modules using composer require "yourname/mymodule-module" and this will install your dependency in 
+`app/Modules/Mymodule`
+
+Please check for example [zofe/knowledgebase-module](https://github.com/zofe/knowledgebase-module) knowledgebase module to get an idea of how to structure it.
 
 
 
