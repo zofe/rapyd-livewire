@@ -32,12 +32,16 @@ trait SSearch
             }
         }
 
-        return static::ssearchFallback($search);
+        return static::ssearchFallback($search, $limit);
     }
 
     //da overridare per prevedere una query usando like
-    public static function ssearchFallback($search)
+    public static function ssearchFallback($search, $limit=null)
     {
-        return static::query();
+        $items = static::query()->where('name','like','%'.$search.'%');
+        if($limit) {
+            $items = $items->limit($limit);
+        }
+        return $items;
     }
 }
