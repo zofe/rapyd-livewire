@@ -78,7 +78,7 @@ class RapydServiceProvider extends ServiceProvider
         });
         Blade::directive('rapydLivewireStyles', function ($expression) {
             $styles = '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/rapyd.css\') }}">'."\n";
-            if (in_array('bootstrap', config('rapyd-livewire.include_styles.bootstrap'))) {
+            if (in_array('bootstrap', config('rapyd-livewire.include_styles'))) {
                 $styles .= '<link rel="stylesheet" href="{{ asset(\'vendor/rapyd-livewire/bootstrap.css\') }}">' . "\n";
             }
             $styles .= '{!! \Livewire\Livewire::styles('.$expression.') !!}';
