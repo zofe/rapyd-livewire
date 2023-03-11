@@ -57,7 +57,7 @@ Rapyd has also some public modules available via "composer require":
 
 * [zofe/demo-module](https://github.com/zofe/demo-module) demo
 * [zofe/knowledgebase-module](https://github.com/zofe/knowledgebase-module) knowledgebase 
-* [zofe/knowledgebase-module](https://github.com/zofe/auth-module) auth
+* [zofe/auth-module](https://github.com/zofe/auth-module) auth
 
 * [zofe/layout-module](https://github.com/zofe/layout-module) layout
 
