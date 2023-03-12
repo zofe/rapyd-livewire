@@ -264,10 +264,21 @@ or
 ```
 
 ```html
+<!-- date, datetime and date-range components -->
 <x-rpd::date-time model="date_time" format="dd/MM/yyyy HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss" label="DateTime" />
 
 <x-rpd::date model="date" format="dd/MM/yyyy" value-format="yyyy-MM-dd" label="Date" />
 
+<x-rpd::date-range
+    model_from="date_from"
+    model_to="date_to"
+    range-separator="-"
+    start-placeholder="from"
+    end-placeholder="to"
+    type="daterange"
+    format="dd/MM/yyyy"
+    value-format="yyyy-MM-dd"
+/>
 ```
 
 ```html
