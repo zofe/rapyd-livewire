@@ -2,6 +2,8 @@
 'label' => null,
 'help' => null,
 'model' => null,
+'format' => "dd/MM/yyyy",
+'value-format' => "yyyy-MM-dd",
 ])
 
 @php
@@ -10,10 +12,10 @@
     $id = $attributes->get('id', $model ?? $wireModel);
     $prefix = null;
     $attributes = $attributes->class([
-        'format' => "dd/MM/yyyy",
-        'value-format' => "yyyy-MM-dd",
     ])->merge([
-        'id' => $id,
+        //'id' => $id,
+        'format' => $format,
+        'value-format' =>  ${'value-format'},
         'model' => $model ? $prefix . $model : null,
     ]);
 @endphp
