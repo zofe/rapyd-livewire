@@ -2,11 +2,10 @@
 
 namespace Zofe\Rapyd\Traits;
 
-trait ShortId {
-
+trait ShortId
+{
     public function getShortIdAttribute()
     {
-        return strtoupper(substr($this->id,0,8));
+        return strtoupper(substr($this->id, 0, 8));
     }
-
 }
