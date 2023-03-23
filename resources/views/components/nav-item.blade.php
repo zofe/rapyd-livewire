@@ -8,7 +8,36 @@
 'params' => [],
 'active' => false,
 ])
-<li class="nav-item">
+@php
+
+     if (strpos($active,'|')) {
+         $actives = explode('|', $active);
+     } else {
+         $actives[] = $active;
+     }
+
+     foreach ($actives as $active) {
+
+         if(is_string($active) && strlen($active)>2 && !in_array(strtolower($active),['true','false']) ) {
+             $active = url_contains($active);
+         }
+         if ($route) {
+             $href = route($route, $params);
+             $active = $active ?: request()->routeIs($route);
+         } else if ($url){
+             $href = url($url);
+             $active = $active  ?: $href == url()->current();
+         }
+
+         if ($active) {
+             break;
+         }
+
+     }
+
+@endphp
+
+<li class="nav-item {{ $active ? 'active' : '' }}">
 
     <x-rpd::nav-link
         :icon="$icon"
@@ -18,6 +47,5 @@
         :href="$href"
         :click="$click"
         :params="$params"
-        :active="$active"
         :attributes="$attributes"/>
 </li>
