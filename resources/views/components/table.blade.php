@@ -22,7 +22,7 @@
         </div>
     </form>
     @endif
-    <div class="table-small row mb-1">
+    <div class="table row mb-1">
         <div class="table-responsive">
             {{ $slot }}
         </div>

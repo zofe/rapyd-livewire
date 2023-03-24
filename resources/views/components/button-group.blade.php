@@ -1,6 +1,7 @@
 @props([
 'buttons' => null,
 'position' => 'end',
+'group' => 'btn-group',
 ])
 @php
 
@@ -14,7 +15,7 @@
     ]);
 @endphp
 <div {{ $attributes }}>
-    <div class="btn-group">
+    <div class="{{ $group }}">
         {{ $buttons }}
     </div>
 </div>
