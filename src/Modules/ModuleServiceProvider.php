@@ -56,6 +56,8 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $moduleBasePath = $modulePath = app_path(). '/Modules/';
         config(['rapyd-livewire.modules' => []]);
+        config(['auth.authorizations' => []]);
+        config(['auth.limits' => []]);
 
         if (File::exists($moduleBasePath)) {
             $dirs = File::directories($moduleBasePath);
@@ -119,6 +121,7 @@ class ModuleServiceProvider extends ServiceProvider
 
                 $namespace = namespace_module('App\\Components\\',  basename($modulePath));//Str::studly($module));
                 $this->registerComponentDirectory($directory, $namespace, Str::lower($module) . '::');
+                $this->registerModuleClassDirectory($modulePath);
             }
 
 //            //todo se non c'è modulo Layout mettere per default layout:: puntato a rapyd:: ?
@@ -180,6 +183,31 @@ class ModuleServiceProvider extends ServiceProvider
                         file_put_contents($livewire_manifest, "<?php\nreturn ".var_export($livewire_array, true).";");
                     }
                 });
+        }
+    }
+
+
+    public function registerModuleClassDirectory($modulePath)
+    {
+        $filesystem = new Filesystem();
+
+        $limitsDirPath = $modulePath . 'Authorizations';
+        if (File::isDirectory($limitsDirPath)) {
+            $checks = [];
+            $namespace =namespace_module('App\\Authorizations\\',  basename($modulePath));
+            foreach ($filesystem->files($limitsDirPath) as $file) {
+                $checks[] = $namespace.$file->getBasename('.' . $file->getExtension());
+            }
+            config(['auth.authorizations' => $checks]);
+        }
+        $limitsDirPath = $modulePath . 'Limits';
+        if (File::isDirectory($limitsDirPath)) {
+            $limits = [];
+            $namespace =namespace_module('App\\Limits\\',  basename($modulePath));
+            foreach ($filesystem->files($limitsDirPath) as $file) {
+                $limits[] = $namespace.$file->getBasename('.' . $file->getExtension());
+            }
+            config(['auth.limits' => $limits]);
         }
     }
 
