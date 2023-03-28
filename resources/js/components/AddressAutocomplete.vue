@@ -165,8 +165,8 @@ export default {
             console.log(place);
             //let field = document.getElementById(this.$props[fieldId]);
 
-            //Livewire.find(this.wire).set(this.$props['address_lat'],place.geometry.location.lat());
-            //Livewire.find(this.wire).set(this.$props['address_lon'],place.geometry.location.lng());
+            Livewire.find(this.wire).set(this.$props['address_lat'],place.geometry.location.lat());
+            Livewire.find(this.wire).set(this.$props['address_lon'],place.geometry.location.lng());
         },
 
     }
