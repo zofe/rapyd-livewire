@@ -20,7 +20,7 @@
     foreach ($actives as $active) {
 
         if(is_string($active) && strlen($active)>2 && !in_array(strtolower($active),['true','false']) ) {
-            $active = url_contains($active);
+            $active = url_contains($active, true);
         }
         if ($route) {
             $href = route($route, $params);
