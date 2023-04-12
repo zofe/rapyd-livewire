@@ -1,5 +1,6 @@
 @props([
 'icon' => null,
+'iconStyle'=>'solid',
 'label' => null,
 'color' => 'primary',
 'size' => null,
@@ -36,7 +37,7 @@
 @endphp
 
 <{{ $href ? 'a' : 'button' }} {{ $attributes }}>
-<x-rpd::icon :name="$icon"/>
+<x-rpd::icon :name="$icon" :style="$iconStyle"/>
 
 {{ $label ?? $slot }}
 </{{ $href ? 'a' : 'button' }}>

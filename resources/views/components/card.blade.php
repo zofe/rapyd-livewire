@@ -3,13 +3,13 @@
 'buttons' => null,
 'border' => null,
 'bg' => null,
+'mb' => '4',
 ])
 
 @php
     $attributes = $attributes->class([
         'card',
-        'pizza',
-        'mb-4',
+        'mb-'.$mb,
         'border border-' . $border => $border,
         'bg-' . $bg => $bg,
     ])->merge([
