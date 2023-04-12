@@ -4,26 +4,26 @@ namespace Zofe\Rapyd\Traits;
 
 trait WithSorting
 {
-//    public $sortBy = '';
-//    public $sortDirection = 'asc';
+    //    public $sortBy = '';
+    //    public $sortDirection = 'asc';
     public $sortField = 'id';
     public $sortAsc = false;
 
-//    public function sortBy($field)
-//    {
-//        $this->sortDirection = $this->sortBy === $field
-//            ? $this->reverseSort()
-//            : 'asc';
-//
-//        $this->sortBy = $field;
-//    }
-//
-//    public function reverseSort()
-//    {
-//        return $this->sortDirection === 'asc'
-//            ? 'desc'
-//            : 'asc';
-//    }
+    //    public function sortBy($field)
+    //    {
+    //        $this->sortDirection = $this->sortBy === $field
+    //            ? $this->reverseSort()
+    //            : 'asc';
+    //
+    //        $this->sortBy = $field;
+    //    }
+    //
+    //    public function reverseSort()
+    //    {
+    //        return $this->sortDirection === 'asc'
+    //            ? 'desc'
+    //            : 'asc';
+    //    }
 
 
 

@@ -32,9 +32,9 @@ class AssetsCommand extends Command
             '--force' => true,
         ]);
 
-//        $this->call('vendor:publish', [
-//            '--tag' => 'views',
-//            '--force' => true,
-//        ]);
+        //        $this->call('vendor:publish', [
+        //            '--tag' => 'views',
+        //            '--force' => true,
+        //        ]);
     }
 }
