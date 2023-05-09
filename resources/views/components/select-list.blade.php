@@ -35,7 +35,7 @@
 @endphp
 
 
-<div  class="{{$col}}" wire:ignore>
+<div class="{{$col}}" wire:ignore wire:key="ignore-{{$id}}">
     <x-rpd::label :for="$id" :label="$label"/>
 
     <div class="input-group">
@@ -73,3 +73,8 @@
 
     <x-rpd::help :label="$help"/>
 </div>
+@push('rapyd_scripts')
+    <script>
+        console.log('rerendered select-list');
+    </script>
+@endpush

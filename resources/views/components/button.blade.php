@@ -20,19 +20,25 @@
     if ($route) $href = route($route);
     else if ($url) $href = url($url);
     $message = $confirm ? __($confirm) : __('Are you sure?');
+    if($click) {
+        $click = strpos($click,'(') ? $click : $click.'()';
+    }
+
     $label = $label ? __($label) : null;
 
     $attributes = $attributes->class([
         'btn btn-' . $color,
         'btn-' . $size => $size,
     ])->merge([
+
         'type' => !$href ? $type : null,
         'href' => $href,
         'data-bs-dismiss' => $dismiss,
         'data-bs-target' => $target ? '#'.$target.'Modal':null,
         'data-bs-toggle' => $target ? 'modal' : $toggle,
-        'wire:click' => $click,
-        'onclick' => $confirm ? 'confirm(\'' . json_encode($message) . '\') || event.stopImmediatePropagation()' : null,
+        'wire:click' => $confirm ? null : $click,
+        'x-data' => $confirm && $click ? "{}" : null,
+        'x-on:click' => $confirm && $click ? "modbox.confirm({body: '".htmlspecialchars($message,ENT_QUOTES)."',okButton: {label: 'Confirm'}}).then(() => {  \$wire.$click; })" : null,
     ]);
 @endphp
 
