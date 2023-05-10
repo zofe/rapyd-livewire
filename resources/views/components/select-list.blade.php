@@ -47,6 +47,19 @@
              valueField: 'id'
             ,labelField: 'title'
             ,searchField: 'title'
+        @if($attributes->get('create'))
+            ,create: function(input,callback){
+                var url = '{{ $attributes->get('create') }}?q=' + encodeURIComponent(input);
+                    fetch(url)
+                    .then((response) => {
+                      return response.json();
+                    })
+                    .then((data) => {
+                      callback(data);
+                    });
+
+            }
+        @endif
 	    @if($attributes->get('endpoint'))
             ,load: function(query, callback) {
                 var url = '{{ $attributes->get('endpoint') }}?q=' + encodeURIComponent(query);
