@@ -70,13 +70,13 @@ class ModuleCommand extends Command
 
             $this->warn("Creating File Structure ...");
 
-//            // generate home controller
-//            $file_target = $moduleControllerPath. '/HomeController.php';
-//            $file_tpl = __DIR__. '/Templates/HomeController.tpl';
-//            $this->create($file_tpl, $file_target, [
-//                'module' => $module,
-//                'module_lower' => $moduleRaw
-//            ]);
+            //            // generate home controller
+            //            $file_target = $moduleControllerPath. '/HomeController.php';
+            //            $file_tpl = __DIR__. '/Templates/HomeController.tpl';
+            //            $this->create($file_tpl, $file_target, [
+            //                'module' => $module,
+            //                'module_lower' => $moduleRaw
+            //            ]);
 
             // generate routes file
             $file_tpl = __DIR__. '/Templates/routes.tpl';
