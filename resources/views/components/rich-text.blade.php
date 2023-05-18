@@ -13,16 +13,16 @@
 ])
 
 {{--todo move dependencies to rapyd css/js at build/publish time--}}
-{{--@once--}}
-{{--@push('rapyd_styles')--}}
-{{--    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">--}}
-{{--@endpush--}}
-{{--@endonce--}}
-{{--@once--}}
-{{--@push('rapyd_scripts')--}}
-{{--    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>--}}
-{{--@endpush--}}
-{{--@endonce--}}
+@once
+@push('rapyd_styles')
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+@endpush
+@endonce
+@once
+@push('rapyd_scripts')
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+@endpush
+@endonce
 
 @php
 

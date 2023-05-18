@@ -8,7 +8,7 @@
 ])
 @php
 @endphp
-<div class="rpd-view">
+<div class="rpd-view" {{$attributes->only('x-data')}}>
     <form autocomplete="off">
         <div class="d-flex mb-4">
             <x-rpd::heading :title="$title" />
