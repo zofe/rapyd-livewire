@@ -193,7 +193,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         $limitsDirPath = $modulePath . 'Authorizations';
         if (File::isDirectory($limitsDirPath)) {
-            $checks = [];
+            $checks = config('auth.authorizations', []);
             $namespace = namespace_module('App\\Authorizations\\',  basename($modulePath));
             foreach ($filesystem->files($limitsDirPath) as $file) {
                 $checks[] = $namespace.$file->getBasename('.' . $file->getExtension());
@@ -202,7 +202,7 @@ class ModuleServiceProvider extends ServiceProvider
         }
         $limitsDirPath = $modulePath . 'Limits';
         if (File::isDirectory($limitsDirPath)) {
-            $limits = [];
+            $limits = config('auth.limits', []);
             $namespace = namespace_module('App\\Limits\\',  basename($modulePath));
             foreach ($filesystem->files($limitsDirPath) as $file) {
                 $limits[] = $namespace.$file->getBasename('.' . $file->getExtension());

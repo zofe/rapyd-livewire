@@ -22,11 +22,14 @@ window.TomSelect = TomSelect;
 
 //element
 import ElementUI from 'element-ui';
-//Vue.use(ElementUI);
+Vue.use(ElementUI);
 
-import { DatePicker } from 'element-ui';
+//import { DatePicker } from 'element-ui';
+//Vue.use(DatePicker);
 
-Vue.use(DatePicker);
+
+//import 'element-ui/lib/theme-chalk/index.css';
+
 
 window.bus = new Vue({data: {}});
 
